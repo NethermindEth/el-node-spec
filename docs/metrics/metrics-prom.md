@@ -22,6 +22,6 @@ The table below defines metrics which may be captured by Middleware services whi
 * `eigen_fees_earned_total{token="ETH"}`
 * `eigen_slashing_incurred_total{token="ETH"}`
 * `eigen_total_balance_total{token="ETH"}`
-* `eigen_rpc_request_duration_seconds{method="eth_blockNumber", client="nethermind", version="1.17.2"}`
-* `eigen_rpc_request_total{method="eth_blockNumber", client="nethermind", version="1.17.2"}` 
+* `eigen_rpc_request_duration_seconds{method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
+* `eigen_rpc_request_total{method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}` 
 * `eigen_version{commit="120f4c8db352845f93b0e86a46b5f807297e4ac3", runtime=".NET 7.0.3", version="1.17.2"}`
