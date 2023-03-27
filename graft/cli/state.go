@@ -1,8 +1,8 @@
 package cli
 
 import (
-	"tool/grafana"
-	"tool/state"
+	"graft/grafana"
+	"graft/state"
 
 	"github.com/spf13/cobra"
 )

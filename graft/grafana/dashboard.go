@@ -1,7 +1,7 @@
 package grafana
 
 import (
-	"tool/models"
+	"graft/models"
 
 	gapi "github.com/grafana/grafana-api-golang-client"
 )

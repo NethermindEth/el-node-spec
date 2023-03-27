@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	gapi "github.com/grafana/grafana-api-golang-client"
-	"tool/models"
+	"graft/models"
 )
 
 type DataSourceAPI interface {

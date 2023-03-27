@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 
-	"tool/grafana"
-	"tool/models"
+	"graft/grafana"
+	"graft/models"
 )
 
 type createDataSource struct {

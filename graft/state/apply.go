@@ -1,6 +1,6 @@
 package state
 
-import "tool/grafana"
+import "graft/grafana"
 
 func Apply(gClient grafana.Client, actions []StateAction) error {
 	for _, action := range actions {

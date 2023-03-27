@@ -3,7 +3,7 @@ package state
 import (
 	"errors"
 
-	"tool/grafana"
+	"graft/grafana"
 )
 
 type StateAction interface {

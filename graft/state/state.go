@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"tool/models"
-	"tool/util"
+	"graft/models"
+	"graft/util"
 
 	"gopkg.in/yaml.v3"
 )

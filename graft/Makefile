@@ -1,5 +1,5 @@
 build:
-	go build -o ./bin/tool main.go
+	go build -o ./bin/graft main.go
 
 format:
 	gofumpt -l -w .

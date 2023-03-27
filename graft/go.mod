@@ -1,4 +1,4 @@
-module tool
+module graft
 
 go 1.20
 

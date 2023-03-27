@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	"tool/cli"
-	"tool/grafana"
+	"graft/cli"
+	"graft/grafana"
 )
 
 var (

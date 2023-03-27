@@ -3,7 +3,7 @@ package grafana
 import (
 	"strings"
 
-	"tool/models"
+	"graft/models"
 )
 
 type FolderAPI interface {

@@ -1,6 +1,6 @@
 package cli
 
-import "tool/state"
+import "graft/state"
 
 var (
 	statePath    string

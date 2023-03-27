@@ -5,8 +5,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"tool/grafana"
-	"tool/models"
+	"graft/grafana"
+	"graft/models"
 
 	"github.com/spf13/cobra"
 )
