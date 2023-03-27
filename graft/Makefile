@@ -3,3 +3,6 @@ build:
 
 format:
 	gofumpt -l -w .
+
+check:
+	staticcheck ./...
