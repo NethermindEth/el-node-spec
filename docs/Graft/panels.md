@@ -5,16 +5,16 @@ sidebar_position: 3
 
 ## Init panel
 
-To initialize a panel using the `tool panel init` command, follow the steps below:
+To initialize a panel using the `graft panel init` command, follow the steps below:
 
 1. Run the following command:
     
     ```shell
-    tool panel init --uid <uid> --name <name>
+    graft panel init --uid <uid> --name <name>
     ```
     
 2. Enter the required information, such as the `uid` (unique identifier), and `name` using the `--uid` and `--name` flags respectively
-3. The tool will create the panel with the specified information in the Grafana server, and it will be editable by the user using the Grafana UI.
+3. Graft will create the panel with the specified information in the Grafana server, and it will be editable by the user using the Grafana UI.
 
 :::caution
 
@@ -24,15 +24,15 @@ Note that the `uid` value should follow the naming pattern `el-[middleware]-pane
 
 ## Backup panels
 
-To backup panels using the `tool panel backup` command, follow the steps below:
+To backup panels using the `graft panel backup` command, follow the steps below:
 
 1. Run the following command:
     
     ```shell
-    tool panel backup --folder <folder-uid>
+    graft panel backup --folder <folder-uid>
     ```
     
-2. The tool will create a backup of all panels in the Grafana server folder, and save the backup files in a new directory called `panels` in the current working directory. If `--folder` flag is not used, the first folder in the state file is used.
+2. Graft will create a backup of all panels in the Grafana server folder, and save the backup files in a new directory called `panels` in the current working directory. If `--folder` flag is not used, the first folder in the state file is used.
 
 :::note
 

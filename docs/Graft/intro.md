@@ -1,9 +1,9 @@
 ---
-title: "Intro"
+title: "Graft"
 sidebar_position: 1
 ---
 
-This tool aims to help developers to create Grafana dashboards using [Library Panels](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/manage-library-panels/). Library Panels helps maintain the modularity of dashboards, and end users can build their own dashboards using these panels. With this tool you could do these main actions:
+Graft aims to help developers to create Grafana dashboards using [Library Panels](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/manage-library-panels/). Library Panels helps maintain the modularity of dashboards, and end users can build their own dashboards using these panels. With `graft` you could do these main actions:
 
 - Initialize a development environment in Grafana (folders and datasources). See [Setting up the environment](./setting-up-environment) for more information.
 - Init panels and dashboards are editable by the user using the Grafana UI.

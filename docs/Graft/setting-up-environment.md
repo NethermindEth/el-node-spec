@@ -3,7 +3,7 @@ title: "Setting up the environment"
 sidebar_position: 2
 ---
 
-To help the developer to create the initial environment, the state file could be declared defining the initial folders and data sources. This file is the state.yml file in the current directory by default but could be specified using the global flag `--state/-s`. E.g.:
+To help the developer to create the initial environment, the state file could be declared defining the initial folders and data sources. This file is the `state.yml` file in the current directory by default but could be specified using the global flag `--state/-s`. E.g.:
 
 ```yaml
 folders:
@@ -25,10 +25,10 @@ The `uid` property is a unique `string` identifier inside the Grafana database. 
 
 ### State diff
 
-To view the state diff using the `tool state diff` command, run the following command:
+To view the state diff using the `graft state diff` command, run the following command:
 
 ```bash
-tool state diff
+graft state diff
 ```
 
 This command will display the differences between the current state and the previous state, e.g:
@@ -48,7 +48,7 @@ This command will display the differences between the current state and the prev
 To apply the state declared in the YAML file, use the following command:
 
 ```
-tool state apply
+graft state apply
 ```
 
 This will apply the changes defined in the state file, creating the specified folders and data sources in the Grafana server.
