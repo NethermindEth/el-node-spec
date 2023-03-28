@@ -96,11 +96,14 @@ X-API-Version: 1.0.0
 The API version is included in the response body as follows:
 
 ```http
-GET /eigen/endpoint HTTP/1.1
+X /eigen/endpoint HTTP/1.1
 Host: example.com
 Accept: application/json
 Content-Type: application/json
+```
 
+Response:
+```json
 {
   "version": "1.0.0"
 }
