@@ -24,7 +24,6 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 {
   "version": "EigenDA-Middleware/v1.0.0"
 }
-
 ```
 
 #### GET /eigen/v1/middleware/health
@@ -33,7 +32,6 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 
 ```
 200 OK
-
 ```
 
 ### GET /eigen/v1/middleware/services
@@ -63,7 +61,6 @@ Some metrics and endpoints are very straightforward, but having a reference for 
     }
   ]
 }
-
 ```
 
 #### GET /eigen/v1/middleware/services/graph-node-da/health
@@ -72,7 +69,6 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 
 ```
 200 OK
-
 ```
 
 #### GET /eigen/v1/middleware/services/ipfs-da/health
@@ -81,7 +77,6 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 
 ```
 206 Partial Content
-
 ```
 
 #### GET /eigen/v1/middleware/services/postgres-da/health
@@ -90,7 +85,6 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 
 ```
 503 Service Unavailable
-
 ```
 
 ### Prometheus Metrics
@@ -119,7 +113,6 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 {
   "version": "<fill here>"
 }
-
 ```
 
 #### GET /eigen/v1/middleware/health
@@ -128,7 +121,6 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 
 ```
 200 OK
-
 ```
 
 ### GET /eigen/v1/middleware/services
@@ -146,7 +138,6 @@ Some metrics and endpoints are very straightforward, but having a reference for 
     } 
   ]
 }
-
 ```
 
 #### GET /eigen/v1/middleware/services/graph-node-da/health
@@ -155,7 +146,6 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 
 ```
 200 OK
-
 ```
 
 #### GET /eigen/v1/middleware/services/ipfs-da/health
@@ -164,7 +154,6 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 
 ```
 206 Partial Content
-
 ```
 
 #### GET /eigen/v1/middleware/services/postgres-da/health
@@ -173,7 +162,6 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 
 ```
 503 Service Unavailable
-
 ```
 
 ### Prometheus Metrics
