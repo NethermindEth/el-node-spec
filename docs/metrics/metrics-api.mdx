@@ -91,9 +91,9 @@ X-API-Version: 1.0.0
 - Limited caching: Caching mechanisms may not be able to differentiate between different versions of the API if they're not included in the path.
 - Header Stripping: Some HTTP clients may strip out unknown headers for security reasons
 
-### Version in the request body
+### Version in the response body
 
-The API version is included in the request body as follows:
+The API version is included in the response body as follows:
 
 ```http
 GET /eigen/endpoint HTTP/1.1
@@ -117,6 +117,7 @@ Content-Type: application/json
 - Ambiguity: Clients need to inspect the response to determine which version of the API is being used.
 - Complexity: Extracting the version from the response requires additional parsing logic.
 - Caching: Different versions of the API can't be cached separately.
+- Version Selection Limitation: Older versions can't be used as there is no way to select what version to use.
 
 ## Middleware
 
