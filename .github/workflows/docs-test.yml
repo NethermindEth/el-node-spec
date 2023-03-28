@@ -15,11 +15,11 @@ jobs:
         with:
           node-version: 18
           cache: yarn 
-          #cache-dependency-path: <docs directory in case it is not more in the root folder>
+          cache-dependency-path: docs
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
         working-directory: docs
       - name: Test build website
         run: yarn build
-        #working-directory: <docs directory in case it is not more in the root folder>
+        working-directory: docs
