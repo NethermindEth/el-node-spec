@@ -1,6 +1,7 @@
 package grafana
 
 import (
+	"fmt"
 	"strings"
 
 	"graft/models"
@@ -21,7 +22,7 @@ func (c *gClient) FolderByUID(uid string) (*models.Folder, error) {
 	apiFolder, err := apiClient.FolderByUID(uid)
 	if err != nil {
 		if strings.Contains(err.Error(), "404") && strings.Contains(err.Error(), "folder not found") {
-			return nil, ErrFolderNotFound
+			return nil, fmt.Errorf("%w: with uid '%s'", ErrFolderNotFound, uid)
 		}
 		return nil, err
 	}
