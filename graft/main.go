@@ -1,6 +1,8 @@
 package main
 
 import (
+	"errors"
+	"fmt"
 	"os"
 
 	"graft/cli"
@@ -41,6 +43,9 @@ func main() {
 	rootCmd.AddCommand(cli.PanelCommand(grafanaClient))
 	rootCmd.AddCommand(cli.StateCommand(grafanaClient))
 	if err := rootCmd.Execute(); err != nil {
-		panic(err)
+		if errors.Is(err, grafana.ErrFolderNotFound) {
+			fmt.Println("Use 'graft folder create' to create a folder")
+		}
+		os.Exit(1)
 	}
 }
