@@ -55,7 +55,9 @@ func (c *gClient) DeleteDataSource(dataSource models.DataSource) error {
 	}
 	apiDatasource, err := apiClient.DataSourceByUID(dataSource.UID)
 	if err != nil {
-		// TODO: add custom error
+		if strings.Contains(err.Error(), "404") && strings.Contains(err.Error(), "Data source not found") {
+			return ErrDataSourceNotFound
+		}
 		return err
 	}
 	return apiClient.DeleteDataSource(apiDatasource.ID)
