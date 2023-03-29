@@ -16,7 +16,7 @@ func (c *gClient) AddPanel(libraryPanel models.LibraryPanel) error {
 	if err != nil {
 		return err
 	}
-	folder, err := apiClient.FolderByUID(libraryPanel.FolderUID)
+	folder, err := c.FolderByUID(libraryPanel.FolderUID)
 	if err != nil {
 		return err
 	}
