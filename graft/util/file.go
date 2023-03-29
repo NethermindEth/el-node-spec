@@ -32,5 +32,4 @@ func closeFile(f io.Closer, err *error) {
 	if cErr := f.Close(); cErr != nil {
 		*err = cErr
 	}
-
 }
