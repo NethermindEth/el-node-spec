@@ -49,6 +49,7 @@ func (c *gClient) LibraryPanels() ([]models.LibraryPanel, error) {
 				return nil, err
 			}
 			folderUID = folder.UID
+			folderUIDCache[apiPanel.Folder] = folderUID
 		}
 		panels = append(panels, models.LibraryPanel{
 			Name:      apiPanel.Name,
