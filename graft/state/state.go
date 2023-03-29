@@ -32,6 +32,7 @@ func NewState(path string) (*State, error) {
 }
 
 func (s *State) Validate() error {
+	// TODO: Validate state
 	return nil
 }
 
