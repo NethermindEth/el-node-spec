@@ -36,6 +36,7 @@ func createDataSourceCommand(gClient grafana.Client) *cobra.Command {
 		},
 	}
 	cmd.Flags().StringVar(&dataSource.Name, "name", "", "Data source name (required)")
+	cmd.MarkFlagRequired("name")
 	cmd.Flags().StringVar(&dataSource.Type, "type", "prometheus", "Data source type")
 	cmd.Flags().StringVar(&dataSource.URL, "url", "http://prometheus:9090", "Data source URL")
 	cmd.Flags().StringVar(&dataSource.Access, "access", "proxy", "Data source access mode")
