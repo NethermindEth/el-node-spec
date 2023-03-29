@@ -22,7 +22,7 @@ func (c *gClient) AddPanel(libraryPanel models.LibraryPanel) error {
 	}
 	_, err = apiClient.NewLibraryPanel(gapi.LibraryPanel{
 		Folder: folder.ID,
-		Kind:   1,
+		Kind:   1, // Use 1 for library panels or 2 for library variables. https://grafana.com/docs/grafana/latest/developers/http_api/library_element/#get-all-library-elements
 		Model:  libraryPanel.Model,
 		Name:   libraryPanel.Name,
 		UID:    libraryPanel.UID,
