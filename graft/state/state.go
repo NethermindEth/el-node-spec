@@ -44,7 +44,7 @@ func (s *State) Save() error {
 	return os.WriteFile(s.path, stateYAML, 0o644)
 }
 
-func (s *State) GetFolder(uid string) (models.Folder, error) {
+func (s *State) Folder(uid string) (models.Folder, error) {
 	for _, f := range s.Folders {
 		if f.UID == uid {
 			return f, nil
@@ -54,7 +54,7 @@ func (s *State) GetFolder(uid string) (models.Folder, error) {
 }
 
 func (s *State) AddFolder(f models.Folder) error {
-	_, err := s.GetFolder(f.UID)
+	_, err := s.Folder(f.UID)
 	if err == nil {
 		return fmt.Errorf("%w: %s", ErrFolderAlreadyExists, f.UID)
 	}
