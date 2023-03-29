@@ -6,12 +6,16 @@ import (
 	"graft/grafana"
 )
 
+// StateAction is an action that can be applied to a Grafana instance to
+// bring it to a desired state.
 type StateAction interface {
 	Apply(grafana.Client) error
 	String() string
 	Long() string
 }
 
+// Diff return a list of actions that need to be applied to a Grafana instance
+// to bring it to the desired state.
 func Diff(gClient grafana.Client, state State) ([]StateAction, error) {
 	var actions []StateAction
 	// Folders
@@ -29,6 +33,8 @@ func Diff(gClient grafana.Client, state State) ([]StateAction, error) {
 	return actions, nil
 }
 
+// diffFolders returns a list of actions that need to be applied to a Grafana
+// instance to bring it to the desired folders state.
 func diffFolders(gClient grafana.Client, state State) ([]StateAction, error) {
 	var actions []StateAction
 	for _, newFolder := range state.Folders {
@@ -47,6 +53,8 @@ func diffFolders(gClient grafana.Client, state State) ([]StateAction, error) {
 	return actions, nil
 }
 
+// diffDataSources returns a list of actions that need to be applied to a Grafana
+// instance to bring it to the desired data sources state.
 func diffDataSources(gClient grafana.Client, state State) ([]StateAction, error) {
 	var actions []StateAction
 	for _, newDataSource := range state.DataSources {
