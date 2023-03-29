@@ -6,7 +6,7 @@ build: ## Build graft
 format: ## Format code with gofmt
 	gofumpt -l -w .
 
-check: ## Run staticchek linter
+check: ## Run staticcheck linter
 	staticcheck ./...
 
 help: ## Show this help

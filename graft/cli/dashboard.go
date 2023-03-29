@@ -11,14 +11,14 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func DashboardCommand(gCleint grafana.Client) *cobra.Command {
+func DashboardCommand(gClient grafana.Client) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "dashboard",
 		Short: "Manage dashboards",
 		Long:  "Manage dashboards in Grafana. You can create new dashboards, or backup existing ones.",
 	}
-	cmd.AddCommand(backupDashboardsCommand(gCleint))
-	cmd.AddCommand(initDashboardCommand(gCleint))
+	cmd.AddCommand(backupDashboardsCommand(gClient))
+	cmd.AddCommand(initDashboardCommand(gClient))
 	return cmd
 }
 
