@@ -1,0 +1,183 @@
+{
+	"title": "Common Metrics",
+	"model": {
+		"annotations": {
+			"list": [
+				{
+					"builtIn": 1,
+					"datasource": {
+						"type": "grafana",
+						"uid": "-- Grafana --"
+					},
+					"enable": true,
+					"hide": true,
+					"iconColor": "rgba(0, 211, 255, 1)",
+					"name": "Annotations \u0026 Alerts",
+					"target": {
+						"limit": 100,
+						"matchAny": false,
+						"tags": [],
+						"type": "dashboard"
+					},
+					"type": "dashboard"
+				}
+			]
+		},
+		"editable": true,
+		"fiscalYearStartMonth": 0,
+		"graphTooltip": 0,
+		"id": 4,
+		"links": [],
+		"liveNow": false,
+		"panels": [
+			{
+				"gridPos": {
+					"h": 6,
+					"w": 3,
+					"x": 0,
+					"y": 0
+				},
+				"id": 2,
+				"libraryPanel": {
+					"name": "Performance",
+					"uid": "eigen_performance_score"
+				},
+				"title": "Performance"
+			},
+			{
+				"collapsed": false,
+				"gridPos": {
+					"h": 1,
+					"w": 24,
+					"x": 0,
+					"y": 6
+				},
+				"id": 4,
+				"panels": [],
+				"title": "Token stats",
+				"type": "row"
+			},
+			{
+				"gridPos": {
+					"h": 4,
+					"w": 24,
+					"x": 0,
+					"y": 7
+				},
+				"id": 6,
+				"libraryPanel": {
+					"name": "Balance Total",
+					"uid": "eigen_balance_total"
+				},
+				"title": "Balance Total"
+			},
+			{
+				"gridPos": {
+					"h": 8,
+					"w": 12,
+					"x": 0,
+					"y": 11
+				},
+				"id": 8,
+				"libraryPanel": {
+					"name": "Fees Earned",
+					"uid": "eigen_fees_earned_total"
+				},
+				"title": "Fees Earned"
+			},
+			{
+				"gridPos": {
+					"h": 8,
+					"w": 12,
+					"x": 12,
+					"y": 11
+				},
+				"id": 10,
+				"libraryPanel": {
+					"name": "Slashing Incurred",
+					"uid": "eigen_slashing_incurred_total"
+				},
+				"title": "Slashing Incurred"
+			},
+			{
+				"collapsed": false,
+				"gridPos": {
+					"h": 1,
+					"w": 24,
+					"x": 0,
+					"y": 19
+				},
+				"id": 12,
+				"panels": [],
+				"title": "RPC",
+				"type": "row"
+			},
+			{
+				"gridPos": {
+					"h": 9,
+					"w": 7,
+					"x": 0,
+					"y": 20
+				},
+				"id": 14,
+				"libraryPanel": {
+					"name": "Request Duration Distribution (24h)",
+					"uid": "eigen_rpc_request_duration_seconds"
+				},
+				"title": "Request Duration Distribution (24h)"
+			},
+			{
+				"gridPos": {
+					"h": 9,
+					"w": 17,
+					"x": 7,
+					"y": 20
+				},
+				"id": 16,
+				"libraryPanel": {
+					"name": "Request/s",
+					"uid": "eigen_rpc_request_rate"
+				},
+				"title": "Request/s"
+			}
+		],
+		"refresh": "",
+		"revision": 1,
+		"schemaVersion": 38,
+		"style": "dark",
+		"tags": [],
+		"templating": {
+			"list": [
+				{
+					"current": {
+						"selected": false,
+						"text": "Prometheus",
+						"value": "Prometheus"
+					},
+					"hide": 0,
+					"includeAll": false,
+					"label": "datasource",
+					"multi": false,
+					"name": "Datasource",
+					"options": [],
+					"query": "prometheus",
+					"refresh": 1,
+					"regex": "",
+					"skipUrlSync": false,
+					"type": "datasource"
+				}
+			]
+		},
+		"time": {
+			"from": "now-6h",
+			"to": "now"
+		},
+		"timepicker": {},
+		"timezone": "",
+		"title": "Common Metrics",
+		"uid": "AWh-4lf4z",
+		"version": 7,
+		"weekStart": ""
+	},
+	"folderUid": "eigen-folder"
+}
