@@ -16,6 +16,16 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 
 ### HTTP Monitoring API
 
+#### GET /eigen/middleware/spec-version
+
+#### Response
+
+```
+{
+    "api_version": "v1.0.0"
+}
+```
+
 #### GET /eigen/v1/middleware/version
 
 #### Response
@@ -34,7 +44,7 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 200 OK
 ```
 
-### GET /eigen/v1/middleware/services
+#### GET /eigen/v1/middleware/services
 
 ### Response
 
@@ -90,20 +100,33 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 ### Prometheus Metrics
 
 #### Economics metrics
-* `eigen_fees_earned_total{token="ETH"}`
-* `eigen_slashing_incurred_total{token="ETH"}`
-* `eigen_total_balance_total{token="ETH"}`
+* `eigen_fees_earned_total{middleware_name="EigenDA", token="ETH"}`
+* `eigen_slashing_incurred_total{middleware_name="EigenDA", token="ETH"}`
+* `eigen_total_balance_total{middleware_name="EigenDA", token="ETH"}`
 
 #### Metadata metrics
-* `eigen_version{commit="120f4c8db352845f93b0e86a46b5f807297e4ac3", runtime="Go 1.19.0", version="1.0.0"}`
+* `eigen_version{middleware_name="EigenDA", commit="120f4c8db352845f93b0e86a46b5f807297e4ac3", runtime="Go 1.19.0", version="1.0.0"}`
+
+#### Perfomance metrics
+* `eigen_performance_score{middleware_name="EigenDA"}`
 
 #### RPC metrics
-* `eigen_rpc_request_duration_seconds{method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
-* `eigen_rpc_request_total{method="eth_estimateGas", client="nethermind", version="1.17.2"}` 
+* `eigen_rpc_request_duration_seconds{middleware_name="EigenDA", method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
+* `eigen_rpc_request_total{middleware_name="EigenDA", method="eth_estimateGas", client="nethermind", version="1.17.2"}` 
 
 ## Roll-ups
 
 ### HTTP Monitoring API
+
+#### GET /eigen/middleware/spec-version
+
+#### Response
+
+```
+{
+    "api_version": "v1.0.0"
+}
+```
 
 #### GET /eigen/v1/middleware/version
 
@@ -167,13 +190,16 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 ### Prometheus Metrics
 
 #### Economics metrics
-* `eigen_fees_earned_total{token="ETH"}`
-* `eigen_slashing_incurred_total{token="ETH"}`
-* `eigen_total_balance_total{token="ETH"}`
+* `eigen_fees_earned_total{middleware_name="<fill here>", token="ETH"}`
+* `eigen_slashing_incurred_total{middleware_name="<fill here>", token="ETH"}`
+* `eigen_total_balance_total{middleware_name="<fill here>", token="ETH"}`
 
 #### Metadata metrics
-* `eigen_version{commit="120f4c8db352845f93b0e86a46b5f807297e4ac3", runtime="<fill here>", version="1.0.0"}`
+* `eigen_version{middleware_name="<fill here>", commit="120f4c8db352845f93b0e86a46b5f807297e4ac3", runtime="<fill here>", version="1.0.0"}`
+
+#### Perfomance metrics
+* `eigen_performance_score{middleware_name="<fill here>"}`
 
 #### RPC metrics
-* `eigen_rpc_request_duration_seconds{method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
-* `eigen_rpc_request_total{method="eth_estimateGas", client="nethermind", version="1.17.2"}`
+* `eigen_rpc_request_duration_seconds{middleware_name="<fill here>", method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
+* `eigen_rpc_request_total{middleware_name="<fill here>", method="eth_estimateGas", client="nethermind", version="1.17.2"}`
