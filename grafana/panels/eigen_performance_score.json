@@ -1,0 +1,79 @@
+{
+	"name": "Performance",
+	"model": {
+		"datasource": {
+			"type": "prometheus",
+			"uid": "${Datasource}"
+		},
+		"description": "The performance metric is a score between 0 and 100 and each middleware provider can define their own way of calculating the score. The score is calculated based on the performance of the middleware service and the performance of the backing services.",
+		"fieldConfig": {
+			"defaults": {
+				"color": {
+					"mode": "thresholds"
+				},
+				"mappings": [],
+				"max": 100,
+				"min": 0,
+				"thresholds": {
+					"mode": "absolute",
+					"steps": [
+						{
+							"color": "red",
+							"value": null
+						},
+						{
+							"color": "orange",
+							"value": 30
+						},
+						{
+							"color": "#EAB839",
+							"value": 50
+						},
+						{
+							"color": "green",
+							"value": 90
+						}
+					]
+				}
+			},
+			"overrides": []
+		},
+		"gridPos": {
+			"h": 8,
+			"w": 12,
+			"x": 0,
+			"y": 0
+		},
+		"id": 2,
+		"options": {
+			"orientation": "auto",
+			"reduceOptions": {
+				"calcs": [
+					"lastNotNull"
+				],
+				"fields": "",
+				"values": false
+			},
+			"showThresholdLabels": false,
+			"showThresholdMarkers": true
+		},
+		"pluginVersion": "9.4.3",
+		"targets": [
+			{
+				"datasource": {
+					"type": "prometheus",
+					"uid": "${Datasource}"
+				},
+				"editorMode": "code",
+				"expr": "eigen_performance_score",
+				"legendFormat": "__auto",
+				"range": true,
+				"refId": "A"
+			}
+		],
+		"title": "Performance",
+		"type": "gauge"
+	},
+	"folderUid": "eigen-folder",
+	"uid": "eigen_performance_score"
+}

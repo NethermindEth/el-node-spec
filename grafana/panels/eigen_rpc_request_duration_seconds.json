@@ -1,0 +1,68 @@
+{
+	"name": "Request Duration Distribution (24h)",
+	"model": {
+		"datasource": {
+			"type": "prometheus",
+			"uid": "${Datasource}"
+		},
+		"description": "Distribution of json-rpc calls duration in seconds",
+		"fieldConfig": {
+			"defaults": {
+				"color": {
+					"mode": "thresholds"
+				},
+				"mappings": [],
+				"thresholds": {
+					"mode": "absolute",
+					"steps": [
+						{
+							"color": "green",
+							"value": null
+						}
+					]
+				},
+				"unit": "none"
+			},
+			"overrides": []
+		},
+		"gridPos": {
+			"h": 8,
+			"w": 12,
+			"x": 0,
+			"y": 20
+		},
+		"id": 14,
+		"options": {
+			"displayMode": "gradient",
+			"minVizHeight": 10,
+			"minVizWidth": 0,
+			"orientation": "auto",
+			"reduceOptions": {
+				"calcs": [
+					"lastNotNull"
+				],
+				"fields": "",
+				"values": false
+			},
+			"showUnfilled": false
+		},
+		"pluginVersion": "9.4.3",
+		"targets": [
+			{
+				"datasource": {
+					"type": "prometheus",
+					"uid": "${Datasource}"
+				},
+				"editorMode": "code",
+				"expr": "sum(increase(eigen_rpc_request_duration_seconds_bucket[24h])) by(le)",
+				"legendFormat": "__auto",
+				"range": true,
+				"refId": "A"
+			}
+		],
+		"title": "Request Duration Distribution (24h)",
+		"type": "bargauge"
+	},
+	"folderUid": "eigen-folder",
+	"uid": "eigen_rpc_request_duration_seconds"
+}

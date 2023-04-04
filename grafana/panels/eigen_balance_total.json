@@ -1,0 +1,69 @@
+{
+	"name": "Balance Total",
+	"model": {
+		"datasource": {
+			"type": "prometheus",
+			"uid": "${Datasource}"
+		},
+		"description": "Middleware total balance in tokens",
+		"fieldConfig": {
+			"defaults": {
+				"color": {
+					"mode": "thresholds"
+				},
+				"mappings": [],
+				"thresholds": {
+					"mode": "absolute",
+					"steps": [
+						{
+							"color": "green",
+							"value": null
+						}
+					]
+				}
+			},
+			"overrides": []
+		},
+		"gridPos": {
+			"h": 4,
+			"w": 24,
+			"x": 0,
+			"y": 7
+		},
+		"id": 6,
+		"options": {
+			"colorMode": "value",
+			"graphMode": "area",
+			"justifyMode": "auto",
+			"orientation": "auto",
+			"reduceOptions": {
+				"calcs": [
+					"lastNotNull"
+				],
+				"fields": "",
+				"values": false
+			},
+			"text": {},
+			"textMode": "auto"
+		},
+		"pluginVersion": "9.4.3",
+		"targets": [
+			{
+				"datasource": {
+					"type": "prometheus",
+					"uid": "${Datasource}"
+				},
+				"editorMode": "code",
+				"expr": "eigen_balance_total",
+				"format": "heatmap",
+				"legendFormat": "{{token}}",
+				"range": true,
+				"refId": "A"
+			}
+		],
+		"title": "Balance Total",
+		"type": "stat"
+	},
+	"folderUid": "eigen-folder",
+	"uid": "eigen_balance_total"
+}
