@@ -5,7 +5,7 @@ id: middleware-developers
 
 # Key Security Considerations for Middleware Developers
 
-Keys frequently exist in encrypted form. If Middleware services or related tools require access to the key, for instance, a decryption method is needed to create a signature. Keys are typically encrypted using a password or passphrase. Multiple access layers to this passphrase exist, each with its own security considerations:
+When working with keys in Middleware services or related tools, it is essential to consider the security aspects associated with key access and decryption. Keys should be encrypted either using a password or passphrase, understanding the unique security concerns posed by different access layers is crucial. By proactively addressing these concerns, you can enhance the overall security and integrity of the keys within your system:
 
 - **Prompt for the passphrase and store it in memory**
     
