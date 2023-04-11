@@ -104,7 +104,7 @@ max_value: <int|float>
 ### `<monitoring>`
 
 ```yaml
-# Tag to be used for a Middleware setup wizard alongside the `name` from the manifest file and the profile name to create a unique label that allows metrics to differentiate from other middleware instances metrics
+# Tag to be used for a Middleware setup wizard alongside the `name` from the manifest file to create a unique label that allows metrics to differentiate from other middleware instances metrics
 tag: <string>
 
 # List of metric targets inside the docker-compose
