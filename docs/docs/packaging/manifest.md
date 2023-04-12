@@ -42,7 +42,7 @@ min_cpu_cores: <int>
 # Minimum free memory space needed to run this profile in MiB
 min_ram: <int>
 
-# Free disk space needed to run this profile in MiB
+# Minimum free disk space needed to run this profile in MiB
 min_free_space: <int>
 
 ```
