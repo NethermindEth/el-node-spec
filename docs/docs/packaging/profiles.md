@@ -28,12 +28,29 @@ version: <string>
 # Metadata about middleware
 metadata: <metadata>
 
+# Hardware Requirements
+hardware_requirements: <hardware_requirements>
+
 # List of options the user can set or use default values if defined in the <option>. Each option is an environment variable in the docker-compose file, middleware developers need to be careful about what options to expose here
 options:
 	[ - <option> ]
 
 # Monitoring options
 monitoring: <monitoring>
+```
+
+### `<hardware_requirements>`
+
+```yaml
+# Minimum number of CPU cores
+min_cpu_cores: <int>
+
+# Minimum free memory space needed to run this profile in MiB
+min_ram: <int>
+
+# Free disk space needed to run this profile in MiB
+min_free_space: <int>
+
 ```
 
 ### `<option>`
