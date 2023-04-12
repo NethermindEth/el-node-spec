@@ -25,9 +25,26 @@ name: <string>
 # Upgrade recommendation: optional, recommended, required
 upgrade: <string>
 
+# Hardware Requirements
+hardware_requirements: <hardware_requirements>
+
 # List of middleware package profiles
 profiles:
 [ - <profile> ]
+```
+
+### `<hardware_requirements>`
+
+```yaml
+# Minimum number of CPU cores
+min_cpu_cores: <int>
+
+# Minimum free memory space needed to run this profile in MiB
+min_ram: <int>
+
+# Free disk space needed to run this profile in MiB
+min_free_space: <int>
+
 ```
 
 ### `<profile>`
