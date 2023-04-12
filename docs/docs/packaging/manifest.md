@@ -45,6 +45,9 @@ min_ram: <int>
 # Minimum free disk space needed to run this profile in MiB
 min_free_space: <int>
 
+# Minimum free disk space needed to run this profile in MiB
+stop_if_requirements_are_not_met: <bool>
+
 ```
 
 ### `<profile>`
