@@ -4,7 +4,7 @@ id: el-host-metrics
 title: Host Metrics
 ---
 
-The **Host Metrics** dashboards show all the basic metrics of the host machine. This dashboard is very common in the Grafana community to monitor Linux hosts and helps monitor the host machine's CPU, memory, disk, network usage, and other OS metrics.
+The **Host Metrics** dashboard show all the basic metrics of the host machine. This dashboard is very common in the Grafana community to monitor Linux hosts and helps monitor the host machine's CPU, memory, disk, network usage, and other OS metrics.
 
 In Grafana, using the `uid` property could be very useful to generate a unique URL for each dashboard, and it is unique across all dashboards in the Grafana instance. The **Host Metrics** dashboard has the following `uid`: `el-host-metrics`, and the title is `Host Metrics`. You can find this dashboard inside the **Eigen Layer** folder in the Grafana instance.
 
