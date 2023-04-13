@@ -91,3 +91,44 @@ The `manifest.yml` file at the project's root is the entry point to define the p
 `docker-compose.yml` is a standard Docker Compose file declaring all the services, volumes, networks, etc. required for the middleware.
 
 `profile.yml` is the file that contains options to configure the profile.
+
+## Tap structure
+
+The Tap should contain a folder for each package in the default git branch. Each folder should be named after the git tag that represents the release of a new package. The following directory structure can be used as reference:
+
+```
+.
+├── v0.1.0/
+│   ├── mainnet/
+│   │   ├── alerts/
+│   │   ├── dashboards/
+│   │   ├── panels/
+│   │   ├── .env
+│   │   ├── docker-compose.yml
+│   │   └── profile.yml
+│   ├── goerli/
+│   │   ├── alerts/
+│   │   ├── dashboards/
+│   │   ├── panels/
+│   │   ├── .env
+│   │   ├── docker-compose.yml
+│   │   └── profile.yml
+│   └── manifest.yml
+├── v0.1.0/
+│   ├── mainnet/
+│   │   ├── alerts/
+│   │   ├── dashboards/
+│   │   ├── panels/
+│   │   ├── .env
+│   │   ├── docker-compose.yml
+│   │   └── profile.yml
+│   ├── sepolia/
+│   │   ├── alerts/
+│   │   ├── dashboards/
+│   │   ├── panels/
+│   │   ├── .env
+│   │   ├── docker-compose.yml
+│   │   └── profile.yml
+│   └── manifest.yml
+└── README.md
+```
