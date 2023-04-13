@@ -26,8 +26,8 @@ version: "v0.1.0"
 name: eigenDA
 upgrade: required
 profiles:
-	- name: "profile"
-		src: "./profile"
+  - name: "profile"
+    src: "./profile"
 ```
 
 ## `docker-compose.yml`
@@ -75,11 +75,11 @@ services:
 
 networks:
   eigenlayer:
-		name: ${NETWORK_NAME}
+    name: ${NETWORK_NAME}
 
 volumes:
   db-data:
-		name: ${VOLUME_NAME}
+    name: ${VOLUME_NAME}
 ```
 
 ## `.env`
