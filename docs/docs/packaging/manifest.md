@@ -45,7 +45,7 @@ min_ram: <int>
 # Minimum free disk space needed to run this profile in MiB
 min_free_space: <int>
 
-# Minimum free disk space needed to run this profile in MiB
+# true if setup should not proceed if any hardware requirement is not met
 stop_if_requirements_are_not_met: <bool>
 
 ```
@@ -62,11 +62,11 @@ src: <string>
 # Import settings from other profiles
 from_profile:
   # Import docker-compose.yml from <profile>
-	compose:    <string>
+  compose:    <string>
   # Import .env from <profile>
-	env:        <string>
+  env:        <string>
   # Import dashboards folder from <profile>
-	dashboards: <string>
+  dashboards: <string>
   # Import panels folder from <profile>
-	panels:     <string>
+  panels:     <string>
 ```
