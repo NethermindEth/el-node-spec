@@ -3,6 +3,9 @@ sidebar_position: 1
 id: packaging
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Packaging procedure
 
 Middleware Services in the EigenLayer Protocol under the proposed specification comprise of Docker containers running alongside backing services such as databases, indexers, and utility services. Middleware developers are responsible for defining these services and their options well to work correctly. The objective is to create a standard interface to manage the setup, configuration, and updates of these Middleware Services.
@@ -94,107 +97,101 @@ The `manifest.yml` file at the project's root is the entry point to define the p
 
 ## Tap structure
 
-The Tap should contain a folder for each package in the default git branch. Each folder should be named after the git tag that represents the release of a new package. Each package should contain a `pkg` folder with the contents described [here](#structure), and a `checksum.txt` file. The following directory structure can be used as reference:
+The Tap should contain a `README.md` and `checksum.txt` files, and a folder with the contents described [here](#structure) named after the git tag that represents the release of a new package. The following directory structure can be used as reference:
 
 ```
-.
-├── v0.1.0/
-│   ├── pkg/
-│   │   ├── mainnet/
-│   │   │   ├── alerts/
-│   │   │   ├── dashboards/
-│   │   │   ├── panels/
-│   │   │   ├── .env
-│   │   │   ├── docker-compose.yml
-│   │   │   └── profile.yml
-│   │   ├── goerli/
-│   │   │   ├── alerts/
-│   │   │   ├── dashboards/
-│   │   │   ├── panels/
-│   │   │   ├── .env
-│   │   │   ├── docker-compose.yml
-│   │   │   └── profile.yml
-│   │   └── manifest.yml
-│   └── checksum.txt
+./
 ├── v1.0.0/
-│   ├── pkg/
-│   │   ├── mainnet/
-│   │   │   ├── alerts/
-│   │   │   ├── dashboards/
-│   │   │   ├── panels/
-│   │   │   ├── .env
-│   │   │   ├── docker-compose.yml
-│   │   │   └── profile.yml
-│   │   ├── sepolia/
-│   │   │   ├── alerts/
-│   │   │   ├── dashboards/
-│   │   │   ├── panels/
-│   │   │   ├── .env
-│   │   │   ├── docker-compose.yml
-│   │   │   └── profile.yml
-│   │   └── manifest.yml
-│   └── checksum.txt
+│   ├── mainnet/
+│   │   ├── alerts/
+│   │   ├── dashboards/
+│   │   ├── panels/
+│   │   ├── .env
+│   │   ├── docker-compose.yml
+│   │   └── profile.yml
+│   ├── goerli/
+│   │   ├── alerts/
+│   │   ├── dashboards/
+│   │   ├── panels/
+│   │   ├── .env
+│   │   ├── docker-compose.yml
+│   │   └── profile.yml
+│   └── manifest.yml
+├── checksum.txt
 └── README.md
 ```
 
 ### Checksum
 
-Calculating a checksum of the package is important to ensure the integrity and authenticity of the data being transferred or stored. A checksum is a value calculated from the content of the package, and can be used to verify that the package has not been altered or corrupted. The following scripts can be used to calculate the package checksum and generate the required `checksum.txt`:
+Calculating a checksum of the package is important to ensure the integrity and authenticity of the data being transferred or stored. A checksum is a value calculated from the content of the package, and can be used to verify that the package has not been altered or corrupted. 
 
-#### Linux/Unix/macOS
+:::caution
 
-```bash
-#!/bin/bash
+The package's checksum **MUST** be calculated using the **SHA-256** hashing algorithm. 
 
-# Check if a package root argument is provided
-if [ -z "$1" ]; then
-  echo "Usage: $0 <package_root>"
-  exit 1
-fi
+:::
 
-# Set the package root directory and the output file
-package_root="$1"
-output_file="checksums.txt"
+The following script can be used to calculate the package checksum and generate the required `checksum.txt`:
 
-# Remove the output file if it exists
-rm -f "$output_file"
+<Tabs>
+  <TabItem value="unix" label="Linux/Unix/macOS" default>
 
-# Iterate through all files in the package, calculate their SHA-256 checksum, and save the result to the output file
-find "$package_root" -type f -not -path "*/.git/*" -exec sha256sum {} \; | sort -k 2 > "$output_file"
+  ```bash
+  #!/bin/bash
 
-# Print the final checksum of the output file
-sha256sum "$output_file"
-```
+  # Check if a package root argument is provided
+  if [ -z "$1" ]; then
+    echo "Usage: $0 <package_root>"
+    exit 1
+  fi
 
-Save this script as `calculate_checksum.sh` in any directory, give it executable permissions with `chmod +x calculate_checksum.sh`, and run it with `./calculate_checksum.sh /path/to/package_root` providing the package root directory path as an argument. The output will be a file called `checksums.txt` containing the checksums of all files within the package, sorted by file path. The final checksum of the `checksums.txt` file will be printed to the console.
+  # Set the package root directory and the output file
+  package_root="$1"
+  output_file="checksums.txt"
 
-#### Windows
+  # Remove the output file if it exists
+  rm -f "$output_file"
 
-```powershell
-# Set the package root directory and the output file
-$packageRoot = ".\"
-$outputFile = "checksums.txt"
+  # Iterate through all files in the package, calculate their SHA-256 checksum, and save the result to the output file
+  find "$package_root" -type f -not -path "*/.git/*" -exec sha256sum {} \; | sort -k 2 > "$output_file"
 
-# Remove the output file if it exists
-if (Test-Path $outputFile) {
-    Remove-Item $outputFile
-}
+  # Print the final checksum of the output file
+  sha256sum "$output_file"
+  ```
 
-# Iterate through all files in the package, calculate their SHA-256 checksum, and save the result to the output file
-Get-ChildItem -Path $packageRoot -Recurse -File -Exclude ".git" |
-ForEach-Object {
-    $hash = (Get-FileHash -Path $_.FullName -Algorithm SHA256).Hash.ToLower()
-    Add-Content -Path $outputFile -Value "$hash *$($_.FullName)"
-}
+  Save this script as `calculate_checksum.sh` in any directory, give it executable permissions with `chmod +x calculate_checksum.sh`, and run it with `./calculate_checksum.sh /path/to/package_root` providing the package root directory path as an argument. The output will be a file called `checksums.txt` containing the checksums of all files within the package, sorted by file path. The final checksum of the `checksums.txt` file will be printed to the console.
 
-# Sort the output file by file path
-(Get-Content $outputFile) | Sort-Object | Set-Content $outputFile
+  </TabItem>
+  <TabItem value="windows" label="Windows">
 
-# Print the final checksum of the output file
-(Get-FileHash -Path $outputFile -Algorithm SHA256).Hash.ToLower()
-```
+  ```shell
+  # Set the package root directory and the output file
+  $packageRoot = ".\"
+  $outputFile = "checksums.txt"
 
-Save this script as `calculate_checksum.ps1` in any directory, and run it with `powershell -ExecutionPolicy Bypass -File .\calculate_checksum.ps1 "C:\path\to\package_root"` providing the package root directory path as an argument. The output will be a file called `checksums.txt` containing the checksums of all files within the package, sorted by file path. The final checksum of the `checksums.txt` file will be printed to the console.
+  # Remove the output file if it exists
+  if (Test-Path $outputFile) {
+      Remove-Item $outputFile
+  }
+
+  # Iterate through all files in the package, calculate their SHA-256 checksum, and save the result to the output file
+  Get-ChildItem -Path $packageRoot -Recurse -File -Exclude ".git" |
+  ForEach-Object {
+      $hash = (Get-FileHash -Path $_.FullName -Algorithm SHA256).Hash.ToLower()
+      Add-Content -Path $outputFile -Value "$hash *$($_.FullName)"
+  }
+
+  # Sort the output file by file path
+  (Get-Content $outputFile) | Sort-Object | Set-Content $outputFile
+
+  # Print the final checksum of the output file
+  (Get-FileHash -Path $outputFile -Algorithm SHA256).Hash.ToLower()
+  ```
+
+  Save this script as `calculate_checksum.ps1` in any directory, and run it with `powershell -ExecutionPolicy Bypass -File .\calculate_checksum.ps1 "C:\path\to\package_root"` providing the package root directory path as an argument. The output will be a file called `checksums.txt` containing the checksums of all files within the package, sorted by file path. The final checksum of the `checksums.txt` file will be printed to the console.
+
+  </TabItem>
+</Tabs>
 
 #### Publishing the checksum
 
