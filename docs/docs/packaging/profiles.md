@@ -87,6 +87,7 @@ path_file: ./path/to/a/file
 uri: https://eigenlayer.com
 enum: [value1, value2, value3]
 port: 8080
+id: "eigenlayer"
 ```
 
 These types will be used for automatic validation of the values provided by the user. For instance, if the setting’s type is `path_file`, a Middleware setup wizard tool would validate that a file exists on the provided path.
@@ -96,6 +97,16 @@ These types will be used for automatic validation of the values provided by the 
 Any port exposed under the `ports:` field in the `docker-compose.yml` **MUST** be represented by an `option` within the `options` list in the profile file, and the type `port` **MUST** be used. This allows port collision checks between multiple Middleware services running in the same host machine.
 
 A Middleware setup wizard could do these checks to guarantee an open port for each port target.
+
+:::
+
+The type `id` should be used for those values that need to be unique across several middleware setups, for example, container names.
+
+:::caution
+
+Using the `container_name` service field in the `docker-compose.yml` is optional, but if it is used, it is **mandatory** to provide an `option` within the `options` list in the profile file. This allows name collision checks between multiple Middleware services running in the same host machine.
+
+A Middleware setup wizard could do the necessary checks to guarantee unique container names.
 
 :::
 
