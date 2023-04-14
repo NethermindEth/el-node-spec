@@ -1,0 +1,94 @@
+{
+	"name": "Slashing Incurred",
+	"model": {
+		"datasource": {
+			"type": "prometheus",
+			"uid": "${Datasource}"
+		},
+		"description": "The amount of slashing incurred for each token",
+		"fieldConfig": {
+			"defaults": {
+				"color": {
+					"mode": "palette-classic"
+				},
+				"custom": {
+					"axisCenteredZero": false,
+					"axisColorMode": "text",
+					"axisLabel": "",
+					"axisPlacement": "auto",
+					"barAlignment": 0,
+					"drawStyle": "line",
+					"fillOpacity": 0,
+					"gradientMode": "none",
+					"hideFrom": {
+						"legend": false,
+						"tooltip": false,
+						"viz": false
+					},
+					"lineInterpolation": "linear",
+					"lineWidth": 1,
+					"pointSize": 5,
+					"scaleDistribution": {
+						"type": "linear"
+					},
+					"showPoints": "auto",
+					"spanNulls": false,
+					"stacking": {
+						"group": "A",
+						"mode": "none"
+					},
+					"thresholdsStyle": {
+						"mode": "off"
+					}
+				},
+				"mappings": [],
+				"thresholds": {
+					"mode": "absolute",
+					"steps": [
+						{
+							"color": "green",
+							"value": null
+						}
+					]
+				}
+			},
+			"overrides": []
+		},
+		"gridPos": {
+			"h": 8,
+			"w": 12,
+			"x": 12,
+			"y": 11
+		},
+		"id": 10,
+		"options": {
+			"legend": {
+				"calcs": [],
+				"displayMode": "list",
+				"placement": "bottom",
+				"showLegend": true
+			},
+			"tooltip": {
+				"mode": "single",
+				"sort": "none"
+			}
+		},
+		"targets": [
+			{
+				"datasource": {
+					"type": "prometheus",
+					"uid": "${Datasource}"
+				},
+				"editorMode": "code",
+				"expr": "eigen_slashing_incurred_total",
+				"legendFormat": "{{token}}",
+				"range": true,
+				"refId": "A"
+			}
+		],
+		"title": "Slashing Incurred",
+		"type": "timeseries"
+	},
+	"folderUid": "eigen-folder",
+	"uid": "eigen_slashing_incurred_total"
+}

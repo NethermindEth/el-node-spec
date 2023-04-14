@@ -1,0 +1,433 @@
+---
+sidebar_position: 1 
+id: metrics-api
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+# EigenLayer Middleware API 
+
+The EigenLayer Middleware API provides monitoring and common metrics for middleware services designed for the EigenLayer protocol.
+
+## Base URL
+
+The base URL for the API is:
+
+```
+/eigen
+```
+
+## API Versioning
+
+This document describes the API version 1.0.0.
+
+The API versioning can be described using one of the following four approaches:
+
+### Version in the path
+
+The API version is included in the URL path as follows:
+
+```
+/eigen/v1
+```
+
+#### Pros
+
+- Clear versioning for clients: Including the version in the path makes it immediately clear to clients which version of the API they are using.
+- Easy to implement: Most HTTP frameworks provide easy ways to extract the version from the path.
+- Caching: Versioning in the path makes caching easier, since different versions of the API can be cached separately.
+
+#### Cons
+
+- Path pollution: Including the version in the path can make the path longer and more difficult to read.
+- Inflexible: Once a version is released and endpoints are created with that version, it's difficult to make changes to that version without breaking clients.
+- Client implementation: Clients need to be aware of the versioning scheme used in the path and update their URLs accordingly.
+
+### Version in the query string
+
+The API version is included in the query string as follows:
+
+```
+/eigen/endpoint?version=1.0.0
+```
+
+#### Pros
+
+- Clean URLs: Including the version in a query parameter keeps the URLs cleaner and easier to read than including it in the path.
+- Easy to implement: Most HTTP frameworks provide easy ways to extract query parameters.
+- Flexibility: You can change the version without changing the path or breaking clients.
+- Caching: Different versions of the API can be cached separately.
+
+#### Cons
+
+- Potential abuse: Users could potentially abuse the query parameter by including unexpected values.
+- Complexity: The query parameter needs to be parsed from the request, which adds complexity to the implementation.
+- Client implementation: Clients need to be aware of the versioning scheme used in the query string and update their URLs accordingly.
+
+### Version in the request header
+
+The API version is included in the request header as follows:
+
+```http
+GET /eigen/endpoint HTTP/1.1
+Host: example.com
+Accept: application/json
+X-API-Version: 1.0.0
+```
+
+#### Pros
+
+- Cleaner URLs: Without the version in the path, URLs are shorter and easier to read.
+- No need for client changes: Clients don't need to change their URLs when a new version is released.
+- Easy to implement: Most HTTP frameworks provide easy ways to set and read custom headers.
+- Separation of concerns: Versioning is separated from the request, which can be useful in some cases.
+
+#### Cons
+
+- Ambiguity: Clients need to inspect the response to determine which version of the API is being used.
+- Complexity: Extracting the version from the headers requires additional parsing logic.
+- Limited caching: Caching mechanisms may not be able to differentiate between different versions of the API if they're not included in the path.
+- Header Stripping: Some HTTP clients may strip out unknown headers for security reasons
+
+### Version in the response body
+
+The API version is included in the response body as follows:
+
+```http
+X /eigen/endpoint HTTP/1.1
+Host: example.com
+Accept: application/json
+Content-Type: application/json
+```
+
+Response:
+```json
+{
+  "version": "1.0.0"
+}
+```
+
+#### Pros
+
+- Flexibility: The version can be changed without affecting the path or breaking clients.
+- Cleaner URLs: Without the version in the path, URLs are shorter and easier to read.
+- No need for client changes: Clients don't need to change their URLs when a new version is released.
+
+#### Cons
+
+- Ambiguity: Clients need to inspect the response to determine which version of the API is being used.
+- Complexity: Extracting the version from the response requires additional parsing logic.
+- Caching: Different versions of the API can't be cached separately.
+- Version Selection Limitation: Older versions can't be used as there is no way to select what version to use.
+
+## Middleware
+
+Endpoints to query middleware related information.
+
+### GET /eigen/middleware/spec-version
+
+Provides API identity information in a format similar to [HTTP User-Agent](https://www.rfc-editor.org/rfc/rfc7231#section-5.5.3)
+
+#### Parameters
+
+No parameters
+
+#### Responses
+
+**200** - Request successful
+
+**Content-Type:** `application/json`
+
+<Tabs>
+  <TabItem value="example" label="Example Value" default>
+
+  ```json
+  {
+    "api_version": "v1.0.0"
+  }
+  ```
+
+  </TabItem>
+  <TabItem value="schema" label="Schema">
+
+  ```json
+  {
+    "type": "object",
+    "properties": {
+      "api_version": {
+        "type": "string",
+        "description": "API specification version"
+      }
+    },
+    "required": [
+      "version"
+    ]
+  }
+  ```
+
+  </TabItem>
+</Tabs>
+
+**500** - Internal server error
+
+**Content-Type:** `application/json`
+
+<Tabs>
+  <TabItem value="example" label="Example Value" default>
+
+  ```json
+  {
+    "message": "Internal server error"
+  }
+  ```
+
+  </TabItem>
+  <TabItem value="schema" label="Schema">
+
+  ```json
+  {
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string",
+        "description": "Error message"
+      }
+    },
+    "required": [
+      "message"
+    ]
+  }
+  ```
+
+  </TabItem>
+</Tabs>
+
+### GET /eigen/middleware/version
+
+Provides middleware service identity information in a format similar to [HTTP User-Agent](https://www.rfc-editor.org/rfc/rfc7231#section-5.5.3)
+
+#### Parameters
+
+No parameters
+
+#### Responses
+
+**200** - Request successful
+
+**Content-Type:** `application/json`
+
+<Tabs>
+  <TabItem value="example" label="Example Value" default>
+
+  ```json
+  {
+    "version": "EigenLayer-Middleware/v1.0.0"
+  }
+  ```
+
+  </TabItem>
+  <TabItem value="schema" label="Schema">
+
+  ```json
+  {
+    "type": "object",
+    "properties": {
+      "version": {
+        "type": "string",
+        "description": "Middleware service version"
+      }
+    },
+    "required": [
+      "version"
+    ]
+  }
+  ```
+
+  </TabItem>
+</Tabs>
+
+**500** - Internal server error
+
+**Content-Type:** `application/json`
+
+<Tabs>
+  <TabItem value="example" label="Example Value" default>
+
+  ```json
+  {
+    "message": "Internal server error"
+  }
+  ```
+
+  </TabItem>
+  <TabItem value="schema" label="Schema">
+
+  ```json
+  {
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string",
+        "description": "Error message"
+      }
+    },
+    "required": [
+      "message"
+    ]
+  }
+  ```
+
+  </TabItem>
+</Tabs>
+
+### GET /eigen/middleware/health
+
+Returns middleware service health status in HTTP status codes.
+
+#### Parameters
+
+No parameters
+
+#### Responses
+
+**200** - Middleware service is healthy
+
+**206** - Middleware service is partially healthy. It is either initializing or some backing services are not healthy.
+
+**503** - Middleware service is unhealthy or having issues.
+
+### GET /eigen/middleware/services
+
+Returns a list of all backing services that are currently registered with the middleware service setup. Useful to determine if a service is currently registered with the middleware service and to get the service ID for health endpoint.
+
+#### Parameters
+
+No parameters
+
+#### Responses
+
+**200** - Request successful
+
+**Content-Type:** `application/json`
+
+<Tabs>
+  <TabItem value="example" label="Example Value" default>
+
+  ```json
+  {
+    "services": [
+      {
+        "id": "db-1",
+        "name": "Database",
+        "description": "Database description",
+        "status": "Up",
+      },
+      {
+        "id": "idx-2",
+        "name": "Indexer",
+        "description": "Indexer description",
+        "status": "Down",
+      }
+    ]
+  }
+  ```
+
+  </TabItem>
+  <TabItem value="schema" label="Schema">
+
+  ```json
+  {
+    "type": "object",
+    "properties": {
+      "services": {
+        "type": "array",
+        "description": "List of backing services",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Service ID"
+            },
+            "name": {
+              "type": "string",
+              "description": "Service name"
+            },
+            "description": {
+              "type": "string",
+              "description": "Service description"
+            },
+            "status": {
+              "type": "string",
+              "description": "Service status. Possible values are Up, Down, or Initializing."
+
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "description"
+          ]
+        }
+      }
+    },
+    "required": [
+      "services"
+    ]
+  }
+  ```
+
+  </TabItem>
+</Tabs>
+
+**500** - Internal server error
+
+**Content-Type:** `application/json`
+
+<Tabs>
+  <TabItem value="example" label="Example Value" default>
+
+  ```json
+  {
+    "message": "Internal server error"
+  }
+  ```
+
+  </TabItem>
+  <TabItem value="schema" label="Schema">
+
+  ```json
+  {
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string",
+        "description": "Error message"
+      }
+    },
+    "required": [
+      "message"
+    ]
+  }
+  ```
+
+  </TabItem>
+</Tabs>
+
+### GET /eigen/middleware/services/{service_ID}/health
+
+Returns the health status of the given service in HTTP status codes. The service ID is the service ID returned by the `/eigen/v1/services` endpoint. The service is considered healthy if the service is registered with the middleware service and the service is currently online.
+
+#### Parameters
+
+**service_ID** `string` `(path)` - Service ID
+
+#### Responses
+
+**200** - Backing service is healthy
+
+**206** - Backing service is partially healthy. It is either initializing or not ready yet.
+
+**503** - Backing service is unhealthy or having issues.
