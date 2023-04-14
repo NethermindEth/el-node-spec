@@ -38,7 +38,7 @@ version: '3.8'
 services:
   main-service:
     image: your-organization/main-service:latest
-    container_name: main-service
+    container_name: ${MAIN_SERVICE_NAME}
     command:
     - eigen 
     - --flag-x=${X_VALUE}
@@ -52,7 +52,7 @@ services:
 
   db-service:
     image: postgres:latest
-    container_name: db-service
+    container_name: ${DB_SERVICE_NAME}
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
@@ -64,7 +64,7 @@ services:
 
   utility-service:
     build: ./path/to/utility-service-dockerfile
-    container_name: utility-service
+    container_name: ${UTILITY_SERVICE_NAME}
     environment:
       - MAIN_SERVICE_HOST=main-service
       - MAIN_SERVICE_PORT=8080
@@ -95,6 +95,11 @@ DB_NAME=example_name
 version: "1.0"
 
 options:
+  - name: "main-container-name"
+    target: MAIN_SERVICE_NAME
+    type: id
+    default: "main-service"
+    help: "Main service container name"
   - name: "flag-x"
     target: X_VALUE
     type: enum
@@ -105,6 +110,11 @@ options:
     type: port
     default: 8080
     help: "Main service server port"
+  - name: "db-container-name"
+    target: DB_SERVICE_NAME
+    type: id
+    default: "db-service"
+    help: "DB service container name"
   - name: "db-user"
     target: DB_USER
     type: str
@@ -115,6 +125,11 @@ options:
     validate:
       re2_regex: "^[^#]{8,}$"
     help: "Postgres DB user password. Must have at least 8 characters and it can't contain the '#' symbol"
+  - name: "utility-container-name"
+    target: UTILITY_SERVICE_NAME
+    type: id
+    default: "utility-service"
+    help: "Utility service container name"
   - name: "network-name"
     target: NETWORK_NAME
     type: str
