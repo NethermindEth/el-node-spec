@@ -94,41 +94,110 @@ The `manifest.yml` file at the project's root is the entry point to define the p
 
 ## Tap structure
 
-The Tap should contain a folder for each package in the default git branch. Each folder should be named after the git tag that represents the release of a new package. The following directory structure can be used as reference:
+The Tap should contain a folder for each package in the default git branch. Each folder should be named after the git tag that represents the release of a new package. Each package should contain a `pkg` folder with the contents described [here](#structure), and a `checksum.txt` file. The following directory structure can be used as reference:
 
 ```
 .
 ├── v0.1.0/
-│   ├── mainnet/
-│   │   ├── alerts/
-│   │   ├── dashboards/
-│   │   ├── panels/
-│   │   ├── .env
-│   │   ├── docker-compose.yml
-│   │   └── profile.yml
-│   ├── goerli/
-│   │   ├── alerts/
-│   │   ├── dashboards/
-│   │   ├── panels/
-│   │   ├── .env
-│   │   ├── docker-compose.yml
-│   │   └── profile.yml
-│   └── manifest.yml
-├── v0.1.0/
-│   ├── mainnet/
-│   │   ├── alerts/
-│   │   ├── dashboards/
-│   │   ├── panels/
-│   │   ├── .env
-│   │   ├── docker-compose.yml
-│   │   └── profile.yml
-│   ├── sepolia/
-│   │   ├── alerts/
-│   │   ├── dashboards/
-│   │   ├── panels/
-│   │   ├── .env
-│   │   ├── docker-compose.yml
-│   │   └── profile.yml
-│   └── manifest.yml
+│   ├── pkg/
+│   │   ├── mainnet/
+│   │   │   ├── alerts/
+│   │   │   ├── dashboards/
+│   │   │   ├── panels/
+│   │   │   ├── .env
+│   │   │   ├── docker-compose.yml
+│   │   │   └── profile.yml
+│   │   ├── goerli/
+│   │   │   ├── alerts/
+│   │   │   ├── dashboards/
+│   │   │   ├── panels/
+│   │   │   ├── .env
+│   │   │   ├── docker-compose.yml
+│   │   │   └── profile.yml
+│   │   └── manifest.yml
+│   └── checksum.txt
+├── v1.0.0/
+│   ├── pkg/
+│   │   ├── mainnet/
+│   │   │   ├── alerts/
+│   │   │   ├── dashboards/
+│   │   │   ├── panels/
+│   │   │   ├── .env
+│   │   │   ├── docker-compose.yml
+│   │   │   └── profile.yml
+│   │   ├── sepolia/
+│   │   │   ├── alerts/
+│   │   │   ├── dashboards/
+│   │   │   ├── panels/
+│   │   │   ├── .env
+│   │   │   ├── docker-compose.yml
+│   │   │   └── profile.yml
+│   │   └── manifest.yml
+│   └── checksum.txt
 └── README.md
 ```
+
+### Checksum
+
+Calculating a checksum of the package is important to ensure the integrity and authenticity of the data being transferred or stored. A checksum is a value calculated from the content of the package, and can be used to verify that the package has not been altered or corrupted. The following scripts can be used to calculate the package checksum and generate the required `checksum.txt`:
+
+#### Linux/Unix/macOS
+
+```bash
+#!/bin/bash
+
+# Check if a package root argument is provided
+if [ -z "$1" ]; then
+  echo "Usage: $0 <package_root>"
+  exit 1
+fi
+
+# Set the package root directory and the output file
+package_root="$1"
+output_file="checksums.txt"
+
+# Remove the output file if it exists
+rm -f "$output_file"
+
+# Iterate through all files in the package, calculate their SHA-256 checksum, and save the result to the output file
+find "$package_root" -type f -not -path "*/.git/*" -exec sha256sum {} \; | sort -k 2 > "$output_file"
+
+# Print the final checksum of the output file
+sha256sum "$output_file"
+```
+
+Save this script as `calculate_checksum.sh` in any directory, give it executable permissions with `chmod +x calculate_checksum.sh`, and run it with `./calculate_checksum.sh /path/to/package_root` providing the package root directory path as an argument. The output will be a file called `checksums.txt` containing the checksums of all files within the package, sorted by file path. The final checksum of the `checksums.txt` file will be printed to the console.
+
+#### Windows
+
+```powershell
+# Set the package root directory and the output file
+$packageRoot = ".\"
+$outputFile = "checksums.txt"
+
+# Remove the output file if it exists
+if (Test-Path $outputFile) {
+    Remove-Item $outputFile
+}
+
+# Iterate through all files in the package, calculate their SHA-256 checksum, and save the result to the output file
+Get-ChildItem -Path $packageRoot -Recurse -File -Exclude ".git" |
+ForEach-Object {
+    $hash = (Get-FileHash -Path $_.FullName -Algorithm SHA256).Hash.ToLower()
+    Add-Content -Path $outputFile -Value "$hash *$($_.FullName)"
+}
+
+# Sort the output file by file path
+(Get-Content $outputFile) | Sort-Object | Set-Content $outputFile
+
+# Print the final checksum of the output file
+(Get-FileHash -Path $outputFile -Algorithm SHA256).Hash.ToLower()
+```
+
+Save this script as `calculate_checksum.ps1` in any directory, and run it with `powershell -ExecutionPolicy Bypass -File .\calculate_checksum.ps1 "C:\path\to\package_root"` providing the package root directory path as an argument. The output will be a file called `checksums.txt` containing the checksums of all files within the package, sorted by file path. The final checksum of the `checksums.txt` file will be printed to the console.
+
+#### Publishing the checksum
+
+In addition to including the `checksum.txt` file within the package uploaded to the tap repository, it is recommended that the checksum of the `checksum.txt` file be published on the release page, download page, or within the README. This enables users to calculate the package checksum, verify its consistency with the `checksum.txt` file in the package, and compare it to the published checksum.
+
+Furthermore, ongoing discussions are aimed at developing a method for publishing the checksum on-chain, with the intention of enhancing the security and robustness of the process.
