@@ -1,0 +1,8 @@
+{
+  "label": "Monitoring Stack",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "This section describes the Monitoring Stack deployed by the CLI tool to monitor middleware services and the host machine."
+  }
+}
