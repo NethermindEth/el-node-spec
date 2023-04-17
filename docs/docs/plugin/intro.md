@@ -2,7 +2,9 @@
 title: Introduction
 ---
 
-A plugin is a tool provided by a middleware instance during the installation time that could be invoked using the CLI at any time. The main idea of the usage of this plugin is to do specific actions in the middleware. All the functionalities implemented in the plugin are the responsibility of the middleware developers, our responsibility as the CLI maintainers are to guarantee access to the services in the docker-compose environment of the associated middleware.
+
+
+The plugin system provides a way to extend the CLI tool with new functionalities that are not included by default. This is necessary due to the diversity of services and structure that a middleware could have. Each middleware could provide a plugin to extend the CLI tool with middleware-specific functionalities interacting with the services declared in the docker-compose setup.
 
 ## Plugin as a Docker image
 
@@ -36,10 +38,11 @@ The `image` has more priority than the `git` option. If both are provided, the `
 ## Running the plugin
 
 ```bash
-cli plugin [--middleware [middleware-name]] [plugin-name] [args...]
+tool plugin [--middleware [middleware-name]] [plugin-name] [args...]
 ```
+>_**Note**: The command above is for demonstration purposes only as the cli tool doesn't exists yet_
 
-When the user runs the plugin using our CLI tool, a container is created using the plugin image, and all the arguments specified by the user in the command are appended to the container [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint).The CLI runs the container plugin instance and waits until it finishes, showing the logs of the container. The exit code of the `cli plugin` command is the same exit code of the container plugin and will be printed in stdout to end-user knowledge.
+When the user runs the plugin, a container is created using the plugin image, and all the arguments specified by the user in the command are appended to the container [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint). The CLI runs the container plugin instance and waits until it finishes, showing the logs of the container. The exit code of the `cli plugin` command is the same exit code of the container plugin and will be printed in stdout to end-user knowledge.
 
 The `--middleware` flag could be used to specify middleware target. If not specified, the default middleware will be used. Is useful when the user has multiple profiles of the same middleware.
 
