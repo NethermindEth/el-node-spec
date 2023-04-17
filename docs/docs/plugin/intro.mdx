@@ -11,27 +11,9 @@ A plugin is a Docker container created from a Docker image provided in the middl
 1. Pre-built image
 2. Built from a Dockerfile using a Git repository URL
 
-## Proposal for the manifest and profile files
+## Declaring plugin source
 
-The plugin is defined in the manifest file and could be overwritten in the profile file if needed. To declare a plugin add this section at the root of the manifest/profile file:
-
-```yaml
-plugin: <plugin>
-```
-
-### <plugin\>
-
-```yaml
-# Pre-built image name ready to be pulled.
-image: <string>
-
-# URL to a Git repository to build the image from the source.
-git: <string>
-```
-
-:::warning
-The `image` has more priority than the `git` option. If both are provided, the `image` will be used.
-:::
+Plugin source are declared in the [manifest file](/docs/packaging/manifest#plugin) and could be overridden in the [profile file](/docs/packaging/profiles#plugin_overrides) is necessary.
 
 ## Running the plugin
 
