@@ -2,8 +2,6 @@
 title: Introduction
 ---
 
-
-
 The plugin system provides a way to extend the CLI tool with new functionalities that are not included by default. This is necessary due to the diversity of services and structure that a middleware could have. Each middleware could provide a plugin to extend the CLI tool with middleware-specific functionalities interacting with the services declared in the docker-compose setup.
 
 ## Plugin as a Docker image
@@ -40,7 +38,8 @@ The `image` has more priority than the `git` option. If both are provided, the `
 ```bash
 tool plugin [--middleware [middleware-name]] [plugin-name] [args...]
 ```
->_**Note**: The command above is for demonstration purposes only as the cli tool doesn't exists yet_
+
+<NotCLIDisclaimer/>
 
 When the user runs the plugin, a container is created using the plugin image, and all the arguments specified by the user in the command are appended to the container [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint). The CLI runs the container plugin instance and waits until it finishes, showing the logs of the container. The exit code of the `cli plugin` command is the same exit code of the container plugin and will be printed in stdout to end-user knowledge.
 
