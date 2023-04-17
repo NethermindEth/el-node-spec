@@ -97,7 +97,7 @@ The `manifest.yml` file at the project's root is the entry point to define the p
 
 ## Tap structure
 
-The Tap should contain a `README.md` and `checksum.txt` files, and a folder with the contents described [here](#structure) named after the git tag that represents the release of a new package. The following directory structure can be used as reference:
+The Tap should contain a `README.md`, and a folder with the contents described [here](#structure) named after the git tag that represents the release of a new package. Optionally, a `checksum.txt` file can be provided. The following directory structure can be used as reference:
 
 ```
 ./
@@ -124,6 +124,12 @@ The Tap should contain a `README.md` and `checksum.txt` files, and a folder with
 ### Checksum
 
 Calculating a checksum of the package is important to ensure the integrity and authenticity of the data being transferred or stored. A checksum is a value calculated from the content of the package, and can be used to verify that the package has not been altered or corrupted. 
+
+:::note
+
+Providing a checksum is **optional**, but it's highly recommended to ensure the integrity of the package.
+
+:::
 
 :::caution
 
