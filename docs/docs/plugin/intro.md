@@ -36,10 +36,12 @@ The `image` has more priority than the `git` option. If both are provided, the `
 ## Running the plugin
 
 ```bash
-cli plugin [plugin-name] [args...]
+cli plugin [--middleware [middleware-name]] [plugin-name] [args...]
 ```
 
 When the user runs the plugin using our CLI tool, a container is created using the plugin image, and all the arguments specified by the user in the command are appended to the container [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint).The CLI runs the container plugin instance and waits until it finishes, showing the logs of the container. The exit code of the `cli plugin` command is the same exit code of the container plugin and will be printed in stdout to end-user knowledge.
+
+The `--middleware` flag could be used to specify middleware target. If not specified, the default middleware will be used. Is useful when the user has multiple profiles of the same middleware.
 
 ## Accessing the middleware services
 
