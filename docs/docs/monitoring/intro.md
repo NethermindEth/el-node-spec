@@ -13,5 +13,5 @@ Deploying the **Monitoring Stack** is the responsibility of a Middleware setup w
 
 The [Prometheus](/docs/monitoring/prometheus) instance would be deployed initially with the [Node Exporter](/docs/monitoring/node-exporter) as the only target. Middleware targets would be added dynamically by the tool when a new middleware is deployed. Grafana will be deployed initially with the [Host Metrics](/docs/monitoring/grafana#host-metrics) dashboard to visualize metrics from the [Node Exporter](/docs/monitoring/node-exporter) and monitoring host resources.
 
-Grafana supports alerting, the user can configure custom alerts for host and middleware metrics. These alerts are send to the user via Alert Contact Points, which could be configured with the CLI tool.
+Grafana supports alerting. The user can configure custom alerts for host and middleware metrics. These alerts are sent to the user via Alert Contact Points, which could be configured with the Middleware setup wizard tool.
 
