@@ -64,7 +64,7 @@ image: <string>
 git: <string>
 ```
 
-:::warning
+:::caution
 The `image` has more priority than the `git` option. If both are provided, the `image` will be used.
 :::
 
