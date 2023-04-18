@@ -3,6 +3,6 @@
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "This section describes the Monitoring Stack deployed by the CLI tool to monitor middleware services and the host machine."
+    "description": "This section describes the Monitoring Stack that could be deployed by a Middleware setup wizard tool to monitor middleware services and the host machine."
   }
 }
