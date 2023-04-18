@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
+	"graft/config"
 	"graft/grafana"
 	"graft/models"
 
@@ -24,42 +25,28 @@ func PanelCommand(gClient grafana.Client) *cobra.Command {
 
 func initPanelCommand(gClient grafana.Client) *cobra.Command {
 	var (
-		uid       string
-		folderUID string
-		name      string
+		uid  string
+		name string
 	)
 	cmd := &cobra.Command{
 		Use:   "init",
 		Short: "Initialize new panel.",
-		PreRunE: func(cmd *cobra.Command, args []string) error {
-			if folderUID == "" {
-				if len(currentState.Folders) == 0 {
-					return ErrNoFolders
-				}
-				folderUID = currentState.Folders[0].UID
-			}
-			return nil
-		},
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return gClient.AddPanel(models.LibraryPanel{
 				Name:      name,
-				FolderUID: folderUID,
+				FolderUID: config.FolderUID,
 				UID:       uid,
 				Model:     make(map[string]interface{}),
 			})
 		},
 	}
 	cmd.Flags().StringVar(&uid, "uid", "", "Panel UID")
-	cmd.Flags().StringVarP(&folderUID, "folder", "f", "", "Grafana folder UID. If not specified, first folder in the state folders list will be used, but if the state folders list is empty, an error will be returned.")
 	cmd.Flags().StringVar(&name, "name", "New Panel", "Panel name")
 	return cmd
 }
 
 func backupPanelsCommand(gClient grafana.Client) *cobra.Command {
-	var (
-		folderUID string
-		dest      string
-	)
+	var dest string
 	cmd := &cobra.Command{
 		Use:   "backup",
 		Short: "Backup panels from Grafana folder",
@@ -70,9 +57,12 @@ func backupPanelsCommand(gClient grafana.Client) *cobra.Command {
 				return err
 			}
 			for _, panel := range panels {
-				if panel.FolderUID == folderUID {
+				if panel.FolderUID == config.FolderUID {
 					panelJSON, err := json.MarshalIndent(panel, "", "\t")
 					if err != nil {
+						return err
+					}
+					if err := os.MkdirAll(dest, 0o755); err != nil {
 						return err
 					}
 					if err := os.WriteFile(filepath.Join(dest, panel.UID+".json"), panelJSON, 0o644); err != nil {
@@ -83,7 +73,6 @@ func backupPanelsCommand(gClient grafana.Client) *cobra.Command {
 			return nil
 		},
 	}
-	cmd.Flags().StringVarP(&folderUID, "folder", "f", "", "Grafana folder UID. If not specified, first folder in the state folders list will be used, but if the state folders list is empty, an error will be returned.")
 	cmd.Flags().StringVarP(&dest, "dest", "d", "panels", "Destination path")
 	return cmd
 }
