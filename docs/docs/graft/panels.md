@@ -1,20 +1,21 @@
 ---
 title: "Panels"
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 ## Init panel
 
-To initialize a panel using the `graft panel init` command, follow the steps below:
+Is important to initialize panels using graft to ensure that the panels are stored in the Eigen Layer folder and also is the only way to set the `uid` property of the panel which is important to avoid collisions when the end user imports backup files into their own Grafana instance.
 
-1. Run the following command:
-    
-    ```shell
-    graft panel init --uid <uid> --name <name>
-    ```
-    
-2. Enter the required information, such as the `uid` (unique identifier), and `name` using the `--uid` and `--name` flags respectively
-3. Graft will create the panel with the specified information in the Grafana server, and it will be editable by the user using the Grafana UI.
+To initialize a new panel run following command:
+
+```shell
+graft panel init --uid <uid> --name <name>
+```
+
+This command could be executed in the folder with the configuration file or alternatively, the `--config/-c` flag could be used to specify the path to it.
+
+After running this command, the panel will be available in the Grafana Library panels list, and it will be editable by the user using the Grafana UI.
 
 :::caution
 
@@ -24,15 +25,13 @@ Note that the `uid` value should follow the naming pattern `el-[middleware]-pane
 
 ## Backup panels
 
-To backup panels using the `graft panel backup` command, follow the steps below:
+Panels are saved in JSON format, and they could be restored using the Grafana UI later, or by using the Middleware wizard setup tool. To get all the panel JSON files in the Eigen Layer folder, use the following command:
 
-1. Run the following command:
+```shell
+graft panel backup
+```
     
-    ```shell
-    graft panel backup --folder <folder-uid>
-    ```
-    
-2. Graft will create a backup of all panels in the Grafana server folder, and save the backup files in a new directory called `panels` in the current working directory. If `--folder` flag is not used, the first folder in the state file is used.
+This will save all the JSON panels in the `panels` directory in the current working directory. Could be useful to run it in the root of the middleware profile directory to save panels following the middleware package structure, follow [this link](/docs/packaging/#profile) to learn more about the middleware profile structure.
 
 :::note
 
