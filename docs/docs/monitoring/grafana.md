@@ -9,7 +9,7 @@ A Middleware setup tool would deploy the Grafana instance with a set of initial 
 
 ## Eigen Layer folder
 
-The CLI tool creates the Eigen Layer folder in Grafana. This folder is used to store all the dashboards for monitoring, both host and middlewares.
+The Middleware setup wizard tool creates the Eigen Layer folder in Grafana. This folder is used to store all the dashboards for monitoring, both host and middlewares.
 
 ## Dashboards
 
