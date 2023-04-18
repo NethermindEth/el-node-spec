@@ -13,9 +13,9 @@ The CLI tool creates the Eigen Layer folder in Grafana. This folder is used to s
 
 ## Dashboards
 
-Initially the CLI tool only deploys the [Host Metrics](#host-metrics) dashboard in the [Eigen Layer folder](#eigen-layer-folder). This dashboard is used to monitor host resources, such as CPU, memory, disk, network, etc.
+Initially, the Middleware setup wizard tool would only deploy the [Host Metrics](#host-metrics) dashboard in the [Eigen Layer folder](#eigen-layer-folder). This dashboard monitors host resources like CPU, memory, disk, network, etc.
 
-The middleware specific dashboards are provided by middleware developers in the installation package, and the CLI tool deploys them dynamically in the [Eigen Layer folder](#eigen-layer-folder) when a new middleware is deployed.
+The middleware specific dashboards are provided by middleware developers in the installation package. The tool would deploy them dynamically in the [Eigen Layer folder](#eigen-layer-folder) when a new middleware is deployed.
 
 ### Host Metrics
 
