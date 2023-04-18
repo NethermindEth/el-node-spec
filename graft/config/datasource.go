@@ -1,4 +1,4 @@
-package state
+package config
 
 import (
 	"fmt"
@@ -12,7 +12,7 @@ type createDataSource struct {
 	dataSource models.DataSource
 }
 
-func NewCreateDataSource(dataSource models.DataSource) StateAction {
+func NewCreateDataSource(dataSource models.DataSource) ConfigAction {
 	return createDataSource{dataSource: dataSource}
 }
 
@@ -39,7 +39,7 @@ type deleteDatasource struct {
 	datasource models.DataSource
 }
 
-func NewDeleteDataSource(datasource models.DataSource) StateAction {
+func NewDeleteDataSource(datasource models.DataSource) ConfigAction {
 	return deleteDatasource{datasource: datasource}
 }
 

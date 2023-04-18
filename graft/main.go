@@ -26,7 +26,7 @@ func init() {
 	}
 	grafanaPassword = os.Getenv("GRAFANA_PASSWORD")
 	if grafanaPassword == "" {
-		grafanaPassword = "12345678"
+		grafanaPassword = "admin"
 	}
 }
 
@@ -37,11 +37,11 @@ func main() {
 		GrafanaURL:      grafanaURL,
 	})
 	rootCmd := cli.RootCommand()
-	rootCmd.AddCommand(cli.FolderCommand(grafanaClient))
+	rootCmd.AddCommand(cli.InitCommand(grafanaClient))
 	rootCmd.AddCommand(cli.DatasourceCommand(grafanaClient))
 	rootCmd.AddCommand(cli.DashboardCommand(grafanaClient))
 	rootCmd.AddCommand(cli.PanelCommand(grafanaClient))
-	rootCmd.AddCommand(cli.StateCommand(grafanaClient))
+	rootCmd.AddCommand(cli.ConfigCommand(grafanaClient))
 	if err := rootCmd.Execute(); err != nil {
 		if errors.Is(err, grafana.ErrFolderNotFound) {
 			fmt.Println("Use 'graft folder create' to create a folder")
