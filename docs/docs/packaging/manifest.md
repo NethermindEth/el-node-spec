@@ -28,6 +28,9 @@ upgrade: <string>
 # Hardware Requirements
 hardware_requirements: <hardware_requirements>
 
+# Plugin source
+plugin: <plugin>
+
 # List of middleware package profiles
 profiles:
 [ - <profile> ]
@@ -47,8 +50,23 @@ min_free_space: <int>
 
 # true if setup should not proceed if any hardware requirement is not met
 stop_if_requirements_are_not_met: <bool>
-
 ```
+
+### `<plugin>`
+
+See [plugin documentation](/docs/plugin/intro) to learn more about the plugin system.
+
+```yaml
+# Pre-built image name ready to be pulled.
+image: <string>
+
+# URL to a Git repository to build the image from the source.
+git: <string>
+```
+
+:::caution
+The `image` has more priority than the `git` option. If both are provided, the `image` will be used.
+:::
 
 ### `<profile>`
 

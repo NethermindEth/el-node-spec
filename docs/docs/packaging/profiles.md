@@ -31,6 +31,9 @@ metadata: <metadata>
 # Hardware Requirements overrides that will replace requirements from the manifest file for this profile
 hardware_requirements_overrides: <hardware_requirements_overrides>
 
+# Plugin overrides that will replace plugin from the manifest file for this profile
+plugin_overrides: <plugin_overrides>
+
 # List of options the user can set or use default values if defined in the <option>. Each option is an environment variable in the docker-compose file, middleware developers need to be careful about what options to expose here
 options:
 	[ - <option> ]
@@ -51,6 +54,18 @@ min_ram: <int>
 # Minimum free disk space needed to run this profile in MiB
 min_free_space: <int>
 
+```
+
+### `<plugin_overrides>`
+
+See [plugin documentation](/docs/plugin/intro) to learn more about the plugin system.
+
+```yaml
+# Pre-built image name ready to be pulled.
+image: <string>
+
+# URL to a Git repository to build the image from the source.
+git: <string>
 ```
 
 ### `<option>`
