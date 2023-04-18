@@ -1,6 +1,7 @@
 package cli
 
 import (
+	"errors"
 	"graft/config"
 	"graft/grafana"
 	"graft/models"
@@ -15,19 +16,16 @@ func InitCommand(gClient grafana.Client) *cobra.Command {
 		Long:  "Initialize configuration file with empty data sources list and create the Eigen Layer folder in Grafana.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			// Create folder
-			newFolder := models.Folder{
-				Title: config.FolderTitle,
-				UID:   config.FolderUID,
-			}
-			currentFolder, err := gClient.FolderByUID(config.FolderUID)
+			_, err := gClient.FolderByUID(config.FolderUID)
 			if err != nil {
-				return err
-			}
-			if !currentFolder.Equal(newFolder) {
-				if err := gClient.CreateFolder(models.Folder{
-					Title: config.FolderTitle,
-					UID:   config.FolderUID,
-				}); err != nil {
+				if errors.Is(err, grafana.ErrFolderNotFound) {
+					if err := gClient.CreateFolder(models.Folder{
+						Title: config.FolderTitle,
+						UID:   config.FolderUID,
+					}); err != nil {
+						return err
+					}
+				} else {
 					return err
 				}
 			}
