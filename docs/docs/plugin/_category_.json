@@ -1,0 +1,8 @@
+{
+  "label": "Plugin",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Plugins are a way to extend the functionality of the CLI tool and are specialized in their own middleware."
+  }
+}

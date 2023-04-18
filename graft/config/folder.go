@@ -1,4 +1,4 @@
-package state
+package config
 
 import (
 	"fmt"
@@ -12,7 +12,7 @@ type createFolder struct {
 	folder models.Folder
 }
 
-func NewCreateFolder(folder models.Folder) StateAction {
+func NewCreateFolder(folder models.Folder) ConfigAction {
 	return createFolder{folder: folder}
 }
 
@@ -34,7 +34,7 @@ type updateFolder struct {
 	newFolder     models.Folder
 }
 
-func NewUpdateFolder(currentFolder models.Folder, newFolder models.Folder) StateAction {
+func NewUpdateFolder(currentFolder models.Folder, newFolder models.Folder) ConfigAction {
 	return updateFolder{currentFolder: currentFolder, newFolder: newFolder}
 }
 
@@ -59,7 +59,7 @@ type deleteFolder struct {
 	folder models.Folder
 }
 
-func NewDeleteFolder(folder models.Folder) StateAction {
+func NewDeleteFolder(folder models.Folder) ConfigAction {
 	return deleteFolder{folder: folder}
 }
 
