@@ -23,7 +23,7 @@ tool plugin [--middleware [middleware-name]] [plugin-name] [args...]
 
 <NotCLIDisclaimer/>
 
-When the user runs the plugin, a container is created using the plugin image, and all the arguments specified by the user in the command are appended to the container [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint). The setup tool would run the container plugin instance and waits until it finishes, showing container logs. The exit code of the `cli plugin` command is the same exit code of the container plugin and will be printed in stdout to end-user knowledge.
+When the user runs the plugin, a container is created using the plugin image, and all the arguments specified by the user in the command are appended to the container [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint). The setup tool would run the container plugin instance and waits until it finishes, showing container logs. The exit code of the `tool plugin` command is the same exit code of the container plugin and will be printed in stdout to end-user knowledge.
 
 The `--middleware` flag could be used to specify target middleware. Will be required if multiple profiles of the same middleware are running, if only one profile is running then the tool would use it as the target.
 
