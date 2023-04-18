@@ -10,7 +10,7 @@ The backup process typically involves creating a snapshot of the container's cur
 
 ## Rollback service
 
-During an update process, the new version of the service could be crashed or not work as expected. To avoid losing the previous state of the service users could create a backup of the service before the update process and restore the old version if it is necessary. [Backup](#backup-service) and [restore](#restore-service) service procedures are described below.
+During an update process, the new version of the service could be crashed or not work as expected. To avoid losing the previous state of the service, users could create a backup of the service before the update process and restore the old version if necessary. [Backup](#backup-service) and [restore](#restore-service) service procedures are described below.
 
 :::note
 All the commands used to describe the backup and restore procedures are only to illustrate the equivalent actions that could be done using the docker CLI. The backup and restore actions could be done using the docker API.
