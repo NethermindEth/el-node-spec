@@ -30,9 +30,9 @@ Commit container changes into an image is the first step to backup a service. Th
   ```shell
   docker commit [container-name] [image-name]
   ```
-#### Saving container commit commit
+#### Saving container commit
 
-There is two principal options to save the container commit:
+There are two principal options to save the container commit:
 
 1. New image could be saved to a `tar` file using `docker save`
   ```shell
