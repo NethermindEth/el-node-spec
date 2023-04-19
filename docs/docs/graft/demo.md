@@ -138,7 +138,7 @@ The first time the panel is added, a _Panel plugin not found_ error message will
 ![Save panel](/img/graft-el-panel-save.png)
 
 :::note
-Because is a library panel a confirmation message will be shown asking if you want to save the panel and showing the list of dashboards that will be affected by the change. This is because a library panel could be used for multiple dashboards. In this case select `Update all` and will be ok.
+Because it is a library panel a confirmation message will be shown asking if you want to save the panel and displaying the list of dashboards that will be affected by the change. This is because a library panel could be used for multiple dashboards. In this case, select `Update all` and will be ok.
 
 ![Save panel confirmation](/img/graft-el-panel-save-confirm.png)
 :::
