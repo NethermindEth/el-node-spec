@@ -114,7 +114,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Nethermind. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Layr Labs Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
