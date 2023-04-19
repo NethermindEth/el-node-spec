@@ -5,7 +5,7 @@ sidebar_position: 4
 
 ## Init panel
 
-Is important to initialize panels using graft to ensure that the panels are stored in the Eigen Layer folder and also is the only way to set the `uid` property of the panel which is important to avoid collisions when the end user imports backup files into their own Grafana instance.
+It is important to initialize panels using graft to ensure that the panels are stored in the Eigen Layer folder and also is the only way to set the `uid` property of the panel, which is essential to avoid collisions when the end user imports backup files into their own Grafana instance.
 
 To initialize a new panel run following command:
 
