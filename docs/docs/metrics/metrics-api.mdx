@@ -23,104 +23,21 @@ The base URL for the API is:
 
 This document describes the API version 1.0.0.
 
-The API versioning can be described using one of the following four approaches:
-
-### Version in the path
-
-The API version is included in the URL path as follows:
-
-```
-/eigen/v1
-```
-
-#### Pros
-
-- Clear versioning for clients: Including the version in the path makes it immediately clear to clients which version of the API they are using.
-- Easy to implement: Most HTTP frameworks provide easy ways to extract the version from the path.
-- Caching: Versioning in the path makes caching easier, since different versions of the API can be cached separately.
-
-#### Cons
-
-- Path pollution: Including the version in the path can make the path longer and more difficult to read.
-- Inflexible: Once a version is released and endpoints are created with that version, it's difficult to make changes to that version without breaking clients.
-- Client implementation: Clients need to be aware of the versioning scheme used in the path and update their URLs accordingly.
-
-### Version in the query string
-
-The API version is included in the query string as follows:
+The API version can be included in the query string as follows:
 
 ```
 /eigen/endpoint?version=1.0.0
 ```
 
-#### Pros
+In case of handling a request without the version query parameter, the API will respond with the latest version of the API.
 
-- Clean URLs: Including the version in a query parameter keeps the URLs cleaner and easier to read than including it in the path.
-- Easy to implement: Most HTTP frameworks provide easy ways to extract query parameters.
-- Flexibility: You can change the version without changing the path or breaking clients.
-- Caching: Different versions of the API can be cached separately.
+If the requested version is not supported, the API will respond with a 404 Not Found error and the following message:
 
-#### Cons
-
-- Potential abuse: Users could potentially abuse the query parameter by including unexpected values.
-- Complexity: The query parameter needs to be parsed from the request, which adds complexity to the implementation.
-- Client implementation: Clients need to be aware of the versioning scheme used in the query string and update their URLs accordingly.
-
-### Version in the request header
-
-The API version is included in the request header as follows:
-
-```http
-GET /eigen/endpoint HTTP/1.1
-Host: example.com
-Accept: application/json
-X-API-Version: 1.0.0
-```
-
-#### Pros
-
-- Cleaner URLs: Without the version in the path, URLs are shorter and easier to read.
-- No need for client changes: Clients don't need to change their URLs when a new version is released.
-- Easy to implement: Most HTTP frameworks provide easy ways to set and read custom headers.
-- Separation of concerns: Versioning is separated from the request, which can be useful in some cases.
-
-#### Cons
-
-- Ambiguity: Clients need to inspect the response to determine which version of the API is being used.
-- Complexity: Extracting the version from the headers requires additional parsing logic.
-- Limited caching: Caching mechanisms may not be able to differentiate between different versions of the API if they're not included in the path.
-- Header Stripping: Some HTTP clients may strip out unknown headers for security reasons
-
-### Version in the response body
-
-The API version is included in the response body as follows:
-
-```http
-X /eigen/endpoint HTTP/1.1
-Host: example.com
-Accept: application/json
-Content-Type: application/json
-```
-
-Response:
 ```json
 {
-  "version": "1.0.0"
+  "message": "API version not found"
 }
 ```
-
-#### Pros
-
-- Flexibility: The version can be changed without affecting the path or breaking clients.
-- Cleaner URLs: Without the version in the path, URLs are shorter and easier to read.
-- No need for client changes: Clients don't need to change their URLs when a new version is released.
-
-#### Cons
-
-- Ambiguity: Clients need to inspect the response to determine which version of the API is being used.
-- Complexity: Extracting the version from the response requires additional parsing logic.
-- Caching: Different versions of the API can't be cached separately.
-- Version Selection Limitation: Older versions can't be used as there is no way to select what version to use.
 
 ## Middleware
 
