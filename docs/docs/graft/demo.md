@@ -133,7 +133,7 @@ Select the `Demo panel` and it will be added to the dashboard
 
 ![Select panel](/img/graft-el-select-panel.png)
 
-The firs time the panel is added an _Panel plugin not found_ error message will be show in the panel placeholder. This is a normal behavior because the panel is completely empty. At this point you can start editing the panel and add the desired metrics and visualization. Once the panel is ready press the `Save library panel` button at the top-right section of the panel editor like the image below:
+The first time the panel is added, a _Panel plugin not found_ error message will be shown in the panel placeholder. This is normal behavior because the panel is completely empty. At this point, you can start editing the panel and adding the desired metrics and visualization. Once the panel is ready, press the `Save library panel` button at the top-right section of the panel editor like the image below:
 
 ![Save panel](/img/graft-el-panel-save.png)
 
