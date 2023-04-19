@@ -45,7 +45,7 @@ Replace `<user>` and `<password>` in the docker-compose file above with the desi
 You need to have a middleware metrics provider that could be a real middleware or a mock middleware instance. You need to configure prometheus properly to scrape the metrics from the middleware. For more information about how to configure prometheus to scrape metrics check the [Prometheus documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
 :::
 
-Once services are up and running, next things to do is create the Eigen Layer folder in the Grafana instance, this folder is the one will contains all the dashboards and panels that will be saved at the end. To do this run the following command:
+Once services are up and running, the next thing to do is create the Eigen Layer folder in the Grafana instance, and this folder is the one that will contain all the dashboards and panels that will be saved at the end. To do this, run the following command:
 
 ```shell
 graft init
