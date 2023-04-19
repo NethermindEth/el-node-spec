@@ -41,22 +41,20 @@ Design your middleware software to handle shared state updates automatically. Th
 
 ## 4. Middleware Package Management with CLI Tool and Searchable Prefix
 
-Leverage the Middleware setup wizard, inspired by the Homebrew Tap approach, for managing middleware packages and their versions. This tool will handle each middleware as a git repository with a defined structure, simplifying the process for clients setting up and managing middleware. To make middleware repositories easily searchable on GitHub, use a consistent prefix for their names, similar to the Homebrew naming convention. The `eigen` prefix could be a good option.
+Leverage the Middleware setup wizard, inspired by the Homebrew Tap approach, for managing middleware packages and their versions. This tool will handle each middleware as a git repository with a defined structure, simplifying the process for clients setting up and managing middleware. To make middleware repositories easily searchable on GitHub, use the `eigen` prefix for the repository name similar to the Homebrew naming convention.
 
 ### Tips:
 
 - Use the provided CLI tool that follows a standard structure for middleware git repositories to streamline the installation and management process.
-- Adopt a consistent prefix for middleware repository names to make them easily discoverable on GitHub, following the Homebrew convention.
-- Instruct users to add middleware by running commands such as `$ tool add https://github.com/some/prefix-middleware` or, if GitHub is the default source, `$ tool add some/prefix-middleware`. Providing that a core tap repository is maintained with the names or URLs of Middleware services repositories, the CLI tool could easily use this index to get the available taps, and this way, the users don’t have to register or add a Middleware service to the tool.
+- Use the `eigen` prefix for middleware repository names to make them easily discoverable on GitHub, following the Homebrew convention.
+- Instruct users to add middleware by running commands such as `$ tool add https://github.com/some/eigen-middleware` or, if GitHub is the default source, `$ tool add some/eigen-middleware`. Providing that a core tap repository is maintained with the names or URLs of Middleware services repositories, the CLI tool could easily use this index to get the available taps, and this way, the users don’t have to register or add a Middleware service to the tool.
 - For a new version of the Middleware service, the Middleware provider will create a new package following the proposed standard structure and specification and put it in the Tap repo with a new git tag representing the new release.
-- The existing CLI tool should clone the repo, identify the appropriate version (git tag), and follow the necessary steps for setup based on the repository's structure. Installation and upgrading of a Middleware service will be the same for the CLI tool. The main difference between the two processes will be that the CLI tool will try to keep unchanged settings and data between the old and new versions.
+- The existing CLI tool will clone the repo, identify the appropriate version (git tag), and follow the necessary steps for setup based on the repository's structure. Installation and upgrading of a Middleware service will be the same for the CLI tool. The main difference between the two processes will be that the CLI tool will try to keep unchanged settings and data between the old and new versions.
 - Offer additional commands for tasks like:
-    - Initializing an empty git repository with the defined structure: `$ tool init some/prefix-middleware`
-    - Checking the repository structure: `$ tool check some/prefix-middleware`
-    - Viewing middleware versions and marking the current version, if possible: `$ tool version some/prefix-middleware`
+    - Initializing an empty git repository with the defined structure: `$ tool init some/eigen-middleware`
+    - Checking the repository structure: `$ tool check some/eigen-middleware`
+    - Viewing middleware versions and marking the current version, if possible: `$ tool version some/eigen-middleware`
     
-    Tooling for initializing the Tap and managing the Middleware packages can be created. Also, CI pipelines that Middleware providers can use to validate new packages for new versions could be published.
+    Tooling for initializing the Tap and managing the Middleware packages will be available in future versions. Also, CI pipelines that Middleware providers can use to validate new packages for new versions will be published.
 
 Making your middleware software easily updatable by users is critical for ensuring a smooth user experience. By leveraging containerization technologies, implementing database migration and compatibility management, designing your middleware to handle shared state updates automatically, and using a CLI tool for middleware package management, you can simplify the process of updating your software for your users.
-
-By following the tips provided in this guide, you can ensure that users can update your middleware software without worrying about breaking changes, schema and database version updates, or dealing with CLI commands, making it easier for them to stay current with the latest version of your software.
