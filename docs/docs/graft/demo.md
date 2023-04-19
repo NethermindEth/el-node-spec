@@ -151,7 +151,7 @@ This is how the dashboard looks now:
 
 ### Dashboard
 
-To backup dashboards int the Eigen Layer folder (all the ones created by graft) run the following command:
+To backup dashboards in the Eigen Layer folder (all the ones created by graft), run the following command:
 
 ```shell
 graft dashboard backup
