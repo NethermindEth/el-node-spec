@@ -129,7 +129,7 @@ This command creates a new panel with the name `Demo panel` and the UID `el-eige
 
 ![Eigen Layer add panel](/img/graft-el-addpanel.png)
 
-Select the `Demo panel` and press and it will be added to the dashboard
+Select the `Demo panel` and it will be added to the dashboard
 
 ![Select panel](/img/graft-el-select-panel.png)
 
