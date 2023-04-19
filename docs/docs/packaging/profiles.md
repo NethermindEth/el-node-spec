@@ -115,7 +115,7 @@ A Middleware setup wizard could do these checks to guarantee an open port for ea
 
 :::
 
-The type `id` should be used for those values that need to be unique across several middleware setups, for example, container names.
+The type `id` should be used for those values that need to be unique across several Middleware setups, for example, container names.
 
 :::caution
 
@@ -186,6 +186,6 @@ Alerting contact points would be configured with the setup wizard regardless of 
 
 :::
 
-The profile file is the place to declare Prometheus targets inside the middleware setup mentioning the service name, port, and path to get metrics. Also, the `tag` value is declared, this value is important to differentiate metrics from different middleware instances. 
+The profile file is the place to declare Prometheus targets inside the Middleware setup mentioning the service name, port, and path to get metrics. Also, the `tag` value is declared, this value is important to differentiate metrics from different middleware instances. 
 
 The metrics port could be exposed in the `docker-compose.yml` for it to be reachable from outside the host machine, but is not mandatory to do so.
