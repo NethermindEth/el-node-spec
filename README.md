@@ -1,6 +1,6 @@
 # Middleware Specification
 
-This is a specification for the packaging, installation, update, and monitoring process of [Eigen Layer](https://www.eigenlayer.xyz/) middlewares. Middleware is used to participate in the Eigen Layer restake system. This specification could be used to manage multiple middlewares in the same host machine with a Middleware wizard setup tool.
+This is a specification for the packaging, installation, update, and monitoring process of [Eigen Layer](https://www.eigenlayer.xyz/) middlewares. Middleware is used to participate in the Eigen Layer restake system, to know more about Eigen Layer see its [documentation page](https://docs.eigenlayer.xyz/overview/readme). This specification could be used to manage multiple middlewares in the same host machine with a Middleware wizard setup tool.
 
 ## Docs
 
