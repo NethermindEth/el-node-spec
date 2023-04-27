@@ -20,7 +20,7 @@ This is the procedure to restore a docker container from a committed image:
 
 ## Restore volumes
 
-Each volume associated with the container could be restore from a `tar` file following the next steps:
+Each volume associated with the container could be restored from a `tar` file following the next steps:
 
 1. Create a new volume with the same name as the original volume:
   ```shell
