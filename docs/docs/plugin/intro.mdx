@@ -21,7 +21,11 @@ The plugin source is declared in the [manifest file](/docs/packaging/manifest#pl
 tool plugin [--middleware [middleware-name]] [plugin-name] [args...]
 ```
 
+:::note
+
 <NotCLIDisclaimer/>
+
+:::
 
 When the user runs the plugin, a container is created using the plugin image, and all the arguments specified by the user in the command are appended to the container [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint). The setup tool would run the container plugin instance and waits until it finishes, showing container logs. The exit code of the `tool plugin` command is the same exit code of the container plugin and will be printed in stdout to end-user knowledge.
 
