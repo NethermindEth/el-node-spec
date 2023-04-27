@@ -11,7 +11,7 @@ The file’s name must be `profile.yml`.
 
 The `docker-compose.yml` is designed for a given setup of a given Middleware version, and may have hardcoded values or settings, either in the `docker-compose.yml` or in the form of environment variables in a `.env` file with values. Settings could also be declared in the profile file in the `options` section, considering that an option is a flag mapping to an environment variable in the `docker-compose.yml` file. 
 
-A Middleware setup wizard tool would use each option or setting in the profile file to get this information from the user via prompts, arguments, or CLI flags. In case of an upgrade, values of unchanged settings can be used in the new version, and values for new settings would have to be requested by the user. 
+The Middleware setup wizard tool would use each option or setting in the profile file to get this information from the user via prompts, arguments, or CLI flags. In case of an upgrade, values of unchanged settings can be used in the new version, and values for new settings would have to be requested by the user. 
 
 Because values for settings could be declared in more than one place, we need to define some precedence rules, which are:
 
@@ -75,7 +75,7 @@ git: <string>
 ### `<option>`
 
 ```yaml
-# Name of the flag that the end-user will use to reference this option with a Middleware setup wizard
+# Name of the flag that the end-user will use to reference this option with the Middleware setup wizard
 name: <string>
 
 # Key of the env variable used in the docker-compose file
@@ -109,13 +109,13 @@ port: 8080
 id: "eigenlayer"
 ```
 
-These types will be used for automatic validation of the values provided by the user. For instance, if the setting’s type is `path_file`, a Middleware setup wizard tool would validate that a file exists on the provided path.
+These types will be used for automatic validation of the values provided by the user. For instance, if the setting’s type is `path_file`, the Middleware setup wizard tool would validate that a file exists on the provided path.
 
 :::caution
 
 Any port exposed under the `ports:` field in the `docker-compose.yml` **MUST** be represented by an `option` within the `options` list in the profile file, and the type `port` **MUST** be used. This allows port collision checks between multiple Middleware services running in the same host machine.
 
-A Middleware setup wizard could do these checks to guarantee an open port for each port target.
+The Middleware setup wizard tool could do these checks to guarantee an open port for each port target.
 
 :::
 
@@ -125,7 +125,7 @@ The type `id` should be used for those values that need to be unique across seve
 
 Using the `container_name` service field in the `docker-compose.yml` is optional, but if it is used, it is **mandatory** to provide an `option` within the `options` list with type `id` in the profile file. This allows name collision checks between multiple Middleware services running in the same host machine.
 
-A Middleware setup wizard could do the necessary checks to guarantee unique container names.
+The Middleware setup wizard tool could do the necessary checks to guarantee unique container names.
 
 :::
 
@@ -151,7 +151,7 @@ max_value: <int|float>
 ### `<monitoring>`
 
 ```yaml
-# Tag to be used for a Middleware setup wizard alongside the `name` from the manifest file to create a unique label that allows metrics to differentiate from other middleware instances metrics
+# Tag to be used for the Middleware setup wizard tool alongside the `name` from the manifest file to create a unique label that allows metrics to differentiate from other middleware instances metrics
 tag: <string>
 
 # List of metric targets inside the docker-compose
@@ -180,7 +180,7 @@ The monitoring setup is the set of a Grafana instance, Prometheus, and Node Expo
 
 :::tip
 
-A Middleware setup wizard could take care of the monitoring stack setup based on the settings provided in the profile file.
+The Middleware setup wizard tool could take care of the monitoring stack setup based on the settings provided in the profile file.
 
 :::
 

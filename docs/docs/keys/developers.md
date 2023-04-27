@@ -38,7 +38,7 @@ A good choice for a remote signer is [Web3signer](https://docs.web3signer.consen
 
 The Middleware Service can implement a feasible and sufficient method of loading the keys. This is asking for a path to a keystore folder. This keystore needs to follow some structure either the Service knows how to read, or an Middleware [plugin](../plugin/intro.mdx) knows how to transform to something the Service knows how to read.
 
-Usually, the plugin idea is the most recommended because the Service has the freedom to use whatever structure they need or want for the keystore. Also, no constraint is being put on users or key generation tools. This also fits the idea of a Middleware setup wizard supporting such plugins. Apart from the wizard domain, users could use this plugin (as a Service command/subcommand) to process the raw keystore if they go for a manual setup.
+Usually, the plugin idea is the most recommended because the Service has the freedom to use whatever structure they need or want for the keystore. Also, no constraint is being put on users or key generation tools. This also fits the idea of the Middleware setup wizard tool supporting such plugins. Apart from the wizard domain, users could use this plugin (as a Service command/subcommand) to process the raw keystore if they go for a manual setup.
 
 Plugins could be made to generate the keys directly to a keystore folder the Service knows how to read. Generation would be made according to user inputs. Third party tools could be used to generate keystores.
 
@@ -52,4 +52,4 @@ By keys, we refer to any kind of secret, either in plain text or encrypted.
 
 This keystore structure requires a strict specifications on the file names, folder names, and contents within the keystore. Plugins can help enormously to get the burden of maintaining such structure off the user.
 
-The path to this keystore folder can be provided via an environment variable or argument. Either way, a target for an option in [the profile file](../packaging/profiles.md) of the packaging proposal for Middleware services can be used to allow a Middleware setup wizard tool to get his path from the user.
+The path to this keystore folder can be provided via an environment variable or argument. Either way, a target for an option in [the profile file](../packaging/profiles.md) of the packaging proposal for Middleware services can be used to allow the Middleware setup wizard tool to get his path from the user.

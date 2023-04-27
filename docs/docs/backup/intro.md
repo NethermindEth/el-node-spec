@@ -19,5 +19,5 @@ All the commands used to describe the backup and restore procedures are only to 
 :::
 
 :::tip
-A Middleware setup wizard could take care of the entire backup, restore, and rollback process.
+The Middleware setup wizard tool could take care of the entire backup, restore, and rollback process.
 :::
