@@ -45,7 +45,7 @@ Leverage the Middleware setup wizard, inspired by the Homebrew Tap approach, for
 
 ### Tips:
 
-- The Middleware setup wizard tool is in development that will follow a standard structure for Middleware git repositories to streamline the installation and management process.
+- The Middleware setup wizard tool (currently in development) will follow a standard structure for Middleware git repositories to streamline the installation and management process.
 - Use the `eigen` prefix for Middleware repository names to make them easily discoverable on GitHub, following the Homebrew convention.
 - Instruct users to add Middleware by running commands such as `$ tool add https://github.com/some/eigen-middleware` or, if GitHub is the default source, `$ tool add some/eigen-Middleware`. Providing that a core tap repository is maintained with the names or URLs of Middleware services repositories, the Middleware setup wizard tool could easily use this index to get the available taps, and this way, the users don’t have to register or add a Middleware service to the tool.
 - For a new version of the Middleware service, the Middleware provider will create a new package following the proposed standard structure and specification and put it in the Tap repo with a new git tag representing the new release.
