@@ -22,7 +22,8 @@ id: reference
 ## `manifest.yml`
 
 ```yaml
-version: "v0.1.0"
+version: "v1.0.0"
+middleware_version: "v0.1.0"
 name: eigenDA
 upgrade: required
 profiles:
