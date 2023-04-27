@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # EigenLayer Middleware API 
 
-The EigenLayer Middleware API provides monitoring and common metrics for middleware services designed for the EigenLayer protocol.
+The EigenLayer Middleware API provides monitoring and common metrics for Middleware services designed for the EigenLayer protocol.
 
 ## Base URL
 
@@ -41,7 +41,7 @@ If the requested version is not supported, the API will respond with a 404 Not F
 
 ## Middleware
 
-Endpoints to query middleware related information.
+Endpoints to query Middleware related information.
 
 ### GET /eigen/middleware/spec-version
 
@@ -123,7 +123,7 @@ No parameters
 
 ### GET /eigen/middleware/version
 
-Provides middleware service identity information in a format similar to [HTTP User-Agent](https://www.rfc-editor.org/rfc/rfc7231#section-5.5.3)
+Provides Middleware service identity information in a format similar to [HTTP User-Agent](https://www.rfc-editor.org/rfc/rfc7231#section-5.5.3)
 
 #### Parameters
 
@@ -201,7 +201,7 @@ No parameters
 
 ### GET /eigen/middleware/health
 
-Returns middleware service health status in HTTP status codes.
+Returns Middleware service health status in HTTP status codes.
 
 #### Parameters
 
@@ -217,7 +217,7 @@ No parameters
 
 ### GET /eigen/middleware/services
 
-Returns a list of all backing services that are currently registered with the middleware service setup. Useful to determine if a service is currently registered with the middleware service and to get the service ID for health endpoint.
+Returns a list of all backing services that are currently registered with the Middleware service setup. Useful to determine if a service is currently registered with the Middleware service and to get the service ID for health endpoint.
 
 #### Parameters
 
@@ -335,7 +335,7 @@ No parameters
 
 ### GET /eigen/middleware/services/{service_ID}/health
 
-Returns the health status of the given service in HTTP status codes. The service ID is the service ID returned by the `/eigen/v1/services` endpoint. The service is considered healthy if the service is registered with the middleware service and the service is currently online.
+Returns the health status of the given service in HTTP status codes. The service ID is the service ID returned by the `/eigen/v1/services` endpoint. The service is considered healthy if the service is registered with the Middleware service and the service is currently online.
 
 #### Parameters
 

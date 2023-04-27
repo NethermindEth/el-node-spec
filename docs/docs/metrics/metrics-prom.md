@@ -12,7 +12,7 @@ The table below defines metrics which may be captured by Middleware services whi
 | `eigen_fees_earned_total` | Counter | The amount of fees earned in `<token>` | `middleware_name`, `token` |
 | `eigen_slashing_incurred_total` | Counter | The amount of slashing incurred in `<token>` | `middleware_name`, `token` |
 | `eigen_balance_total` | Gauge | Middleware total balance in `<token>` | `middleware_name`, `token` |
-| `eigen_performance_score` | Gauge | The performance metric is a score between 0 and 100 and each middleware provider can define their own way of calculating the score. The score is calculated based on the performance of the middleware service and the performance of the backing  services. | `middleware_name` |
+| `eigen_performance_score` | Gauge | The performance metric is a score between 0 and 100 and each Middleware provider can define their own way of calculating the score. The score is calculated based on the performance of the Middleware service and the performance of the backing  services. | `middleware_name` |
 | `eigen_rpc_request_duration_seconds` | Histogram | Duration of json-rpc `<method>` in seconds | `middleware_name`,`method`, `client`, `version` |
 | `eigen_rpc_request_total` | Counter | Total of json-rpc `<method>` requests | `middleware_name`, `method`,`client`,`version` |
 | `eigen_version` | Gauge | Version metadata | `middleware_name`, `commit`, `runtime`, `version`, `spec_version` |
