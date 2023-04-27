@@ -23,7 +23,7 @@ Dashboards are saved in JSON format, and they could be restored using the Grafan
 graft dashboard backup
 ```
 
-This will save all the JSON dashboards in the `dashboards` directory in the current working directory. Could be useful to run it in the root of the middleware profile directory to save dashboards following the middleware package structure, follow [this link](/docs/packaging/#profile) to learn more about the middleware profile structure.
+This will save all the JSON dashboards in the `dashboards` directory in the current working directory. Could be useful to run it in the root of the Middleware profile directory to save dashboards following the Middleware package structure, follow [this link](/docs/packaging/#profile) to learn more about the Middleware profile structure.
 
 :::note
 
