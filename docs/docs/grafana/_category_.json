@@ -1,9 +1,0 @@
-{
-    "label": "Grafana Monitoring",
-    "position": 7,
-    "link": {
-      "type": "generated-index",
-      "description": "Supported Grafana dashboards."
-    }
-  }
-  

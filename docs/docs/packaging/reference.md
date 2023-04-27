@@ -22,7 +22,8 @@ id: reference
 ## `manifest.yml`
 
 ```yaml
-version: "v0.1.0"
+version: "v1.0.0"
+middleware_version: "v0.1.0"
 name: eigenDA
 upgrade: required
 profiles:
@@ -151,6 +152,6 @@ monitoring:
 
 :::tip
 
-In this example, flag-x is present in the .env (`X_VALUE` var) and the reference file but without a default value. In this case, if the user doesn’t have a value using the flag (for a Middleware setup wizard), the .env value will be used.
+In this example, `flag-x` is present in the `.env` (`X_VALUE` var) and the reference file but without a default value. In this case, if the user doesn’t provide a value using the flag (for a Middleware setup wizard), the `.env` value will be used.
 
 :::

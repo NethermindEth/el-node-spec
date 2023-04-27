@@ -7,7 +7,7 @@ id: backup
 
 ## Commit container
 
-Commit container changes into an image is the first step to backup a service. The procedure to do it is the following:
+Committing container changes into an image is the first step to backup a service. The procedure to do it is the following:
 
 1. Stop the docker container that you want to backup
   ```shell
@@ -39,4 +39,4 @@ Volumes associated with the container could be saved to a `tar` file. The proced
 docker run --rm -v [volume-name]:/data -v [backup-dest]:/backup alpine tar -czvf /backup/[backup-file-name].tar.gz /data
 ```
 
-This command will start a new container based on the Alpine Linux image, mount the specified volume to the `/data` directory inside the container, and mount the `backup-dest` directory to `/backup` inside the container. The tar command is then used to create a compressed tar archive of the volume data and save it to the `/backup` directory inside the container. The --rm flag is used to automatically remove the container after the backup process is complete.
+This command will start a new container based on the Alpine Linux image, mount the specified volume to the `/data` directory inside the container, and mount the `backup-dest` directory to `/backup` inside the container. The tar command is then used to create a compressed tar archive of the volume data and save it to the `/backup` directory inside the container. The `--rm` flag is used to automatically remove the container after the backup process is complete.

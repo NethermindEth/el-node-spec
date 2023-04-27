@@ -9,13 +9,17 @@ The configuration/profile file should be in YAML format and contain information 
 
 The file’s name must be `profile.yml`.
 
-The `docker-compose.yml` is designed for a given setup of a given Middleware version, and may have hardcoded values or settings, either in the `docker-compose.yml` or in the form of environment variables in a `.env` file with values. Settings could also be declared in the profile file in the `options` section, considering that an option is a flag mapping of our tool to an environment variable in the `docker-compose.yml` file. Because it could be declared in more than one place, we need to define some precedence rules, which are:
+The `docker-compose.yml` is designed for a given setup of a given Middleware version, and may have hardcoded values or settings, either in the `docker-compose.yml` or in the form of environment variables in a `.env` file with values. Settings could also be declared in the profile file in the `options` section, considering that an option is a flag mapping to an environment variable in the `docker-compose.yml` file. 
+
+A Middleware setup wizard tool would use each option or setting in the profile file to get this information from the user via prompts, arguments, or CLI flags. In case of an upgrade, values of unchanged settings can be used in the new version, and values for new settings would have to be requested by the user. 
+
+Because values for settings could be declared in more than one place, we need to define some precedence rules, which are:
 
 1. The value set with a CLI flag because the option is in the package profile
 2. The default value in the package profile if it is defined and is not set with the CLI
-3. Value hardcoded in the `.env` provided in the package by the middleware developer
+3. Value hardcoded in the `.env` provided in the package by the Middleware developer
 
-A Middleware setup wizard tool would use each option or setting in the profile file to get this information from the user via prompts or arguments. In case of an upgrade, values of unchanged settings can be used in the new version, and values for new settings would have to be requested by the user.
+
 
 ## Profile file specification
 
@@ -34,7 +38,7 @@ hardware_requirements_overrides: <hardware_requirements_overrides>
 # Plugin overrides that will replace plugin from the manifest file for this profile
 plugin_overrides: <plugin_overrides>
 
-# List of options the user can set or use default values if defined in the <option>. Each option is an environment variable in the docker-compose file, middleware developers need to be careful about what options to expose here
+# List of options the user can set or use default values if defined in the <option>. Each option is an environment variable in the docker-compose file, Middleware developers need to be careful about what options to expose here
 options:
 	[ - <option> ]
 
@@ -74,10 +78,10 @@ git: <string>
 # Name of the flag that the end-user will use to reference this option with a Middleware setup wizard
 name: <string>
 
-# Name of the env variable used in the docker-compose file
+# Key of the env variable used in the docker-compose file
 target: <string>
 
-# Data type of the option: enum, int, float, string, bool, etc. These types will be defined in another section with more details
+# Data type of the option: enum, int, float, string, bool, etc. These types are defined below with more details
 type: <type>
 
 # Default value
@@ -119,7 +123,7 @@ The type `id` should be used for those values that need to be unique across seve
 
 :::caution
 
-Using the `container_name` service field in the `docker-compose.yml` is optional, but if it is used, it is **mandatory** to provide an `option` within the `options` list in the profile file. This allows name collision checks between multiple Middleware services running in the same host machine.
+Using the `container_name` service field in the `docker-compose.yml` is optional, but if it is used, it is **mandatory** to provide an `option` within the `options` list with type `id` in the profile file. This allows name collision checks between multiple Middleware services running in the same host machine.
 
 A Middleware setup wizard could do the necessary checks to guarantee unique container names.
 
@@ -170,9 +174,9 @@ path: <string>
 
 ## Monitoring and metrics settings
 
-A middleware environment is a set of services deployed with Docker in the same Docker network. Prometheus metrics can be fetched from exporters that each service could implement. To know where these metrics are, we can rely on [docker container networking](https://docs.docker.com/config/containers/container-networking/) to reference services.
+A Middleware environment is a set of services deployed with Docker in the same Docker network. Prometheus metrics can be fetched from exporters that each service could implement. To know where these metrics are, we can rely on [docker container networking](https://docs.docker.com/config/containers/container-networking/) to reference services.
 
-The monitoring setup is the set of a Grafana instance, Prometheus, and Node Exporter. Grafana has a global dashboard with metrics from [Node Exporter](https://github.com/prometheus/node_exporter) to monitor host performance. To view middleware dashboards in Grafana, the middleware package contains `dashboards/` and `panels/` folders that would be deployed to the Grafana instance when the middleware is added. Also, alerting rules could be provided following the [Grafana file provisioning](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#provision-alert-rules) for alerting, all the alert rules that the middleware wants to add to Grafana are under the `alerts/` folder.
+The monitoring setup is the set of a Grafana instance, Prometheus, and Node Exporter. Grafana has a global dashboard with metrics from [Node Exporter](https://github.com/prometheus/node_exporter) to monitor host performance. To view Middleware dashboards in Grafana, the Middleware package contains `dashboards/` and `panels/` folders that would be deployed to the Grafana instance when the Middleware service is added. Also, alerting rules could be provided following the [Grafana file provisioning](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#provision-alert-rules) for alerting. Any alert rules that the Middleware service would like to add to Grafana should be under the `alerts/` folder.
 
 :::tip
 
@@ -182,7 +186,7 @@ A Middleware setup wizard could take care of the monitoring stack setup based on
 
 :::note
 
-Alerting contact points would be configured with the setup wizard regardless of the middleware, for instance: [Email](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#e-mail), [Opsgenie](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#opsgenie), [Slack](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#slack) or [Telegram](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#telegram).
+Alerting contact points would be configured with the setup wizard regardless of the Middleware service, for instance: [Email](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#e-mail), [Opsgenie](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#opsgenie), [Slack](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#slack) or [Telegram](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#telegram).
 
 :::
 

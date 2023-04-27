@@ -3,6 +3,6 @@
   "position": 3,
   "link": {
     "type": "generated-index",
-    "description": "Plugins are a way to extend the functionality of the CLI tool and are specialized in their own middleware."
+    "description": "Plugins are a way to extend the functionality of a Middleware setup wizard tool and are specialized in their own Middleware service."
   }
 }
