@@ -11,7 +11,7 @@ The file’s name must be `profile.yml`.
 
 The `docker-compose.yml` is designed for a given setup of a given Middleware version, and may have hardcoded values or settings, either in the `docker-compose.yml` or in the form of environment variables in a `.env` file with values. Settings could also be declared in the profile file in the `options` section, considering that an option is a flag mapping to an environment variable in the `docker-compose.yml` file. 
 
-The Middleware setup wizard tool would use each option or setting in the profile file to get this information from the user via prompts, arguments, or CLI flags. In case of an upgrade, values of unchanged settings can be used in the new version, and values for new settings would have to be requested by the user. 
+The [Middleware setup wizard tool](../wizard/intro) would use each option or setting in the profile file to get this information from the user via prompts, arguments, or CLI flags. In case of an upgrade, values of unchanged settings can be used in the new version, and values for new settings would have to be requested by the user. 
 
 Because values for settings could be declared in more than one place, we need to define some precedence rules, which are:
 

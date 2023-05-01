@@ -25,7 +25,7 @@ Note that the `uid` value should follow the naming pattern `el-[middleware]-pane
 
 ## Backup panels
 
-Panels are saved in JSON format, and can be automatically restored by the Middleware setup wizard tool in the Grafana UI during Middleware installation time. To get all the panel JSON files in the Eigen Layer folder, use the following command:
+Panels are saved in JSON format, and can be automatically restored by the [Middleware setup wizard tool](../wizard/intro) in the Grafana UI during Middleware installation time. To get all the panel JSON files in the Eigen Layer folder, use the following command:
 
 ```shell
 graft panel backup

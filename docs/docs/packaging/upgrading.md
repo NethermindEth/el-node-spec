@@ -41,7 +41,7 @@ Design your Middleware software to handle shared state updates automatically. Th
 
 ## 4. Middleware Package Management with Middleware setup wizard tool and Searchable Prefix
 
-Leverage the Middleware setup wizard, inspired by the Homebrew Tap approach, for managing Middleware packages and their versions. This tool will handle each Middleware as a git repository with a defined structure, simplifying the process for clients setting up and managing Middleware. To make Middleware repositories easily searchable on GitHub, use the `eigen` prefix for the repository name similar to the Homebrew naming convention.
+Leverage the [Middleware setup wizard tool](../wizard/intro) inspired by the Homebrew Tap approach, for managing Middleware packages and their versions. This tool will handle each Middleware as a git repository with a defined structure, simplifying the process for clients setting up and managing Middleware. To make Middleware repositories easily searchable on GitHub, use the `eigen` prefix for the repository name similar to the Homebrew naming convention.
 
 ### Tips:
 
