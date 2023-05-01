@@ -8,7 +8,7 @@ The specification described throughout this document can be used to manage multi
 - Install, Update, and Uninstall Middleware services
 - Set up a Monitoring stack for Middleware services using Prometheus and Grafana
 - Backup and Restore Middleware services
-- Run a [plugin](./plugin/intro.mdx) on a given Middleware service setup
+- Run a [plugin](../plugin/intro.mdx) on a given Middleware service setup
 - Display Middleware services logs
 - Describe the status of an already set up Middleware service
 
