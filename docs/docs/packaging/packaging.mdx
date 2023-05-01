@@ -12,7 +12,7 @@ Middleware Services in the EigenLayer Protocol under the proposed specification 
 
 The package for a specific version of a Middleware service will consist of a **`docker-compose.yml`** file, a manifest file defining the package version and additional information (if the upgrade is optional or recommended, etc), and a set of profiles or different configurations for the package. 
 
-Middleware providers will publish their packages following the format defined [below](#middleware-package) in a separate git repository (Tap) called `eigen-<middleware name>`, which involves Middleware providers initializing a git repository with the required and standard structure that will be defined later. A Middleware setup wizard would rely on this structure to get package information and install the Middleware service.
+Middleware providers will publish their packages following the format defined [below](#middleware-package) in a separate git repository (Tap) called `eigen-<middleware name>`, which involves Middleware providers initializing a git repository with the required and standard structure that will be defined later. The Middleware setup wizard tool would rely on this structure to get package information and install the Middleware service.
 
 Middleware providers manage these repositories, and with each new release, they update the tap with the corresponding configuration files. The new package will only be considered correct if it follows the required structure and if a git tag is created with it in the tap repository.
 
@@ -32,7 +32,7 @@ While this decentralized approach is interesting and offers some unique benefits
 
 :::caution
 
-The Eigen Layer Middleware Specification is designed for **Linux** systems. The packaging structure and its functionality rely on the use of Docker and Docker Networking, including host networking, which needs to be better supported on Windows or Mac OS.
+The Eigen Layer Middleware Specification is designed for **Linux** systems. The packaging structure and its functionality rely on the use of Docker and Docker Networking, including host networking, which needs to be better supported on Windows and Mac OS.
 
 :::
 

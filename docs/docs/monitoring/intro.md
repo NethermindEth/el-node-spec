@@ -3,7 +3,7 @@ title: Introduction
 sidebar_position: 1
 ---
 
-Deploying the **Monitoring Stack** is the responsibility of a Middleware setup wizard tool and is the set of following services:
+Deploying the **Monitoring Stack** is the responsibility of the Middleware setup wizard tool and is the set of following services:
 
 - **Prometheus** as center point of metrics collection.
 - **Node Exporter** to collect metrics from the host machine.
