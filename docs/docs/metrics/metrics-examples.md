@@ -8,7 +8,6 @@ id: metrics-examples
 This guide is intended to showcase the practical application of monitoring APIs and Prometheus metrics using authentic examples. Examples used are:
 
 - EigenDA
-- Roll-ups
 
 Some metrics and endpoints are very straightforward, but having a reference for the responses and labels can be helpful.
 

@@ -17,7 +17,7 @@ This command could be executed in the folder with the configuration file or alte
 
 ## Backup dashboards
 
-Dashboards are saved in JSON format, and they could be restored using the Grafana UI later, or by using a Middleware wizard setup tool. To get all the dashboard JSON files in the Eigen Layer folder, use the following command:
+Dashboards are saved in JSON format, and they could be restored using the Grafana UI later, or by using the [Middleware setup wizard tool](../wizard/intro). To get all the dashboard JSON files in the Eigen Layer folder, use the following command:
     
 ```shell
 graft dashboard backup
