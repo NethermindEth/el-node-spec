@@ -20,7 +20,7 @@ The Middleware wizard setup tool has yet to be made available. It is currently i
 
 :::tip
 
-A work-in-progress description of the tool functionalities can be found [here](https://nethermind.notion.site/Wizard-Tool-Functionalities-96e5f2d682ce49bba78d38b6e4df4665)
+A work-in-progress description of the tool functionalities can be found [here](https://www.notion.so/nethermind/EXT-Wizard-Tool-Specification-e2d382de6fce4eadbc4e16dea4b24626?pvs=4)
 
 :::
 
