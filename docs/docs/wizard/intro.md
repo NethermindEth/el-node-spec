@@ -26,4 +26,4 @@ A work-in-progress description of the tool functionalities can be found [here](h
 
 The tool will be open-source for on-premise setups only on Linux machines and must be installed by node operators that want access to all the tool's features. It will be developed and maintained jointly by Layr Labs Inc and Nethermind.
 
-As more information becomes available and can be published in the futurei, this section will be progressively updated with additional details and insights regarding the setup wizard.
+As more information becomes available and can be published in the future, this section will be progressively updated with additional details and insights regarding the setup wizard.
