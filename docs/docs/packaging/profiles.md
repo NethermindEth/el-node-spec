@@ -5,7 +5,7 @@ id: profiles
 
 # Profile file
 
-The configuration/profile file should be in YAML format and contain information about the Middleware profile and its options. Options are any argument, flag, configuration value, or environment variable of any services within the AVS `docker-compose.yml` whose value might be required from the user input. 
+The configuration/profile file should be in YAML format and contain information about the Middleware profile and its options. Options are any argument, flag, configuration value, or environment variable of any services within the Node `docker-compose.yml` whose value might be required from the user input. 
 
 The file’s name must be `profile.yml`.
 
@@ -113,7 +113,7 @@ These types will be used for automatic validation of the values provided by the 
 
 :::caution
 
-Any port exposed under the `ports:` field in the `docker-compose.yml` **MUST** be represented by an `option` within the `options` list in the profile file, and the type `port` **MUST** be used. This allows port collision checks between multiple AVSs running in the same host machine.
+Any port exposed under the `ports:` field in the `docker-compose.yml` **MUST** be represented by an `option` within the `options` list in the profile file, and the type `port` **MUST** be used. This allows port collision checks between multiple Nodes running in the same host machine.
 
 The Middleware setup wizard tool could do these checks to guarantee an open port for each port target.
 
@@ -123,7 +123,7 @@ The type `id` should be used for those values that need to be unique across seve
 
 :::caution
 
-Using the `container_name` service field in the `docker-compose.yml` is optional, but if it is used, it is **mandatory** to provide an `option` within the `options` list with type `id` in the profile file. This allows name collision checks between multiple AVSs running in the same host machine.
+Using the `container_name` service field in the `docker-compose.yml` is optional, but if it is used, it is **mandatory** to provide an `option` within the `options` list with type `id` in the profile file. This allows name collision checks between multiple Nodes running in the same host machine.
 
 The Middleware setup wizard tool could do the necessary checks to guarantee unique container names.
 
@@ -176,7 +176,7 @@ path: <string>
 
 A Middleware environment is a set of services deployed with Docker in the same Docker network. Prometheus metrics can be fetched from exporters that each service could implement. To know where these metrics are, we can rely on [docker container networking](https://docs.docker.com/config/containers/container-networking/) to reference services.
 
-The monitoring setup is the set of a Grafana instance, Prometheus, and Node Exporter. Grafana has a global dashboard with metrics from [Node Exporter](https://github.com/prometheus/node_exporter) to monitor host performance. To view Middleware dashboards in Grafana, the Middleware package contains `dashboards/` and `panels/` folders that would be deployed to the Grafana instance when the AVS is added. Also, alerting rules could be provided following the [Grafana file provisioning](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#provision-alert-rules) for alerting. Any alert rules that the AVS would like to add to Grafana should be under the `alerts/` folder.
+The monitoring setup is the set of a Grafana instance, Prometheus, and Node Exporter. Grafana has a global dashboard with metrics from [Node Exporter](https://github.com/prometheus/node_exporter) to monitor host performance. To view Middleware dashboards in Grafana, the Middleware package contains `dashboards/` and `panels/` folders that would be deployed to the Grafana instance when the Node is added. Also, alerting rules could be provided following the [Grafana file provisioning](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#provision-alert-rules) for alerting. Any alert rules that the Node would like to add to Grafana should be under the `alerts/` folder.
 
 :::tip
 
@@ -186,7 +186,7 @@ The Middleware setup wizard tool could take care of the monitoring stack setup b
 
 :::note
 
-Alerting contact points would be configured with the setup wizard regardless of the AVS, for instance: [Email](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#e-mail), [Opsgenie](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#opsgenie), [Slack](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#slack) or [Telegram](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#telegram).
+Alerting contact points would be configured with the setup wizard regardless of the Node, for instance: [Email](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#e-mail), [Opsgenie](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#opsgenie), [Slack](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#slack) or [Telegram](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#telegram).
 
 :::
 

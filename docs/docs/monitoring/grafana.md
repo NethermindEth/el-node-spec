@@ -15,7 +15,7 @@ The Middleware setup wizard tool creates the Eigen Layer folder in Grafana. This
 
 Initially, the Middleware setup wizard tool would only deploy the [Host Metrics](#host-metrics) dashboard in the [Eigen Layer folder](#eigen-layer-folder). This dashboard monitors host resources like CPU, memory, disk, network, etc.
 
-The Middleware specific dashboards are provided by Middleware developers in the installation package. The tool would deploy them dynamically in the [Eigen Layer folder](#eigen-layer-folder) when a new AVS is deployed.
+The Middleware specific dashboards are provided by Middleware developers in the installation package. The tool would deploy them dynamically in the [Eigen Layer folder](#eigen-layer-folder) when a new Node is deployed.
 
 ### Host Metrics
 

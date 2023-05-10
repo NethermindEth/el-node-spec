@@ -5,7 +5,7 @@
 			"type": "prometheus",
 			"uid": "${Datasource}"
 		},
-		"description": "The performance metric is a score between 0 and 100 and each middleware provider can define their own way of calculating the score. The score is calculated based on the performance of the AVS and the performance of the backing services.",
+		"description": "The performance metric is a score between 0 and 100 and each middleware provider can define their own way of calculating the score. The score is calculated based on the performance of the Node and the performance of the backing services.",
 		"fieldConfig": {
 			"defaults": {
 				"color": {

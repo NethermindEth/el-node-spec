@@ -5,7 +5,7 @@ id: node-operators
 
 # Key Management Best Practices for Node Operators
 
-For Node Operators, such as institutional stakers or those managing numerous validator keys, staking services like **[Twinstake](https://twinstake.io/)** can be advantageous, as they allow for continuous fund control while combining technical, risk, and treasury management expertise. With such services, there is no need to maintain infrastructure or develop safe key signing or management mechanisms. However, some Node Operators possess the resources to deploy and maintain the required infrastructure for running nodes and AVSs effectively for multiple validator keys. A detailed blog discussing various security layers can be found **[here](https://www.attestant.io/posts/protecting-validator-keys/)**.
+For Node Operators, such as institutional stakers or those managing numerous validator keys, staking services like **[Twinstake](https://twinstake.io/)** can be advantageous, as they allow for continuous fund control while combining technical, risk, and treasury management expertise. With such services, there is no need to maintain infrastructure or develop safe key signing or management mechanisms. However, some Node Operators possess the resources to deploy and maintain the required infrastructure for running nodes and Nodes effectively for multiple validator keys. A detailed blog discussing various security layers can be found **[here](https://www.attestant.io/posts/protecting-validator-keys/)**.
 
 Below are a few recommendations:
 
