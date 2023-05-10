@@ -5,24 +5,24 @@ id: metrics-prom-spec
 
 # Prometheus Metrics Specification
 
-The table below defines metrics which may be captured by Nodes which expose metrics to Prometheus. Nodes may expose additional metrics however these should not use the `eigen_` prefix. The label `middleware_name` allows identification of Nodes and we strongly recommend to use that label in any additional or custom metric the Middleware provides.
+The table below defines metrics which may be captured by Nodes which expose metrics to Prometheus. Nodes may expose additional metrics however these should not use the `eigen_` prefix. The label `avs_name` allows identification of Nodes and we strongly recommend to use that label in any additional or custom metric the Node provides.
 
 | Name | Metric Type | Definition | Labels |
 |---|---|---|---|
-| `eigen_fees_earned_total` | Counter | The amount of fees earned in `<token>` | `middleware_name`, `token` |
-| `eigen_slashing_incurred_total` | Counter | The amount of slashing incurred in `<token>` | `middleware_name`, `token` |
-| `eigen_balance_total` | Gauge | Middleware total balance in `<token>` | `middleware_name`, `token` |
-| `eigen_performance_score` | Gauge | The performance metric is a score between 0 and 100 and each Middleware provider can define their own way of calculating the score. The score is calculated based on the performance of the Node and the performance of the backing  services. | `middleware_name` |
-| `eigen_rpc_request_duration_seconds` | Histogram | Duration of json-rpc `<method>` in seconds | `middleware_name`,`method`, `client`, `version` |
-| `eigen_rpc_request_total` | Counter | Total of json-rpc `<method>` requests | `middleware_name`, `method`,`client`,`version` |
-| `eigen_version` | Gauge | Version metadata | `middleware_name`, `commit`, `runtime`, `version`, `spec_version` |
+| `eigen_fees_earned_total` | Counter | The amount of fees earned in `<token>` | `avs_name`, `token` |
+| `eigen_slashing_incurred_total` | Counter | The amount of slashing incurred in `<token>` | `avs_name`, `token` |
+| `eigen_balance_total` | Gauge | Node total balance in `<token>` | `avs_name`, `token` |
+| `eigen_performance_score` | Gauge | The performance metric is a score between 0 and 100 and each developer can define their own way of calculating the score. The score is calculated based on the performance of the Node and the performance of the backing  services. | `avs_name` |
+| `eigen_rpc_request_duration_seconds` | Histogram | Duration of json-rpc `<method>` in seconds | `avs_name`,`method`, `client`, `version` |
+| `eigen_rpc_request_total` | Counter | Total of json-rpc `<method>` requests | `avs_name`, `method`,`client`,`version` |
+| `eigen_version` | Gauge | Version metadata | `avs_name`, `commit`, `runtime`, `version`, `spec_version` |
 
 ## Notation examples
 
-* `eigen_fees_earned_total{middleware_name="EigenDA", token="ETH"}`
-* `eigen_slashing_incurred_total{middleware_name="EigenDA", token="ETH"}`
-* `eigen_total_balance_total{middleware_name="EigenDA", token="ETH"}`
-* `eigen_performance_score{middleware_name="EigenDA"}`
-* `eigen_rpc_request_duration_seconds{middleware_name="EigenDA", method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
-* `eigen_rpc_request_total{middleware_name="EigenDA", method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}` 
-* `eigen_version{middleware_name="EigenDA", commit="120f4c8db352845f93b0e86a46b5f807297e4ac3", runtime=".NET 7.0.3", version="1.17.2", spec_version="1.0.0"}`
+* `eigen_fees_earned_total{avs_name="EigenDA", token="ETH"}`
+* `eigen_slashing_incurred_total{avs_name="EigenDA", token="ETH"}`
+* `eigen_total_balance_total{avs_name="EigenDA", token="ETH"}`
+* `eigen_performance_score{avs_name="EigenDA"}`
+* `eigen_rpc_request_duration_seconds{avs_name="EigenDA", method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
+* `eigen_rpc_request_total{avs_name="EigenDA", method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}` 
+* `eigen_version{avs_name="EigenDA", commit="120f4c8db352845f93b0e86a46b5f807297e4ac3", runtime=".NET 7.0.3", version="1.17.2", spec_version="1.0.0"}`
