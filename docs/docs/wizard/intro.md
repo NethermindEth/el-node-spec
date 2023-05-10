@@ -20,10 +20,10 @@ The AVS wizard setup tool has yet to be made available. It is currently in its d
 
 :::tip
 
-A work-in-progress description of the tool functionalities can be found [here](https://nethermind.notion.site/Wizard-Tool-Functionalities-96e5f2d682ce49bba78d38b6e4df4665b)
+A work-in-progress description of the tool functionalities can be found [here](https://www.notion.so/nethermind/EXT-Wizard-Tool-Specification-e2d382de6fce4eadbc4e16dea4b24626?pvs=4)
 
 :::
 
 The tool will be open-source for on-premise setups only on Linux machines and must be installed by node operators that want access to all the tool's features. It will be developed and maintained jointly by Layr Labs Inc and Nethermind.
 
-As more information becomes available and can be published in the futurei, this section will be progressively updated with additional details and insights regarding the setup wizard.
+As more information becomes available and can be published in the future, this section will be progressively updated with additional details and insights regarding the setup wizard.
