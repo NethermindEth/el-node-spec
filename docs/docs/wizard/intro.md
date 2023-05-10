@@ -3,7 +3,7 @@ title: "Introduction"
 sidebar_position: 1
 ---
  
-The specification described throughout this document can be used to manage multiple Nodes in the same host machine with a **Middleware wizard setup tool**. Such a tool will be built and will provide the following functionalities:
+The specification described throughout this document can be used to manage multiple Nodes in the same host machine with a **AVS wizard setup tool**. Such a tool will be built and will provide the following functionalities:
 
 - Install, Update, and Uninstall Nodes
 - Set up a Monitoring stack for Nodes using Prometheus and Grafana
@@ -14,7 +14,7 @@ The specification described throughout this document can be used to manage multi
 
 :::note Disclaimer
 
-The Middleware wizard setup tool has yet to be made available. It is currently in its development phase.
+The AVS wizard setup tool has yet to be made available. It is currently in its development phase.
 
 :::
 

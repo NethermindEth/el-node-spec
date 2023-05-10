@@ -5,7 +5,7 @@ id: intro
 
 # Introduction
 
-This section presents key management suggestions for both developers and users. Within the context of EigenLayer, Middleware providers (developers) ought to be acquainted with proper practices concerning key loading, particularly signing keys, while stakers (users) should understand how to manage them effectively.
+This section presents key management suggestions for both developers and users. Within the context of EigenLayer, developers ought to be acquainted with proper practices concerning key loading, particularly signing keys, while stakers (users) should understand how to manage them effectively.
 
 ## Keys
 

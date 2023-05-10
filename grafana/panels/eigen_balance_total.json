@@ -5,7 +5,7 @@
 			"type": "prometheus",
 			"uid": "${Datasource}"
 		},
-		"description": "Middleware total balance in tokens",
+		"description": "Node total balance in tokens",
 		"fieldConfig": {
 			"defaults": {
 				"color": {
