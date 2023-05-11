@@ -2,11 +2,11 @@
 title: Introduction
 ---
 
-The plugin system will provide a way to extend the [Middleware setup wizard tool](../wizard/intro) with new functionalities that are not included by default. This is necessary due to the diversity of services and structure that a Middleware service could have. Each Middleware could provide a plugin to extend the setup tool with middleware-specific functionalities interacting with the services declared in the docker-compose setup.
+The plugin system will provide a way to extend the [AVS setup wizard tool](../wizard/intro) with new functionalities that are not included by default. This is necessary due to the diversity of services and structure that a Node could have. Each Node could provide a plugin to extend the setup tool with avs-specific functionalities interacting with the services declared in the docker-compose setup.
 
 ## Plugin as a Docker image
 
-A plugin is a Docker container created from a Docker image provided in the Middleware package. The image could be provided following these two options:
+A plugin is a Docker container created from a Docker image provided in the Node package. The image could be provided following these two options:
 
 1. Pre-built image
 2. Built from a Dockerfile using a Git repository URL
@@ -18,7 +18,7 @@ The plugin source is declared in the [manifest file](/docs/packaging/manifest#pl
 ## Running the plugin
 
 ```bash
-tool plugin [--middleware [middleware-name]] [plugin-name] [args...]
+tool plugin [--avs [avs-name]] [plugin-name] [args...]
 ```
 
 :::note
@@ -29,8 +29,8 @@ tool plugin [--middleware [middleware-name]] [plugin-name] [args...]
 
 When the user runs the plugin, a container is created using the plugin image, and all the arguments specified by the user in the command are appended to the container [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint). The setup tool would run the container plugin instance and waits until it finishes, showing container logs. The exit code of the `tool plugin` command is the same exit code of the container plugin and will be printed in stdout to end-user knowledge.
 
-The `--middleware` flag could be used to specify target Middleware. Will be required if multiple profiles of the same Middleware are running, if only one profile is running then the tool would use it as the target.
+The `--avs` flag could be used to specify target AVS. Will be required if multiple profiles of the same Node are running, if only one profile is running then the tool would use it as the target.
 
-## Accessing the Middleware services
+## Accessing the Nodes
 
-The plugin container will be executed in the same docker-compose network as the Middleware instance. This means that the plugin container will be able to access the Middleware services, and it can use the Docker name resolution to access the services using the service names defined in the docker-compose file. It is the responsibility of the Middleware provider to use proper service names and include all the necessary functionalities in the docker-compose file to allow the plugin to do all the actions properly.
+The plugin container will be executed in the same docker-compose network as the Node instance. This means that the plugin container will be able to access the Nodes, and it can use the Docker name resolution to access the services using the service names defined in the docker-compose file. It is the responsibility of the Developer to use proper service names and include all the necessary functionalities in the docker-compose file to allow the plugin to do all the actions properly.

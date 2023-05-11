@@ -42,7 +42,7 @@ Replace `<user>` and `<password>` in the docker-compose file above with the desi
 :::
 
 :::note
-You need to have a Middleware metrics provider that could be a real Middleware or a mock Middleware instance. You need to configure prometheus properly to scrape the metrics from the Middleware. For more information about how to configure prometheus to scrape metrics check the [Prometheus documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
+You need to have a AVS metrics provider that could be a real Node or a mock Node instance. You need to configure prometheus properly to scrape the metrics from the Node. For more information about how to configure prometheus to scrape metrics check the [Prometheus documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
 :::
 
 Once services are up and running, the next thing to do is create the Eigen Layer folder in the Grafana instance, and this folder is the one that will contain all the dashboards and panels that will be saved at the end. To do this, run the following command:

@@ -15,7 +15,7 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 
 ### HTTP Monitoring API
 
-#### GET /eigen/middleware/spec-version
+#### GET /eigen/node/spec-version
 
 #### Response
 
@@ -25,17 +25,17 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 }
 ```
 
-#### GET /eigen/v1/middleware/version
+#### GET /eigen/node/version
 
 #### Response
 
 ```
 {
-  "version": "EigenDA-Middleware/v1.0.0"
+  "version": "EigenDA-AVS/v1.0.0"
 }
 ```
 
-#### GET /eigen/v1/middleware/health
+#### GET /eigen/node/health
 
 #### Response
 
@@ -43,7 +43,7 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 200 OK
 ```
 
-#### GET /eigen/v1/middleware/services
+#### GET /eigen/node/services
 
 ### Response
 
@@ -72,7 +72,7 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 }
 ```
 
-#### GET /eigen/v1/middleware/services/graph-node-da/health
+#### GET /eigen/node/services/graph-node-da/health
 
 #### Response
 
@@ -80,7 +80,7 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 200 OK
 ```
 
-#### GET /eigen/v1/middleware/services/ipfs-da/health
+#### GET /eigen/node/services/ipfs-da/health
 
 #### Response
 
@@ -88,7 +88,7 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 206 Partial Content
 ```
 
-#### GET /eigen/v1/middleware/services/postgres-da/health
+#### GET /eigen/node/services/postgres-da/health
 
 #### Response
 
@@ -99,16 +99,16 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 ### Prometheus Metrics
 
 #### Economics metrics
-* `eigen_fees_earned_total{middleware_name="EigenDA", token="ETH"}`
-* `eigen_slashing_incurred_total{middleware_name="EigenDA", token="ETH"}`
-* `eigen_total_balance_total{middleware_name="EigenDA", token="ETH"}`
+* `eigen_fees_earned_total{avs_name="EigenDA", token="ETH"}`
+* `eigen_slashing_incurred_total{avs_name="EigenDA", token="ETH"}`
+* `eigen_total_balance_total{avs_name="EigenDA", token="ETH"}`
 
 #### Metadata metrics
-* `eigen_version{middleware_name="EigenDA", commit="120f4c8db352845f93b0e86a46b5f807297e4ac3", runtime="Go 1.19.0", version="1.0.0"}`
+* `eigen_version{avs_name="EigenDA", commit="120f4c8db352845f93b0e86a46b5f807297e4ac3", runtime="Go 1.19.0", version="1.0.0"}`
 
 #### Perfomance metrics
-* `eigen_performance_score{middleware_name="EigenDA"}`
+* `eigen_performance_score{avs_name="EigenDA"}`
 
 #### RPC metrics
-* `eigen_rpc_request_duration_seconds{middleware_name="EigenDA", method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
-* `eigen_rpc_request_total{middleware_name="EigenDA", method="eth_estimateGas", client="nethermind", version="1.17.2"}` 
+* `eigen_rpc_request_duration_seconds{avs_name="EigenDA", method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
+* `eigen_rpc_request_total{avs_name="EigenDA", method="eth_estimateGas", client="nethermind", version="1.17.2"}` 
