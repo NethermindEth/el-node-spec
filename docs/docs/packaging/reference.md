@@ -24,7 +24,7 @@ id: reference
 ```yaml
 version: "v1.0.0"
 middleware_version: "v0.1.0"
-name: sample-middleware
+name: sample-avs
 upgrade: required
 hardware_requirements: 
   - min_cpu_cores: 4
@@ -159,6 +159,6 @@ monitoring:
 
 :::tip
 
-In this example, `flag-x` is present in the `.env` (`X_VALUE` var) and the reference file but without a default value. In this case, if the user doesn’t provide a value using the flag (for the [Middleware setup wizard tool](../wizard/intro)), the `.env` value will be used.
+In this example, `flag-x` is present in the `.env` (`X_VALUE` var) and the reference file but without a default value. In this case, if the user doesn’t provide a value using the flag (for the [AVS setup wizard tool](../wizard/intro)), the `.env` value will be used.
 
 :::

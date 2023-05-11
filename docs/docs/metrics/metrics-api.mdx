@@ -7,9 +7,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-# EigenLayer Middleware API 
+# EigenLayer Node API 
 
-The EigenLayer Middleware API provides monitoring and common metrics for Middleware services designed for the EigenLayer protocol.
+The EigenLayer Node API provides monitoring and common metrics for Nodes designed for the EigenLayer protocol.
 
 ## Base URL
 
@@ -39,11 +39,11 @@ If the requested version is not supported, the API will respond with a 404 Not F
 }
 ```
 
-## Middleware
+## Node
 
-Endpoints to query Middleware related information.
+Endpoints to query Node related information.
 
-### GET /eigen/middleware/spec-version
+### GET /eigen/node/spec-version
 
 Provides API identity information in a format similar to [HTTP User-Agent](https://www.rfc-editor.org/rfc/rfc7231#section-5.5.3)
 
@@ -121,9 +121,9 @@ No parameters
   </TabItem>
 </Tabs>
 
-### GET /eigen/middleware/version
+### GET /eigen/node/version
 
-Provides Middleware service identity information in a format similar to [HTTP User-Agent](https://www.rfc-editor.org/rfc/rfc7231#section-5.5.3)
+Provides Node identity information in a format similar to [HTTP User-Agent](https://www.rfc-editor.org/rfc/rfc7231#section-5.5.3)
 
 #### Parameters
 
@@ -140,7 +140,7 @@ No parameters
 
   ```json
   {
-    "version": "EigenLayer-Middleware/v1.0.0"
+    "version": "EigenLayer-AVS/v1.0.0"
   }
   ```
 
@@ -153,7 +153,7 @@ No parameters
     "properties": {
       "version": {
         "type": "string",
-        "description": "Middleware service version"
+        "description": "Node version"
       }
     },
     "required": [
@@ -199,9 +199,9 @@ No parameters
   </TabItem>
 </Tabs>
 
-### GET /eigen/middleware/health
+### GET /eigen/node/health
 
-Returns Middleware service health status in HTTP status codes.
+Returns Node health status in HTTP status codes.
 
 #### Parameters
 
@@ -209,15 +209,15 @@ No parameters
 
 #### Responses
 
-**200** - Middleware service is healthy
+**200** - Node is healthy
 
-**206** - Middleware service is partially healthy. It is either initializing or some backing services are not healthy.
+**206** - Node is partially healthy. It is either initializing or some backing services are not healthy.
 
-**503** - Middleware service is unhealthy or having issues.
+**503** - Node is unhealthy or having issues.
 
-### GET /eigen/middleware/services
+### GET /eigen/node/services
 
-Returns a list of all backing services that are currently registered with the Middleware service setup. Useful to determine if a service is currently registered with the Middleware service and to get the service ID for health endpoint.
+Returns a list of all backing services that are currently registered with the Node setup. Useful to determine if a service is currently registered with the Node and to get the service ID for health endpoint.
 
 #### Parameters
 
@@ -333,9 +333,9 @@ No parameters
   </TabItem>
 </Tabs>
 
-### GET /eigen/middleware/services/{service_ID}/health
+### GET /eigen/node/services/{service_ID}/health
 
-Returns the health status of the given service in HTTP status codes. The service ID is the service ID returned by the `/eigen/v1/services` endpoint. The service is considered healthy if the service is registered with the Middleware service and the service is currently online.
+Returns the health status of the given service in HTTP status codes. The service ID is the service ID returned by the `/eigen/services` endpoint. The service is considered healthy if the service is registered with the Node and the service is currently online.
 
 #### Parameters
 
