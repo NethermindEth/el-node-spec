@@ -77,9 +77,6 @@ The `image` has more priority than the `git` option. If both are provided, the `
 # Name of the profile
 name: <string>
 
-# Relative path to the profile inside the package (relative to the manifest.yml file)
-src: <string>
-
 # Import settings from other profiles
 from_profile:
   # Import docker-compose.yml from <profile>
