@@ -38,8 +38,6 @@ The Eigen Layer AVS Specification is designed for **Linux** systems. The packagi
 
 ## Node package
 
-> All commands used in this section are for demonstration purposes only
-
 A Node is a collection of Docker services declared in a Docker Compose file. Developers are responsible for defining these services and their options well to work correctly.
 
 The objective of a Node package is to provide all the necessary files to set up a Node in an on-premise setup using [Docker Compose](https://docs.docker.com/compose/) as a service manager.
@@ -55,6 +53,12 @@ A package is a set of profiles, which means each Node version could have a colle
 ```
 tool add some/avs -v v1.0.0 [profile] [options...]
 ```
+
+:::note
+
+<NotCLIDisclaimer/>
+
+:::
 
 Profiles are suitable for creating specialized setups of the same version for different scenarios like different networks.
 
@@ -103,11 +107,11 @@ The `manifest.yml` file at the project's root is the entry point to define the p
 
 ## Tap structure
 
-The Tap should contain a `README.md`, and a folder with the contents described [above](#structure) named after the git tag that represents the release of a new package. Optionally, a `checksum.txt` file can be provided. The following directory structure can be used as reference:
+The Tap should contain a `README.md`, and a `pkg` folder with the contents described [above](#structure). Optionally, a `checksum.txt` file can be provided. The following directory structure can be used as reference:
 
 ```
 ./
-├── v1.0.0/
+├── pkg/
 │   ├── mainnet/
 │   │   ├── alerts/
 │   │   ├── dashboards/
