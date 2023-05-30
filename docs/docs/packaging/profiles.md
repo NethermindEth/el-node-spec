@@ -26,9 +26,6 @@ Because values for settings could be declared in more than one place, we need to
 ### Profile file
 
 ```yaml
-# Version of Profile file specification
-version: <string>
-
 # Hardware Requirements overrides that will replace requirements from the manifest file for this profile
 hardware_requirements_overrides: <hardware_requirements_overrides>
 
