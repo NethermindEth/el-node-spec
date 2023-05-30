@@ -10,9 +10,9 @@ The current version of the specification is `v1.0.0`.
 
 Documentation is divided into the following sections:
 
-- [Setup wizard](/docs/wizard/intro): A AVS wizard setup tool, aimed at easing Node establishment.
-- [Packaging & Upgrading](/docs/packaging/): How developers can package their Nodes and how a AVS wizard setup tool can install and upgrade them.
-- [Backup and Restore](/docs/backup/intro): How a AVS wizard setup tool can backup and restore Middlewares services, mainly during an upgrade process or a disaster recovery.
+- [Setup wizard](/docs/wizard/intro): An AVS wizard setup tool, aimed at making the operations of a node operator easy.
+- [Packaging & Upgrading](/docs/packaging/): How developers can package their Nodes and how an AVS wizard setup tool can install and upgrade them.
+- [Backup and Restore](/docs/backup/intro): How an AVS wizard setup tool can backup and restore AVS services, mainly during an upgrade process or a disaster recovery.
 - [Plugin](/docs/plugin/intro): How developers can provide a plugin to extend the AVS wizard setup tool with AVS-specific features.
 - [Keys Management](/docs/keys/intro): Good practices for keys management.
 - [Metrics](/docs/category/metrics): Prometheus standard metrics and Monitoring API for AVS implementations.
