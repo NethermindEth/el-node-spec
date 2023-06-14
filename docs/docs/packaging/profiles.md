@@ -98,7 +98,7 @@ str: "Hello, World!"
 path_dir: ./path/to/a/dir
 path_file: ./path/to/a/file
 uri: https://eigenlayer.com
-enum: [value1, value2, value3]
+select: option1
 port: 8080
 id: "eigenlayer"
 ```
@@ -140,6 +140,9 @@ min_value: <int|float>
 
 # Max value that could be, included. Will be ignored if it is used for a type different from <int> or <float>
 max_value: <int|float>
+
+# List of possible options to select. Will be ignored if it is used for a type different from <select>
+options: [ - <string> ]
 ```
 
 ### `<monitoring>`
