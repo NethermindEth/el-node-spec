@@ -75,7 +75,7 @@ name: <string>
 # Key of the env variable used in the docker-compose file
 target: <string>
 
-# Data type of the option: enum, int, float, string, bool, etc. These types are defined below with more details
+# Data type of the option: select, int, float, string, bool, etc. These types are defined below with more details
 type: <type>
 
 # Default value
