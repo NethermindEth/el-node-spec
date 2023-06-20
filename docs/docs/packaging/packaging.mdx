@@ -14,7 +14,7 @@ The package for a specific version of a Node will consist of a **`docker-compose
 
 Developers will publish their packages following the format defined [below](#node-package) in a separate git repository (Tap), which involves developers initializing a git repository with the required and standard structure that will be defined later. The [AVS setup wizard](../wizard/intro) would rely on this structure to get package information and install the Node.
 
-Developers manage these repositories, and with each new release, they update the tap with the corresponding configuration files. The new package will only be considered correct if it follows the required structure and if a git tag is created with it in the tap repository.
+Developers manage these repositories, and with each new release, they update the tap with the corresponding configuration files. The new package will only be considered correct if it follows the required structure and if a git tag that represents a correct [semantic versioning](https://semver.org) is created with it in the tap repository.
 
 The EigenLayer organization will maintain a core git repository that will serve as an index for all the published Nodes containing the URLs of all the packaging repositories. Developers have to create a Pull Request to this core repository to register their Node.
 

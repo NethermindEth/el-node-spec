@@ -145,7 +145,7 @@ max_value: <int|float>
 ### `<monitoring>`
 
 ```yaml
-# Tag to be used for the AVS setup wizard tool alongside the `name` from the manifest file to create a unique label that allows metrics to differentiate from other Node instances metrics
+# Tag (semantic versioning) to be used for the AVS setup wizard tool alongside the `name` from the manifest file to create a unique label that allows metrics to differentiate from other Node instances metrics
 tag: <string>
 
 # List of metric targets inside the docker-compose
