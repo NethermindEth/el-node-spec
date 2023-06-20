@@ -75,7 +75,7 @@ name: <string>
 # Key of the env variable used in the docker-compose file
 target: <string>
 
-# Data type of the option: select, int, float, string, bool, etc. These types are defined below with more details
+# Data type of the option: enum, int, float, string, bool, etc. These types are defined below with more details
 type: <type>
 
 # Default value
@@ -98,7 +98,7 @@ str: "Hello, World!"
 path_dir: ./path/to/a/dir
 path_file: ./path/to/a/file
 uri: https://eigenlayer.com
-select: [value1, value2, value3]
+enum: [value1, value2, value3]
 port: 8080
 id: "eigenlayer"
 ```
