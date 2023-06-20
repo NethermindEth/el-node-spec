@@ -110,7 +110,7 @@ options:
     help: "Main service container name"
   - name: "flag-x"
     target: X_VALUE
-    type: enum
+    type: select
     values: [value1, value2, value3]
     help: "The flag-x defines X behavior. Possible values are value1, value2, and value3"
   - name: "main-port"
