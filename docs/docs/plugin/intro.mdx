@@ -18,7 +18,7 @@ The plugin source is declared in the [manifest file](/docs/packaging/manifest#pl
 ## Running the plugin
 
 ```bash
-tool plugin [--avs [avs-name]] [plugin-name] [args...]
+eigenlayer plugin [--avs [avs-name]] [plugin-name] [args...]
 ```
 
 :::note
@@ -27,10 +27,10 @@ tool plugin [--avs [avs-name]] [plugin-name] [args...]
 
 :::
 
-When the user runs the plugin, a container is created using the plugin image, and all the arguments specified by the user in the command are appended to the container [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint). The setup tool would run the container plugin instance and waits until it finishes, showing container logs. The exit code of the `tool plugin` command is the same exit code of the container plugin and will be printed in stdout to end-user knowledge.
+When the user runs the plugin, a container is created using the plugin image, and all the arguments specified by the user in the command are appended to the container [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint). The setup tool would run the container plugin instance and waits until it finishes, showing container logs. The exit code of the `eigenlayer plugin` command is the same exit code of the container plugin and will be printed in stdout to end-user knowledge.
 
 The `--avs` flag could be used to specify target AVS. Will be required if multiple profiles of the same Node are running, if only one profile is running then the tool would use it as the target.
 
 ## Accessing the Nodes
 
-The plugin container will be executed in the same docker-compose network as the Node instance. This means that the plugin container will be able to access the Nodes, and it can use the Docker name resolution to access the services using the service names defined in the docker-compose file. It is the responsibility of the Developer to use proper service names and include all the necessary functionalities in the docker-compose file to allow the plugin to do all the actions properly.
+The plugin container will be executed in the same docker network as the Node instance. This means that the plugin container will be able to access the Nodes, and it can use the Docker name resolution to access the services using the service names defined in the docker-compose file. It is the responsibility of the Developer to use proper service names and include all the necessary functionalities in the docker-compose file to allow the plugin to do all the actions properly.

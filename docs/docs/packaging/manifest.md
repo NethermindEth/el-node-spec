@@ -63,8 +63,8 @@ See [plugin documentation](/docs/plugin/intro) to learn more about the plugin sy
 # Pre-built image name ready to be pulled.
 image: <string>
 
-# URL to a Git repository to build the image from the source.
-git: <string>
+# URL or PATH to build the image from source. Can refer to three kinds of resources: Git repositories, pre-packaged tarball contexts and plain text files. Look at https://docs.docker.com/engine/reference/commandline/build/#description for details. 
+build_from: <string>
 ```
 
 :::caution

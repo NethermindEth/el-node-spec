@@ -35,7 +35,6 @@ plugin:
   - image: "your-organization/plugin-service:latest"
 profiles:
   - name: "profile"
-    src: "./profile"
 ```
 
 ## `docker-compose.yml`
@@ -152,11 +151,10 @@ options:
     help: "Docker volume name for Postgres DB"
 
 monitoring:
-  tag: mainnet-da
-    targets:
-      - service: main-service
-        port: 9000
-        path: /metrics
+  targets:
+    - service: main-service
+      port: 9000
+      path: /metrics
 ```
 
 :::tip

@@ -47,14 +47,10 @@ Leverage the [AVS setup wizard tool](../wizard/intro) inspired by the Homebrew T
 
 - The AVS setup wizard tool (currently in development) will follow a standard structure for AVS git repositories to streamline the installation and management process.
 - Use the `eigen` prefix for Node repository names to make them easily discoverable on GitHub, following the Homebrew convention.
-- Instruct users to add AVS by running commands such as `$ tool add https://github.com/some/eigen-avs` or, if GitHub is the default source, `$ tool add some/eigen-avs`. Providing that a core tap repository is maintained with the names or URLs of Nodes repositories, the AVS setup wizard tool could easily use this index to get the available taps, and this way, the users don’t have to register or add a Node to the tool.
+- Instruct users to install AVS by running commands such as `$ eigenlayer install https://github.com/some/eigen-avs` or, if GitHub is the default source, `$ eigenlayer install some/eigen-avs`. Providing that a core tap repository is maintained with the names or URLs of Nodes repositories, the AVS setup wizard tool could easily use this index to get the available taps, and this way, the users don’t have to register or add a Node to the tool.
 - For a new version of the Node, the Developers will create a new package following the proposed standard structure and specification and put it in the Tap repo with a new git tag following [semantic versioning](https://semver.org) representing the new release.
 - The AVS setup wizard tool will clone the repo, identify the appropriate version (git tag), and follow the necessary steps for setup based on the repository's structure. Installation and upgrading of a Node will be the same for the AVS setup wizard. The main difference between the two processes will be that the CLI tool will try to keep unchanged settings and data between the old and new versions.
-- Offer additional commands for tasks like:
-    - Initializing an empty git repository with the defined structure: `$ tool init some/eigen-AVS`
-    - Checking the repository structure: `$ tool check some/eigen-avs`
-    - Viewing Node versions and marking the current version, if possible: `$ tool version some/eigen-avs`
     
-    Tooling for initializing the Tap and managing the Node packages will be available in future versions. Also, CI pipelines that Developers can use to validate new packages for new versions will be published.
+Tooling for initializing the Tap and managing the Node packages will be available in future versions. Also, CI pipelines that Developers can use to validate new packages for new versions will be published.
 
 Making your AVS software easily updatable by users is critical for ensuring a smooth user experience. By leveraging containerization technologies, implementing database migration and compatibility management, designing your Node to handle shared state updates automatically, and using the AVS setup wizard, you can simplify the process of updating your software for your users.
