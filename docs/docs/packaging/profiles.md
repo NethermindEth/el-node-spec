@@ -129,7 +129,7 @@ The AVS setup wizard tool could do the necessary checks to guarantee unique cont
 # RE2 regex https://github.com/google/re2/wiki/Syntax. Will be ignored if it is used for a type different from <string>
 re2_regex: <string>
 
-# Format of the file to validate. Will be ignored if it is used for a type different from <path_file>
+# Format of the file to validate. A leading dot is required for the format, like ".txt". Will be ignored if it is used for a type different from <path_file>
 format: <string>
 
 # List of accepted URL schemes. Will be ignored if it is used for a type different from <uri>

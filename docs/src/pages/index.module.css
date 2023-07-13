@@ -21,3 +21,18 @@
   align-items: center;
   justify-content: center;
 }
+
+.button--eigen {
+  background-color: #1A176B; 
+  color: white;
+}
+
+.featurePng {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  height: 100px;
+  width: 250px;
+}

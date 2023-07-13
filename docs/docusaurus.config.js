@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Eigen Layer AVS specification',
+  title: 'EigenLayer AVS specification',
   tagline: '',
   favicon: 'img/favicon.ico',
 
@@ -75,11 +75,11 @@ const config = {
         },
       },
       navbar: {
-        title: 'Eigen Layer AVS specification',
-        // logo: {
-        //   alt: 'My Site Logo',
-        //   src: 'img/logo.svg',
-        // },
+        title: 'EigenLayer AVS specification',
+        logo: {
+          alt: 'EigenLayer Logo',
+          src: 'img/eigenlayer.png',
+        },
         items: [
           {
             type: 'doc',

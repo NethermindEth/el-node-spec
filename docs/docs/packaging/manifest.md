@@ -63,12 +63,16 @@ See [plugin documentation](/docs/plugin/intro) to learn more about the plugin sy
 # Pre-built image name ready to be pulled.
 image: <string>
 
-# URL or PATH to build the image from source. Can refer to three kinds of resources: Git repositories, pre-packaged tarball contexts and plain text files. Look at https://docs.docker.com/engine/reference/commandline/build/#description for details. 
+# URL to build the image from source. Can refer to Git repositories. Look at https://docs.docker.com/engine/reference/commandline/build/#description for details. We don't support plain text files or pre-packaged tarball contexts currently.
 build_from: <string>
 ```
 
 :::caution
 The `image` has more priority than the `git` option. If both are provided, the `image` will be used.
+:::
+
+:::info
+The `build_from` field can only refer to **remote** Git repositories at the moment.
 :::
 
 ### `<profile>`
