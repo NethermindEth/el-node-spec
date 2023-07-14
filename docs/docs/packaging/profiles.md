@@ -38,6 +38,9 @@ options:
 
 # Monitoring options
 monitoring: <monitoring>
+
+# AVS API configuration
+api: <api>
 ```
 
 ### `<hardware_requirements_overrides>`
@@ -164,6 +167,18 @@ port: <int>
 
 # Metrics path, for instance: /metrics
 path: <string>
+```
+
+### `<api>`
+
+Defines the AVS API endpoint that the Node exposes following the [AVS API specification](/docs/metrics/metrics-api).
+
+```yaml
+# Name of the docker-compose service exposing the API
+service: <string>
+
+# Port serving the API
+port: <int>
 ```
 
 ## Monitoring and metrics settings
