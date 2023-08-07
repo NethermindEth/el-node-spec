@@ -75,9 +75,3 @@ The `image` has more priority than the `git` option. If both are provided, the `
 The `build_from` field can only refer to **remote** Git repositories at the moment.
 :::
 
-  dashboards: <string>
-  # Import panels folder from <profile>
-  panels:     <string>
-  # Import alerts folder from <profile>
-  alerts:     <string>
-```
