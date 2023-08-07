@@ -36,7 +36,7 @@ plugin: <plugin>
 
 # List of Node package profiles
 profiles:
-[ - <profile> ]
+[ - <string> ]
 ```
 
 ### `<hardware_requirements>`
@@ -75,19 +75,6 @@ The `image` has more priority than the `git` option. If both are provided, the `
 The `build_from` field can only refer to **remote** Git repositories at the moment.
 :::
 
-### `<profile>`
-
-```yaml
-# Name of the profile
-name: <string>
-
-# Import settings from other profiles
-from_profile:
-  # Import docker-compose.yml from <profile>
-  compose:    <string>
-  # Import .env from <profile>
-  env:        <string>
-  # Import dashboards folder from <profile>
   dashboards: <string>
   # Import panels folder from <profile>
   panels:     <string>
