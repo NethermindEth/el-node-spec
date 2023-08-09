@@ -21,7 +21,7 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 
 ```
 {
-    "api_version": "v1.0.0"
+    "api_version": "v0.0.1"
 }
 ```
 
@@ -31,7 +31,7 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 
 ```
 {
-  "version": "EigenDA-AVS/v1.0.0"
+  "version": "EigenDA-AVS/v0.0.1"
 }
 ```
 
@@ -104,7 +104,7 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 * `eigen_total_balance_total{avs_name="EigenDA", token="ETH"}`
 
 #### Metadata metrics
-* `eigen_version{avs_name="EigenDA", commit="120f4c8db352845f93b0e86a46b5f807297e4ac3", runtime="Go 1.19.0", version="1.0.0"}`
+* `eigen_version{avs_name="EigenDA", commit="120f4c8db352845f93b0e86a46b5f807297e4ac3", runtime="Go 1.19.0", version="0.0.1"}`
 
 #### Perfomance metrics
 * `eigen_performance_score{avs_name="EigenDA"}`

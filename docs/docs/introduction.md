@@ -6,7 +6,7 @@ sidebar_position: 0
 
 This is a specification for the packaging, installation, update, and monitoring process of [Eigen Layer](https://www.eigenlayer.xyz/) Nodes. AVS is used to participate in the Eigen Layer restaking system, to know more about Eigen Layer see its [documentation page](https://docs.eigenlayer.xyz/overview/readme). 
 
-The current version of the specification is `v1.0.0`.
+The current version of the specification is `v0.0.1`.
 
 Documentation is divided into the following sections:
 

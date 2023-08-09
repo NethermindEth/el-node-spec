@@ -25,4 +25,4 @@ The table below defines metrics which may be captured by Nodes which expose metr
 * `eigen_performance_score{avs_name="EigenDA"}`
 * `eigen_rpc_request_duration_seconds{avs_name="EigenDA", method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
 * `eigen_rpc_request_total{avs_name="EigenDA", method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}` 
-* `eigen_version{avs_name="EigenDA", commit="120f4c8db352845f93b0e86a46b5f807297e4ac3", runtime=".NET 7.0.3", version="1.17.2", spec_version="1.0.0"}`
+* `eigen_version{avs_name="EigenDA", commit="120f4c8db352845f93b0e86a46b5f807297e4ac3", runtime=".NET 7.0.3", version="1.17.2", spec_version="0.0.1"}`
