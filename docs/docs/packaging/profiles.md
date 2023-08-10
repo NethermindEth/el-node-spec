@@ -156,6 +156,12 @@ targets:
 	[ - <monitoring-target> ]
 ```
 
+:::caution
+
+The profile must provide a monitoring target at least.
+
+:::
+
 ### `<monitoring-target>`
 
 ```yaml
