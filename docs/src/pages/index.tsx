@@ -33,7 +33,7 @@ export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={`${siteConfig.title}`}
       description="This document specifies the packaging, installation, updating, and monitoring of Eigen Layer nodes.">
       <HomepageHeader />
       <main>
