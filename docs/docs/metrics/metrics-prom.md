@@ -13,8 +13,8 @@ The table below defines metrics which may be captured by Nodes which expose metr
 | `eigen_slashing_incurred_total` | Counter | The amount of slashing incurred in `<token>` | `avs_name`, `token` |
 | `eigen_balance_total` | Gauge | Node total balance in `<token>` | `avs_name`, `token` |
 | `eigen_performance_score` | Gauge | The performance metric is a score between 0 and 100 and each developer can define their own way of calculating the score. The score is calculated based on the performance of the Node and the performance of the backing  services. | `avs_name` |
-| `eigen_rpc_request_duration_seconds` | Histogram | Duration of json-rpc `<method>` in seconds | `avs_name`,`method`, `client`, `version` |
-| `eigen_rpc_request_total` | Counter | Total of json-rpc `<method>` requests | `avs_name`, `method`,`client`,`version` |
+| `eigen_rpc_request_duration_seconds` | Histogram | Duration of json-rpc `<method>` in seconds from Ethereum Execution client `<client>` | `avs_name`,`method`, `client`, `version` |
+| `eigen_rpc_request_total` | Counter | Total of json-rpc `<method>` requests from Ethereum Execution client `<client>` | `avs_name`, `method`,`client`,`version` |
 | `eigen_version` | Gauge | Version metadata | `avs_name`, `commit`, `runtime`, `version`, `spec_version` |
 
 ## Notation examples
