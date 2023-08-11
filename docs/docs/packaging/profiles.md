@@ -82,7 +82,7 @@ target: <string>
 type: <type>
 
 # Default value
-default: <default>
+default: <any>
 
 # Custom validation defined for this value
 validate: <validate>
