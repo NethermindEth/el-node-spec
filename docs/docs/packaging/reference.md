@@ -22,7 +22,7 @@ id: reference
 ## `manifest.yml`
 
 ```yaml
-version: "v1.0.0"
+version: "v0.0.1"
 middleware_version: "v0.1.0"
 name: sample-avs
 upgrade: required
