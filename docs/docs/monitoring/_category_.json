@@ -1,6 +1,6 @@
 {
   "label": "Monitoring Stack",
-  "position": 7,
+  "position": 8,
   "link": {
     "type": "generated-index",
     "description": "This section describes the Monitoring Stack that could be deployed by the AVS setup wizard tool to monitor Nodes and the host machine."

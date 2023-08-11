@@ -171,7 +171,7 @@ path: <string>
 
 ### `<api>`
 
-Defines the AVS API endpoint that the Node exposes following the [AVS API specification](/docs/metrics/metrics-api).
+Defines the AVS Node API endpoint that the Node exposes following the [AVS Node API specification](/docs/api).
 
 ```yaml
 # Name of the docker-compose service exposing the API
