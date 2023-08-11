@@ -8,6 +8,12 @@ This is a specification for the packaging, installation, update, and monitoring 
 
 The current version of the specification is `v0.0.1`.
 
+:::caution
+
+The current version of the AVS Node specification should be considered a public alpha version. Therefore, it may undergo rapid changes and experience incompatibility issues until the first stable version is released.
+
+:::
+
 Documentation is divided into the following sections:
 
 - [Setup wizard](/docs/wizard/intro): An AVS wizard setup tool, aimed at making the operations of a node operator easy.
