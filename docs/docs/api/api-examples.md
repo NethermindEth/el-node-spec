@@ -81,7 +81,7 @@ This guide is intended to showcase the practical application of the AVS Node API
 ### Response
 
 ```
-206 Partial Content
+503 Service Unavailable
 ```
 
 ### GET /eigen/node/services/postgres-da/health
@@ -89,5 +89,5 @@ This guide is intended to showcase the practical application of the AVS Node API
 ### Response
 
 ```
-503 Service Unavailable
+206 Partial Content
 ```
