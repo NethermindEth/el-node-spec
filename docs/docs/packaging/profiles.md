@@ -65,8 +65,8 @@ See [plugin documentation](/docs/plugin/intro) to learn more about the plugin sy
 # Pre-built image name ready to be pulled.
 image: <string>
 
-# URL to a Git repository to build the image from the source.
-git: <string>
+# URL to build the image from source. Can refer to Git repositories. Look at https://docs.docker.com/engine/reference/commandline/build/#description for details. We don't support plain text files or pre-packaged tarball contexts currently.
+build_from: <string>
 ```
 
 ### `<option>`
@@ -82,7 +82,7 @@ target: <string>
 type: <type>
 
 # Default value
-default: <default>
+default: <int | float | bool | string>
 
 # Custom validation defined for this value
 validate: <validate>
@@ -177,7 +177,7 @@ path: <string>
 
 ### `<api>`
 
-Defines the AVS API endpoint that the Node exposes following the [AVS API specification](/docs/metrics/metrics-api).
+Defines the AVS Node API endpoint that the Node exposes following the [AVS Node API specification](/docs/api).
 
 ```yaml
 # Name of the docker-compose service exposing the API
