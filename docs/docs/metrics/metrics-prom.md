@@ -15,7 +15,6 @@ The table below defines metrics which may be captured by Nodes which expose metr
 | `eigen_performance_score` | Gauge | The performance metric is a score between 0 and 100 and each developer can define their own way of calculating the score. The score is calculated based on the performance of the Node and the performance of the backing  services. | `avs_name` |
 | `eigen_rpc_request_duration_seconds` | Histogram | Duration of json-rpc `<method>` in seconds from Ethereum Execution client `<client>` | `avs_name`,`method`, `client`, `version` |
 | `eigen_rpc_request_total` | Counter | Total of json-rpc `<method>` requests from Ethereum Execution client `<client>` | `avs_name`, `method`,`client`,`version` |
-| `eigen_version` | Gauge | Version metadata | `avs_name`, `commit`, `runtime`, `version`, `spec_version` |
 
 ## Notation examples
 
@@ -25,4 +24,3 @@ The table below defines metrics which may be captured by Nodes which expose metr
 * `eigen_performance_score{avs_name="EigenDA"}`
 * `eigen_rpc_request_duration_seconds{avs_name="EigenDA", method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
 * `eigen_rpc_request_total{avs_name="EigenDA", method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}` 
-* `eigen_version{avs_name="EigenDA", commit="120f4c8db352845f93b0e86a46b5f807297e4ac3", runtime=".NET 7.0.3", version="1.17.2", spec_version="0.0.1"}`
