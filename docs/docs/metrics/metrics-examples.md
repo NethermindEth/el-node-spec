@@ -16,13 +16,13 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 ## Prometheus Metrics
 
 ### Economics metrics
-* `eigen_fees_earned_total{avs_name="EigenDA", token="ETH"}`
-* `eigen_slashing_incurred_total{avs_name="EigenDA", token="ETH"}`
-* `eigen_total_balance_total{avs_name="EigenDA", token="ETH"}`
+* `eigen_fees_earned_total{token="ETH"}`
+* `eigen_slashing_incurred_total{token="ETH"}`
+* `eigen_total_balance_total{token="ETH"}`
 
 ### Perfomance metrics
 * `eigen_performance_score{avs_name="EigenDA"}`
 
 ### RPC metrics
-* `eigen_rpc_request_duration_seconds{avs_name="EigenDA", method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
-* `eigen_rpc_request_total{avs_name="EigenDA", method="eth_estimateGas", client="nethermind", version="1.17.2"}` 
+* `eigen_rpc_request_duration_seconds{method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
+* `eigen_rpc_request_total{method="eth_estimateGas", client="nethermind", version="1.17.2"}` 
