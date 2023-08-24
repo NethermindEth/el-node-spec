@@ -5,7 +5,7 @@ id: metrics-prom-spec
 
 # Prometheus Metrics Specification
 
-The table below defines metrics which may be captured by Nodes which expose metrics to Prometheus. Nodes may expose additional metrics however these should not use the `eigen_` prefix. The label `avs_name` allows identification of Nodes and we strongly recommend to use that label in any additional or custom metric the Node provides.
+The table below defines metrics which may be captured by Nodes which expose metrics to Prometheus. Nodes may expose additional metrics however these should not use the `eigen_` prefix. 
 
 | Name | Metric Type | Definition | Labels |
 |---|---|---|---|

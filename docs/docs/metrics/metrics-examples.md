@@ -21,7 +21,7 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 * `eigen_total_balance_total{token="ETH"}`
 
 ### Perfomance metrics
-* `eigen_performance_score{avs_name="EigenDA"}`
+* `eigen_performance_score`
 
 ### RPC metrics
 * `eigen_rpc_request_duration_seconds{method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
