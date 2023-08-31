@@ -44,7 +44,7 @@ version: '3.8'
 
 services:
   main-service:
-    image: your-organization/main-service:latest
+    image: ${MAIN_SERVICE_IMAGE} 
     container_name: ${MAIN_SERVICE_NAME}
     command:
     - eigen 
@@ -102,6 +102,13 @@ DB_NAME=example_name
 version: "1.0"
 
 options:
+  - name: "main-container-image"
+    target: MAIN_SERVICE_IMAGE
+    type: string
+    default: "your-organization/main-service:latest"
+    validate:
+      re2_regex: "^(?:(?:[a-zA-Z0-9.-]+(?:\:[0-9]+)?/)?[a-zA-Z0-9_-]+(?:/[a-zA-Z0-9_-]+)?(?:\:[a-zA-Z0-9_.-]+)?)?$"
+    help: "Main service container docker image"
   - name: "main-container-name"
     target: MAIN_SERVICE_NAME
     type: id
