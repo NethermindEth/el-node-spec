@@ -13,7 +13,7 @@ func InitCommand(gClient grafana.Client) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "init",
 		Short: "Initialize configuration",
-		Long:  "Initialize configuration file with empty data sources list and create the Eigen Layer folder in Grafana.",
+		Long:  "Initialize configuration file with empty data sources list and create the EigenLayer folder in Grafana.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			// Create folder
 			_, err := gClient.FolderByUID(config.FolderUID)

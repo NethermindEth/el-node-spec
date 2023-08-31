@@ -5,7 +5,7 @@ sidebar_position: 4
 
 ## Init panel
 
-It is important to initialize panels using graft to ensure that the panels are stored in the Eigen Layer folder and also is the only way to set the `uid` property of the panel, which is essential to avoid collisions when the end user imports backup files into their own Grafana instance.
+It is important to initialize panels using graft to ensure that the panels are stored in the EigenLayer folder and also is the only way to set the `uid` property of the panel, which is essential to avoid collisions when the end user imports backup files into their own Grafana instance.
 
 To initialize a new panel run following command:
 
@@ -25,7 +25,7 @@ Note that the `uid` value should follow the naming pattern `el-[avs]-panel-[name
 
 ## Backup panels
 
-Panels are saved in JSON format, and can be automatically restored by the [AVS setup wizard tool](../wizard/intro) in the Grafana UI during Node installation time. To get all the panel JSON files in the Eigen Layer folder, use the following command:
+Panels are saved in JSON format, and can be automatically restored by the [AVS setup wizard tool](../wizard/intro) in the Grafana UI during Node installation time. To get all the panel JSON files in the EigenLayer folder, use the following command:
 
 ```shell
 graft panel backup

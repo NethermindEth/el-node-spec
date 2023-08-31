@@ -4,23 +4,13 @@ sidebar_position: 0
 
 # Introduction
 
-This is a specification for the packaging, installation, update, and monitoring process of [Eigen Layer](https://www.eigenlayer.xyz/) Nodes. AVS is used to participate in the Eigen Layer restaking system, to know more about Eigen Layer see its [documentation page](https://docs.eigenlayer.xyz/overview/readme). 
+The [EigenLayer](https://www.eigenlayer.xyz/) ecosystem allows, among other incredible features, Ethereum validators to restake their ETH and provide services to the network, such as a Data Availability Layer with a particular type of node software called actively validated services (AVS). 
 
-The current version of the specification is `v0.0.1`.
+With the increasing number of AVS use cases, there is a need for a convention on how to develop, maintain, create interoperability and use them. Eigenlayer has partnered with Nethermind to create an AVS Node Specification with those goals in mind. We also decided to build an AVS Node Setup Wizard to install and manage AVS Nodes that follow such specification. This documentation describes the AVS Node Specification and the AVS Node Setup Wizard.
 
-:::caution
+The documentation is divided into the following sections:
 
-The current version of the AVS Node specification should be considered a public alpha version. Therefore, it may undergo rapid changes and experience incompatibility issues until the first stable version is released.
-
-:::
-
-Documentation is divided into the following sections:
-
-- [Setup wizard](/docs/wizard/intro): An AVS wizard setup tool, aimed at making the operations of a node operator easy.
-- [Packaging & Upgrading](/docs/packaging/): How developers can package their Nodes and how an AVS wizard setup tool can install and upgrade them.
-- [Backup and Restore](/docs/backup/intro): How an AVS wizard setup tool can backup and restore AVS services, mainly during an upgrade process or a disaster recovery.
-- [Plugin](/docs/plugin/intro): How developers can provide a plugin to extend the AVS wizard setup tool with AVS-specific features.
-- [Keys Management](/docs/keys/intro): Good practices for keys management.
-- [Metrics](/docs/category/metrics): Prometheus standard metrics and Monitoring API for AVS implementations.
-- [Monitoring Stack](/docs/monitoring/intro): How the AVS wizard setup tool can monitor Nodes and the host machine using Prometheus and Grafana.
-- [Graft](/docs/graft/intro): A tool to help developers to create Grafana dashboards for their Nodes.
+- [AVS Node Specification](/docs/category/avs-node-specification): A full description of the specification that covers from AVS packaging to Standard Metrics.
+- [Setup wizard](/docs/category/setup-wizard): An AVS wizard setup tool, aimed at making the operations of a node operator easy.
+- [Keys Management](/docs/category/keys-management): Good practices for keys management.
+ 
