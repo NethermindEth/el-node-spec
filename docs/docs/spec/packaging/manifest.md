@@ -19,9 +19,6 @@ The file’s name must be `manifest.yml`.
 # AVS Specification version
 version: <string>
 
-# Node version
-node_version: <string>
-
 # Name of the Node
 name: <string>
 
