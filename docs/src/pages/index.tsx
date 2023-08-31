@@ -34,7 +34,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="This document specifies the packaging, installation, updating, and monitoring of Eigen Layer nodes.">
+      description="This document specifies the packaging, installation, updating, and monitoring of EigenLayer nodes.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

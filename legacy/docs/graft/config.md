@@ -32,13 +32,13 @@ Environment variables listed below are used to connect to the Grafana instance, 
 
 ### Initialize configuration
 
-To initialize the configuration file in the current directory and the Eigen Layer folder in the Grafana instance run the following command:
+To initialize the configuration file in the current directory and the EigenLayer folder in the Grafana instance run the following command:
 
 ```shell
 graft init
 ```
 
-After running this command, the `graft.yml` file will be created in the current directory and the Eigen Layer folder will be created in the Grafana instance.
+After running this command, the `graft.yml` file will be created in the current directory and the EigenLayer folder will be created in the Grafana instance.
 
 ### Configuration diff
 

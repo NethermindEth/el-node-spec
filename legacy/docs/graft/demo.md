@@ -45,7 +45,7 @@ Replace `<user>` and `<password>` in the docker-compose file above with the desi
 You need to have a AVS metrics provider that could be a real Node or a mock Node instance. You need to configure prometheus properly to scrape the metrics from the Node. For more information about how to configure prometheus to scrape metrics check the [Prometheus documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
 :::
 
-Once services are up and running, the next thing to do is create the Eigen Layer folder in the Grafana instance, and this folder is the one that will contain all the dashboards and panels that will be saved at the end. To do this, run the following command:
+Once services are up and running, the next thing to do is create the EigenLayer folder in the Grafana instance, and this folder is the one that will contain all the dashboards and panels that will be saved at the end. To do this, run the following command:
 
 ```shell
 graft init
@@ -53,9 +53,9 @@ graft init
 
 This command also creates the empty `graft.yml` configuration file in the current directory.
 
-Now check that the Eigen Layer folder is created in the Grafana instance in the Dashboard section like the image below:
+Now check that the EigenLayer folder is created in the Grafana instance in the Dashboard section like the image below:
 
-![Eigen Layer folder](/img/graft-el-folder.png)
+![EigenLayer folder](/img/graft-el-folder.png)
 
 Now you need to add the prometheus datasource to Grafana. To do this replace the `graft.yml` configuration file content in the current directory with the following:
 
@@ -105,15 +105,15 @@ To check that the datasource is working, click on the Eigen DA datasource and pr
 
 ### Dashboard
 
-Now the environment is set up, next step is to create a dashboard. To do this run the `graft dashboard create` command to create the dashboard in the Eigen Layer folder. In this case we are going to create a dashboard called `Demo`:
+Now the environment is set up, next step is to create a dashboard. To do this run the `graft dashboard create` command to create the dashboard in the EigenLayer folder. In this case we are going to create a dashboard called `Demo`:
 
 ```shell
 graft dashboard create Demo
 ```
 
-Now you can check that the dashboard is created in the Eigen Layer folder like the image below:
+Now you can check that the dashboard is created in the EigenLayer folder like the image below:
 
-![Eigen Layer dashboard](/img/graft-el-dashboard-list.png)
+![EigenLayer dashboard](/img/graft-el-dashboard-list.png)
 
 Now you can open the dashboard in Grafana, which is empty at the moment, and start editing it adding panels.
 
@@ -127,7 +127,7 @@ graft panel init --name "Demo panel" --uid el-eigenda-panel-demo
 
 This command creates a new panel with the name `Demo panel` and the UID `el-eigenda-panel-demo` in the `panels` folder. Now it could be used in the dashboard created previously to edit it. To add the panel press the add panel option at the top-right section and select the `Add a panel from the panel library` option like the image below:
 
-![Eigen Layer add panel](/img/graft-el-addpanel.png)
+![EigenLayer add panel](/img/graft-el-addpanel.png)
 
 Select the `Demo panel` and it will be added to the dashboard
 
@@ -151,7 +151,7 @@ This is how the dashboard looks now:
 
 ### Dashboard
 
-To backup dashboards in the Eigen Layer folder (all the ones created by graft), run the following command:
+To backup dashboards in the EigenLayer folder (all the ones created by graft), run the following command:
 
 ```shell
 graft dashboard backup
@@ -169,7 +169,7 @@ dashboards
 
 ### Panel
 
-To backup panels in the Eigen Layer folder (all the ones created by graft) run the following command:
+To backup panels in the EigenLayer folder (all the ones created by graft) run the following command:
 
 ```shell
 graft panel backup

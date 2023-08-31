@@ -14,7 +14,7 @@ import (
 const (
 	DefaultPath = "graft.yml"
 	FolderUID   = "el-folder"
-	FolderTitle = "Eigen Layer"
+	FolderTitle = "EigenLayer"
 )
 
 type Config struct {

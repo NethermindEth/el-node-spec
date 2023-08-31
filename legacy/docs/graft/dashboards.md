@@ -5,19 +5,19 @@ sidebar_position: 3
 
 ## Init dashboard
 
-Dashboards initialized with graft are stored in the Eigen Layer folder in the Grafana instance. To initialize a new dashboard use the following command:
+Dashboards initialized with graft are stored in the EigenLayer folder in the Grafana instance. To initialize a new dashboard use the following command:
 
 ```shell
 graft dashboard create [title]
 ```
     
-Graft will create an empty dashboard with the specified title in the Eigen Layer folder.
+Graft will create an empty dashboard with the specified title in the EigenLayer folder.
 
 This command could be executed in the folder with the configuration file or alternatively, the `--config/-c` flag could be used to specify the path to it.
 
 ## Backup dashboards
 
-Dashboards are saved in JSON format, and they could be restored using the Grafana UI later, or by using the [AVS setup wizard tool](../wizard/intro). To get all the dashboard JSON files in the Eigen Layer folder, use the following command:
+Dashboards are saved in JSON format, and they could be restored using the Grafana UI later, or by using the [AVS setup wizard tool](../wizard/intro). To get all the dashboard JSON files in the EigenLayer folder, use the following command:
     
 ```shell
 graft dashboard backup
