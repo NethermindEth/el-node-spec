@@ -46,10 +46,13 @@ services:
   main-service:
     image: ${MAIN_SERVICE_IMAGE} 
     container_name: ${MAIN_SERVICE_NAME}
+    volumes:
+      - ${KEYSTORE_PATH}:/tmp/main/keys
     command:
     - eigen 
     - --flag-x=${X_VALUE}
     - --flag-y=<value-for-flag-y>
+    - --keystore-folder=/tmp/main/keys
     ports:
       - "${MAIN_PORT}:8080"
     depends_on:
@@ -58,7 +61,7 @@ services:
       - eigenlayer
 
   db-service:
-    image: postgres:latest
+    image: postgres:${DB_IMAGE_TAG}
     container_name: ${DB_SERVICE_NAME}
     environment:
       - POSTGRES_USER=${DB_USER}
@@ -70,7 +73,7 @@ services:
       - eigenlayer
 
   utility-service:
-    build: ./path/to/utility-service-dockerfile
+    image: ${UTILITY_SERVICE_IMAGE}
     container_name: ${UTILITY_SERVICE_NAME}
     environment:
       - MAIN_SERVICE_HOST=main-service
@@ -114,6 +117,10 @@ options:
     type: id
     default: "main-service"
     help: "Main service container name"
+  - name: "keystore-folder-path"
+    target: KEYSTORE_PATH
+    type: path_dir
+    help: "Path to the keystore folder"
   - name: "flag-x"
     target: X_VALUE
     type: select
@@ -126,6 +133,13 @@ options:
     type: port
     default: 8080
     help: "Main service server port"
+  - name: "db-image-tag"
+    target: DB_IMAGE_TAG
+    type: string
+    default: "latest"
+    validate:
+      re2_regex: "^[a-zA-Z]+$"
+    help: "Tag of Postgres docker image"
   - name: "db-container-name"
     target: DB_SERVICE_NAME
     type: id
@@ -141,6 +155,13 @@ options:
     validate:
       re2_regex: "^[^#]{8,}$"
     help: "Postgres DB user password. Must have at least 8 characters and it can't contain the '#' symbol"
+  - name: "utility-container-image"
+    target: UTILITY_SERVICE_IMAGE
+    type: string
+    default: "your-organization/utility-service:latest"
+    validate:
+      re2_regex: "^(?:(?:[a-zA-Z0-9.-]+(?:\:[0-9]+)?/)?[a-zA-Z0-9_-]+(?:/[a-zA-Z0-9_-]+)?(?:\:[a-zA-Z0-9_.-]+)?)?$"
+    help: "Utility service container docker image"
   - name: "utility-container-name"
     target: UTILITY_SERVICE_NAME
     type: id
@@ -167,5 +188,17 @@ monitoring:
 :::tip
 
 In this example, `flag-x` is present in the `.env` (`X_VALUE` var) and the reference file but without a default value. In this case, if the user doesn’t provide a value using the flag (for the [AVS setup wizard tool](../wizard/intro)), the `.env` value will be used.
+
+:::
+
+:::tip 
+
+It is strongly recommended to put any docker images as profile options. In this reference a `validate.re2_regex` is provided to validate docker image names. Notice that for the Postgres docker image, the name is fixed but the tag is used as a profile option, this is a recommended practice as well.
+
+:::
+
+:::tip
+
+Notice the usage of the profile option type `path_dir` for the `KEYSTORE_PATH` env variable. Any path option should be used similarly.
 
 :::
