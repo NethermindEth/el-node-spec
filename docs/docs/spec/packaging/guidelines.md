@@ -2,8 +2,16 @@
 sidebar_position: 5
 id: guidelines 
 ---
-
 # Packaging Best Practices
+
+- [Packaging Best Practices](#packaging-best-practices)
+  - [How to handle docker images](#how-to-handle-docker-images)
+    - [Tags usage](#tags-usage)
+    - [Why docker image builds are not supported](#why-docker-image-builds-are-not-supported)
+  - [Avoid using `container_name`](#avoid-using-container_name)
+  - [Docker Compose elements that should be profile options](#docker-compose-elements-that-should-be-profile-options)
+  - [When to create an additional profile](#when-to-create-an-additional-profile)
+
 
 The following represents a set of guidelines, rules, and recommendations on managing and creating the AVS package.
 
@@ -18,6 +26,14 @@ Examples of both profile options usage for the full docker image name and only t
 ### Tags usage
 
 **AVOID** using the default tag `latest`. This might bring issues among different package versions. You **SHOULD** use unique tags that identify a fixed version of the containerized application you want the user to run.
+
+### Why docker image builds are not supported
+
+The issues around building docker images can be summarized:
+
+- **Introduce vulnerabilities and security concerns** to the user’s host machine because **builds could execute arbitrary and potentially malicious code**. Currently, the attack surface is quite extensive as anyone with write access to the AVS Tap repo could add this type of code and change the AVS Node docker build pipeline or Docker Compose, create a git tag and make a release.
+- Supporting docker image builds **involves cloning and using the entire repository** where the AVS package lies. This means not only that we are potentially copying a lot of unnecessary data for the user into his/her disk and making the installation process heavier than necessary, but also that we can’t control the usage of good practices around the AVS packaging. If, for example, we would like to enforce creating a separate repository for the AVS package only, it wouldn’t be possible if we allow docker builds.
+- Depending on docker builds for the users to use your software **is not a good practice**. An AVS developer will likely push the Docker images to a Docker registry. Maintaining two different ways of using your official Docker Compose script is a burden, as there are differences between using already-built images and building images from a local/remote context. Building the docker image could be helpful for development environments. However, it **is not expensive to build your image** before running your Compose script and target the local image inside it. AVS developers could add a simple `docker build` command to their build scripts or E2E test setup parts, use an env variable for the `image` field of the Compose script, and only change the env variable value. This introduces a new problem: which tag to use for the docker image. We are going to cover that in the next section.
 
 ## Avoid using `container_name`
 
