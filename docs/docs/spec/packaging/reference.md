@@ -51,7 +51,7 @@ services:
     command:
     - eigen 
     - --flag-x=${X_VALUE}
-    - --flag-y=<value-for-flag-y>
+    - --node-name=awesome-avs
     - --keystore-folder=/tmp/main/keys
     ports:
       - "${MAIN_PORT}:8080"
@@ -62,7 +62,6 @@ services:
 
   db-service:
     image: postgres:${DB_IMAGE_TAG}
-    container_name: ${DB_SERVICE_NAME}
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
@@ -74,7 +73,6 @@ services:
 
   utility-service:
     image: ${UTILITY_SERVICE_IMAGE}
-    container_name: ${UTILITY_SERVICE_NAME}
     environment:
       - MAIN_SERVICE_HOST=main-service
       - MAIN_SERVICE_PORT=8080
@@ -114,8 +112,10 @@ options:
     help: "Main service container docker image"
   - name: "main-container-name"
     target: MAIN_SERVICE_NAME
-    type: id
+    type: string
     default: "main-service"
+    validate:
+      re2_regex: "^[a-zA-Z_-]+$"
     help: "Main service container name"
   - name: "keystore-folder-path"
     target: KEYSTORE_PATH
@@ -140,11 +140,6 @@ options:
     validate:
       re2_regex: "^[a-zA-Z]+$"
     help: "Tag of Postgres docker image"
-  - name: "db-container-name"
-    target: DB_SERVICE_NAME
-    type: id
-    default: "db-service"
-    help: "DB service container name"
   - name: "db-user"
     target: DB_USER
     type: str
@@ -162,11 +157,6 @@ options:
     validate:
       re2_regex: "^(?:(?:[a-zA-Z0-9.-]+(?:\:[0-9]+)?/)?[a-zA-Z0-9_-]+(?:/[a-zA-Z0-9_-]+)?(?:\:[a-zA-Z0-9_.-]+)?)?$"
     help: "Utility service container docker image"
-  - name: "utility-container-name"
-    target: UTILITY_SERVICE_NAME
-    type: id
-    default: "utility-service"
-    help: "Utility service container name"
   - name: "network-name"
     target: NETWORK_NAME
     type: str
