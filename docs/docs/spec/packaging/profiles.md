@@ -19,8 +19,6 @@ Because values for settings could be declared in more than one place, we need to
 2. The default value in the package profile if it is defined and is not set with the CLI
 3. Value hardcoded in the `.env` provided in the package by the Developer
 
-
-
 ## Profile file specification
 
 ### Profile file
@@ -103,7 +101,6 @@ path_file: ./path/to/a/file
 uri: https://eigenlayer.com
 select: option1
 port: 8080
-id: "eigenlayer"
 ```
 
 These types will be used for automatic validation of the values provided by the user. For instance, if the setting’s type is `path_file`, the AVS setup wizard tool would validate that a file exists on the provided path.
@@ -116,11 +113,11 @@ The AVS setup wizard tool could do these checks to guarantee an open port for ea
 
 :::
 
-The type `id` should be used for those values that need to be unique across several Node setups, for example, container names.
+For those values that need to be unique across several Node setups, for example, container names, you can use the type `string` and provide a `validate.re2_regex` to validate any desired rule. For example, the `validate.re2_regex` for single word identifier can be `^[a-zA-Z]+$`.
 
 :::caution
 
-Using the `container_name` service field in the `docker-compose.yml` is optional, but if it is used, it is **mandatory** to provide an `option` within the `options` list with type `id` in the profile file. This allows name collision checks between multiple Nodes running in the same host machine.
+Using the `container_name` service field in the `docker-compose.yml` is optional, but if it is used, it is **strongly recommended** to provide an `option` within the `options` list with type `string` in the profile file. This allows name collision checks between multiple Nodes running in the same host machine.
 
 The AVS setup wizard tool could do the necessary checks to guarantee unique container names.
 
