@@ -10,9 +10,6 @@ id: reference
 ```
 ./
 ├── profile/
-│   ├── alerts/
-│   ├── dashboards/
-│   ├── panels/
 │   ├── .env
 │   ├── docker-compose.yml
 │   └── profile.yml
