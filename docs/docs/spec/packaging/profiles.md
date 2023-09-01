@@ -188,20 +188,8 @@ port: <int>
 
 A Node environment is a set of services deployed with Docker in the same Docker network. Prometheus metrics can be fetched from exporters that each service could implement. To know where these metrics are, we can rely on [docker container networking](https://docs.docker.com/config/containers/container-networking/) to reference services.
 
-The monitoring setup is the set of a Grafana instance, Prometheus, and Node Exporter. Grafana has a global dashboard with metrics from [Node Exporter](https://github.com/prometheus/node_exporter) to monitor host performance. To view Node dashboards in Grafana, the Node package contains `dashboards/` and `panels/` folders that would be deployed to the Grafana instance when the Node is added. Also, alerting rules could be provided following the [Grafana file provisioning](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#provision-alert-rules) for alerting. Any alert rules that the Node would like to add to Grafana should be under the `alerts/` folder.
+The monitoring setup is the set of a Grafana instance, Prometheus, and Node Exporter. Details about this monitoring stack can be found [here](/docs/category/monitoring-stack).
 
-:::tip
-
-The AVS setup wizard tool could take care of the monitoring stack setup based on the settings provided in the profile file.
-
-:::
-
-:::note
-
-Alerting contact points would be configured with the setup wizard regardless of the Node, for instance: [Email](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#e-mail), [Opsgenie](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#opsgenie), [Slack](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#slack) or [Telegram](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#telegram).
-
-:::
-
-The profile file is the place to declare Prometheus targets inside the Node setup mentioning the service name, port, and path to get metrics. Also, the `tag` value is declared, this value is important to differentiate metrics from different Node instances. 
+The profile file is the place to declare Prometheus targets inside the Node setup mentioning the service name, port, and path to get metrics.
 
 The metrics port could be exposed in the `docker-compose.yml` for it to be reachable from outside the host machine, but is not mandatory to do so.
