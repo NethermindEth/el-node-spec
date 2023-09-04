@@ -7,17 +7,17 @@ id: profiles
 
 The configuration/profile file should be in YAML format and contain information about the Node profile and its options. Options are any argument, flag, configuration value, or environment variable of any services within the Node `docker-compose.yml` whose value might be required from the user input. 
 
-The file’s name must be `profile.yml`.
+The file’s name **MUST** be `profile.yml`.
 
 The `docker-compose.yml` is designed for a given setup of a given Node version, and may have hardcoded values or settings, either in the `docker-compose.yml` or in the form of environment variables in a `.env` file with values. Settings could also be declared in the profile file in the `options` section, considering that an option is a flag mapping to an environment variable in the `docker-compose.yml` file. 
 
-The [AVS setup wizard tool](../wizard/intro) would use each option or setting in the profile file to get this information from the user via prompts, arguments, or CLI flags. In case of an upgrade, values of unchanged settings can be used in the new version, and values for new settings would have to be requested by the user. 
+The [AVS setup wizard tool](/docs/category/avs-setup-wizard) would use each option or setting in the profile file to get this information from the user via prompts, arguments, or CLI flags. In case of an upgrade, values of unchanged settings can be used in the new version, and values for new settings would have to be requested by the user. 
 
-Because values for settings could be declared in more than one place, we need to define some precedence rules, which are:
+Because values for settings could be declared in more than one place, we need to define some precedence rules, which are (from highest to lowest):
 
-1. The value set with a CLI flag because the option is in the package profile
+1. The value set with a CLI flag or through a prompt because the option is in the package profile
 2. The default value in the package profile if it is defined and is not set with the CLI
-3. Value hardcoded in the `.env` provided in the package by the Developer
+3. Value hardcoded in the `.env` provided in the package by the AVS developer
 
 ## Profile file specification
 
@@ -57,7 +57,7 @@ min_free_space: <int>
 
 ### `<plugin_overrides>`
 
-See [plugin documentation](/docs/plugin/intro) to learn more about the plugin system.
+See the [plugin documentation](/docs/category/plugin) to learn more about the plugin system.
 
 ```yaml
 # Pre-built image name ready to be pulled.
@@ -152,11 +152,13 @@ targets:
 
 :::caution
 
-The profile must provide a monitoring target at least.
+The profile **MUST** provide a monitoring target at least.
 
 :::
 
 ### `<monitoring-target>`
+
+Represents a Prometheus endpoint inside the Node setup.
 
 ```yaml
 # Name of the docker-compose service
@@ -171,7 +173,7 @@ path: <string>
 
 ### `<api>`
 
-Defines the AVS Node API endpoint that the Node exposes following the [AVS Node API specification](/docs/api).
+Defines the AVS Node API endpoint that the Node exposes following the [AVS Node API specification](/docs/category/avs-node-api).
 
 ```yaml
 # Name of the docker-compose service exposing the API
@@ -187,6 +189,6 @@ A Node environment is a set of services deployed with Docker in the same Docker 
 
 The monitoring setup is the set of a Grafana instance, Prometheus, and Node Exporter. Details about this monitoring stack can be found [here](/docs/category/monitoring-stack).
 
-The profile file is the place to declare Prometheus targets inside the Node setup mentioning the service name, port, and path to get metrics.
+The profile file is the place to declare Prometheus targets inside the Node setup mentioning the service name, port, and path to get metrics (`monitoring-target`).
 
 The metrics port could be exposed in the `docker-compose.yml` for it to be reachable from outside the host machine, but is not mandatory to do so.
