@@ -11,6 +11,7 @@ id: guidelines
   - [Avoid using `container_name`](#avoid-using-container_name)
   - [Docker Compose elements that should be profile options](#docker-compose-elements-that-should-be-profile-options)
   - [When to create an additional profile](#when-to-create-an-additional-profile)
+  - [Create a separate repository for the AVS package](#create-a-separate-repository-for-the-avs-package)
 
 
 The following represents a set of guidelines, rules, and recommendations on managing and creating the AVS package.
@@ -56,3 +57,11 @@ Some common use cases will benefit from profile options:
 
 Suppose you find yourself creating profile options for settings whose values are common within several instances of the AVS Node (different instances of the same AVS Node running on the same network). In that case, chances are these values should be fixed, and you will benefit from creating profiles for combinations of these settings (different networks, Node modes, etc.). In this case, creating an additional profile might allow you to define fewer profile options. Less profile options mean fewer settings to maintain and fewer settings for the user to configure.
 
+## Create a separate repository for the AVS package
+
+We **strongly recommend** creating a separate repository (Tap) for the AVS package. This has several benefits:
+
+- The AVS Tap repository and root folder can be listed in a public index in a clean way without anything additional to the AVS package.
+- It is easier to restrict access to the Tap repository. For instance, if the AVS package is within the AVS node repository, all the contributors could make changes to the AVS package.
+- It doesn’t constrain your AVS Node repository to be public. Although it is recommended to make your AVS Node source code open-source, nothing will stop a developer from making an AVS Node closed (this is often done in the first stages of development). This closed AVS Nodes could have their packages public if they dedicate a separate repository.
+- Downloading the AVS package would be very light and fast.
