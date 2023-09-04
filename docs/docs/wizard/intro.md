@@ -8,7 +8,7 @@ The specification described throughout this document can be used to manage multi
 - Install, Update, and Uninstall Nodes
 - Set up a Monitoring stack for Nodes using Prometheus and Grafana
 - Backup and Restore Nodes
-- Run a [plugin](../plugin/intro.mdx) on a given Node setup
+- Run a [plugin](/docs/category/plugin) on a given Node setup
 - Display Nodes logs
 - Describe the status of an already set up Node
 

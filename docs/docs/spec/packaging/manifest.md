@@ -54,7 +54,7 @@ stop_if_requirements_are_not_met: <bool>
 
 ### `<plugin>`
 
-See [plugin documentation](/docs/plugin/intro) to learn more about the plugin system.
+See [plugin documentation](/docs/spec/plugin/intro) to learn more about the plugin system.
 
 ```yaml
 # Pre-built image name ready to be pulled.

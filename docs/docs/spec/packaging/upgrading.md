@@ -41,7 +41,7 @@ Design your AVS software to handle shared state updates automatically. This will
 
 ## 4. Node Package Management with AVS setup wizard tool and Searchable Prefix
 
-Leverage the [AVS setup wizard tool](../wizard/intro) inspired by the Homebrew Tap approach, for managing Node packages and their versions. This tool will handle each AVS as a git repository with a defined structure, simplifying the process for clients setting up and managing Nodes. To make Node repositories easily searchable on GitHub, use the `eigen` prefix for the repository name similar to the Homebrew naming convention.
+Leverage the [AVS setup wizard tool](/docs/category/avs-setup-wizard) inspired by the Homebrew Tap approach, for managing Node packages and their versions. This tool will handle each AVS as a git repository with a defined structure, simplifying the process for clients setting up and managing Nodes. To make Node repositories easily searchable on GitHub, use the `eigen` prefix for the repository name similar to the Homebrew naming convention.
 
 ### Tips:
 
