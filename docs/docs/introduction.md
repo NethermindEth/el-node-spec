@@ -11,6 +11,6 @@ With the increasing number of AVS use cases, there is a need for a convention on
 The documentation is divided into the following sections:
 
 - [AVS Node Specification](/docs/category/avs-node-specification): A full description of the specification that covers from AVS packaging to Standard Metrics.
-- [Setup wizard](/docs/category/setup-wizard): An AVS wizard setup tool, aimed at making the operations of a node operator easy.
+- [Setup wizard](/docs/category/avs-setup-wizard): An AVS wizard setup tool, aimed at making the operations of a node operator easy.
 - [Keys Management](/docs/category/keys-management): Good practices for keys management.
  

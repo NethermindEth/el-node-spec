@@ -174,7 +174,7 @@ monitoring:
 
 :::tip
 
-In this example, `flag-x` is present in the `.env` (`X_VALUE` var) and the reference file but without a default value. In this case, if the user doesn’t provide a value using the flag (for the [AVS setup wizard tool](../wizard/intro)), the `.env` value will be used.
+In this example, `flag-x` is present in the `.env` (`X_VALUE` var) and the reference file but without a default value. In this case, if the user doesn’t provide a value using the flag (for the [AVS setup wizard tool](/docs/category/avs-setup-wizard), the `.env` value will be used.
 
 :::
 

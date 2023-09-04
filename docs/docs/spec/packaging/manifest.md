@@ -9,9 +9,9 @@ The Manifest file is an essential component of the Node package structure. It pr
 
 Additionally, the Manifest file specifies the structure of the Node package, which includes a `profile` folder and a `manifest.yml` file. The `profile` folder contains a Docker Compose file, an `.env` file with default values for environment variables, and the `profile.yml` configuration file. This folder structure ensures that all the necessary files to set up the Node in an on-premise setup using Docker Compose as a service manager are included in the package.
 
-The `manifest.yml` file specifies the version of the Node, its name, and a list of profiles. The profile list includes the name of each profile and its relative path within the package. This information is crucial for users to understand what profiles are available and how to access them within the package.
+The `manifest.yml` file specifies the version of the specification, the AVS Node name, hardware requirements for the AVS Node, information about the AVS provided [plugin](#plugin), and a list of profiles. The profile list includes the name of each profile and its relative path within the package. This information is crucial for users to understand what profiles are available and how to access them within the package.
 
-The file’s name must be `manifest.yml`.
+The file’s name **MUST** be `manifest.yml`.
 
 ## Manifest format
 
