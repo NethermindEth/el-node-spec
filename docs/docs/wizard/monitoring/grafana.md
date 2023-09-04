@@ -29,7 +29,7 @@ The Node specific dashboards are provided by developers in the installation pack
 
 ### Host Metrics
 
-The Host Metrics dashboard show all the basic metrics of the host machine. This dashboard is very common in the Grafana community to monitor Linux hosts resources. This dashboard is built using the [Node Exporter](/docs/monitoring/node-exporter) metrics.
+The Host Metrics dashboard show all the basic metrics of the host machine. This dashboard is very common in the Grafana community to monitor Linux hosts resources. This dashboard is built using the [Node Exporter](/docs/wizard/monitoring/node-exporter) metrics.
 
 :::note
 The `el-host-metrics` is a reserved `uid` for the **Host Metrics** dashboard and couldn't be used for any other dashboard in the Grafana instance.
