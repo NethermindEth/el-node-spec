@@ -192,3 +192,124 @@ The monitoring setup is the set of a Grafana instance, Prometheus, and Node Expo
 The profile file is the place to declare Prometheus targets inside the Node setup mentioning the service name, port, and path to get metrics (`monitoring-target`).
 
 The metrics port could be exposed in the `docker-compose.yml` for it to be reachable from outside the host machine, but is not mandatory to do so.
+
+## Profile schema
+
+```yaml
+$schema: "http://json-schema.org/draft-07/schema#"
+type: object
+properties:
+  name:
+    type: string
+  hardware_requirements_overrides:
+    type: object
+    properties:
+      min_cpu_cores:
+        type: integer
+        minimum: 0
+      min_ram:
+        type: integer
+        minimum: 0
+      min_free_space:
+        type: integer
+        minimum: 0
+      stop_if_requirements_are_not_met:
+        type: boolean
+    required:
+    - min_cpu_cores
+    - min_ram
+    - min_free_space
+    - stop_if_requirements_are_not_met
+    additionalProperties: false
+  plugin_overrides:
+    type: object
+    properties:
+      image:
+        type: string
+      build_from:
+        type: string
+    required:
+    - image
+    - build_from
+    additionalProperties: false
+  options:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        target:
+          type: string
+        type:
+          type: string
+        default: {}
+        help:
+          type: string
+        validate:
+          type: object
+          properties:
+            re2_regex:
+              type: string
+            format:
+              type: string
+            uri_scheme:
+              type: array
+              items:
+                type: string
+            min_value:
+              type: number
+            max_value:
+              type: number
+            options:
+              type: array
+              items:
+                type: string
+          additionalProperties: false
+      required:
+      - name
+      - target
+      - type
+      - help
+      additionalProperties: false
+  monitoring:
+    type: object
+    properties:
+      targets:
+        type: array
+        items:
+          type: object
+          properties:
+            service:
+              type: string
+            port:
+              type: integer
+              minumum: 1
+              maximum: 65535
+            path:
+              type: string
+          required:
+          - service
+          - path
+          - port
+          additionalProperties: false
+    required:
+      - targets
+    additionalProperties: false
+  api:
+    type: object
+    properties:
+      service:
+        type: string
+      port:
+        type: integer
+        minumum: 1
+        maximum: 65535
+    required:
+    - service
+    - port
+    additionalProperties: false
+required:
+  - monitoring
+additionalProperties: false
+```

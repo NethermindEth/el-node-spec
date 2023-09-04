@@ -60,3 +60,54 @@ See [plugin documentation](/docs/plugin/intro) to learn more about the plugin sy
 # Pre-built image name ready to be pulled.
 image: <string>
 ```
+
+## Manifest schema
+
+```yaml
+$schema: "http://json-schema.org/draft-07/schema#"
+type: object
+properties:
+  version:
+    type: string
+  name:
+    type: string
+  upgrade:
+    type: string
+  hardware_requirements:
+    type: object
+    properties:
+      min_cpu_cores:
+        type: integer
+        minimum: 0
+      min_ram:
+        type: integer
+        minimum: 0
+      min_free_space:
+        type: integer
+        minimum: 0
+      stop_if_requirements_are_not_met:
+        type: boolean
+    required:
+    - min_cpu_cores
+    - min_ram
+    - min_free_space
+    - stop_if_requirements_are_not_met
+    additionalProperties: false
+  plugin:
+    type: object
+    properties:
+      image:
+        type: string
+      build_from:
+        type: string
+    additionalProperties: false
+  profiles:
+    type: array
+    items:
+      type: string
+required:
+- version
+- name
+- profiles
+additionalProperties: false
+```
