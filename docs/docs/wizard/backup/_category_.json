@@ -3,7 +3,7 @@
     "position": 2,
     "link": {
       "type": "generated-index",
-      "description": "This sections describes the approach to backup and restore Node setups allowing rollbacks."
+      "description": "This sections describes the approach to backup and restore AVS setups allowing rollbacks."
     }
   }
   
