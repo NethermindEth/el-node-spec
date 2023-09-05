@@ -8,5 +8,5 @@ The `uid` property is a unique `string` identifier inside the Grafana database. 
 el-[avs]-[type]-[name]
 ```
 
-- `avs` is the Node project name, e.g.: `eigenDA`
+- `avs` is the AVS Node project name, e.g.: `eigenDA`
 - `type` is the type of the object: `folder`,   `datasource`, `dashboard`, `panel`

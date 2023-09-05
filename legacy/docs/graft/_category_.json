@@ -3,7 +3,7 @@
     "position": 9,
     "link": {
       "type": "generated-index",
-      "description": "Graft is a tool to help developers to create Grafana dashboards and panels ready to be added to the Node package."
+      "description": "Graft is a tool to help developers to create Grafana dashboards and panels ready to be added to the AVS Node package."
     }
   }
   

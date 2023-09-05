@@ -25,7 +25,7 @@ Initially, the AVS setup wizard tool would deploy the following dashboards in th
 - **The Common Metrics dashboard**: This dashboard shows AVS data and graphs using the Prometheus metrics from the [Metrics Specification](/docs/spec/metrics/metrics-prom-spec) about a specific AVS instance. This dashboard is provided by the AVS setup wizard tool.
 - **The Global Common Metrics dashboard**: This dashboard shows AVS data and graphs using the Prometheus metrics from the [Metrics Specification](/docs/spec/metrics/metrics-prom-spec) about all the AVS instances. This dashboard is provided by the AVS setup wizard tool.
 
-The Node specific dashboards are provided by developers in the installation package. The tool would deploy them dynamically in the [EigenLayer folder](#eigen-layer-folder) when a new Node is deployed.
+The AVS Node specific dashboards are provided by developers in the installation package. The tool would deploy them dynamically in the [EigenLayer folder](#eigen-layer-folder) when a new AVS Node is deployed.
 
 ### Host Metrics
 

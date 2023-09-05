@@ -7,7 +7,7 @@ Deploying the **Monitoring Stack** is the responsibility of the [AVS setup wizar
 
 - **Prometheus** as center point of metrics collection.
 - **Node Exporter** to collect metrics from the host machine.
-- **Grafana** to visualize the metrics collected by Prometheus, both host and Node metrics.
+- **Grafana** to visualize the metrics collected by Prometheus, both host and AVS Node metrics.
 
 ```mermaid
 flowchart
@@ -42,7 +42,7 @@ prom --> |avs=eigen-da| compose_1
 prom --> |avs=other| compose_2
 ```
 
-The [Prometheus](/docs/wizard/monitoring/prometheus) instance would be deployed initially with the [Node Exporter](/docs/wizard/monitoring/node-exporter) as the only target. Node targets would be added dynamically by the tool when a new Node is deployed. Grafana will be deployed initially with the [Host Metrics](/docs/wizard/monitoring/grafana#host-metrics) dashboard to visualize metrics from the [Node Exporter](/docs/wizard/monitoring/node-exporter) and monitoring host resources.
+The [Prometheus](/docs/wizard/monitoring/prometheus) instance would be deployed initially with the [Node Exporter](/docs/wizard/monitoring/node-exporter) as the only target. AVS Node targets would be added dynamically by the tool when a new AVS Node is deployed. Grafana will be deployed initially with the [Host Metrics](/docs/wizard/monitoring/grafana#host-metrics) dashboard to visualize metrics from the [Node Exporter](/docs/wizard/monitoring/node-exporter) and monitoring host resources.
 
-Grafana supports alerting. The user can configure custom alerts for host and Node metrics. These alerts are sent to the user via Alert Contact Points, which could be configured with the AVS setup wizard tool.
+Grafana supports alerting. The user can configure custom alerts for host and AVS Node metrics. These alerts are sent to the user via Alert Contact Points, which could be configured with the AVS setup wizard tool.
 
