@@ -18,7 +18,7 @@ The following represents a set of guidelines, rules, and recommendations on mana
 
 ## How to handle docker images
 
-The specification **DOES NOT** support docker image builds. You can't use the `build` field on the `docker-compose.yml` file. The Compose script **MUST** refer to docker images in a Docker registry. For development purposes, you can use a local docker image.
+The specification **DOES NOT** support docker image builds. You can't use the [`build`](https://docs.docker.com/compose/compose-file/compose-file-v3/#build) field on the `docker-compose.yml` file. The Compose script **MUST** refer to docker images in a Docker registry. For development purposes, you can use a local docker image.
 
 An alternative to target the entire docker image name as a profile option is to fix the name but let the tag open for modification. An env variable with a bounded profile option is also recommended in this case.
 
@@ -36,20 +36,20 @@ The issues around building docker images can be summarized:
 - Supporting docker image builds **involves cloning and using the entire repository** where the AVS package lies. This means not only that we are potentially copying a lot of unnecessary data for the user into his/her disk and making the installation process heavier than necessary, but also that we can’t control the usage of good practices around the AVS packaging. If, for example, we would like to enforce creating a separate repository for the AVS package only, it wouldn’t be possible if we allow docker builds.
 - Depending on docker builds for the users to use your software **is not a good practice**. An AVS developer will likely push the Docker images to a Docker registry. Maintaining two different ways of using your official Docker Compose script is a burden, as there are differences between using already-built images and building images from a local/remote context. Building the docker image could be helpful for development environments. However, it **is not expensive to build your image** before running your Compose script and target the local image inside it. AVS developers could add a simple `docker build` command to their build scripts or E2E test setup parts, use an env variable for the `image` field of the Compose script, and only change the env variable value. This introduces a new problem: which tag to use for the docker image. We are going to cover that in the next section.
 
-## Avoid using `container_name`
+## Avoid using [`container_name`](https://docs.docker.com/compose/compose-file/compose-file-v3/#container_name)
 
-Using the `container_name` field of the Docker Compose Specification introduces the risk of name collision between two containers run with different instances of the same `docker-compose.yml`.
+Using the [`container_name`](https://docs.docker.com/compose/compose-file/compose-file-v3/#container_name) field of the Docker Compose Specification introduces the risk of name collision between two containers run with different instances of the same `docker-compose.yml`.
 
-This issue can be tackled by defining the container name as a profile option. The' main-container-name' profile option is used in the [reference package](/docs/spec/packaging/reference) for this purpose. This way, the user can use a new container name for different AVS package instances or change the default container name.
+This issue can be tackled by defining the container name as a profile option. The 'main-container-name' profile option is used in the [reference package](/docs/spec/packaging/reference) for this purpose. This way, the user can use a new container name for different AVS package instances or change the default container name.
 
-Docker Compose has a smart way of setting up a container name of a Compose service if the `container_name` field is not provided. You can rely on Compose for this naming.
+Docker Compose has a smart way of setting up a container name of a Compose service if the [`container_name`](https://docs.docker.com/compose/compose-file/compose-file-v3/#container_name) field is not provided. You can rely on Compose for this naming.
 
 ## Docker Compose elements that should be profile options
 
 Some common use cases will benefit from profile options:
 
 - **Bind-mount volumes:** This kind of volume usually requires a path inside the host machine to the desired folder or file to bind. Using a default path here will be far from ideal in many cases. We strongly recommend always using an env variable for this path with a profile option. In the [reference package](/docs/spec/packaging/reference), the `KEYSTORE_PATH` env variable is used for this purpose. Notice the usage of the profile option type `path_dir` for this env variable. Any path option should be used similarly.
-- **Container names:** As mentioned above, using the `container_name` field of the Docker Compose Specification introduces the risk of name collision between two containers run with different instances of the same `docker-compose.yml`. This issue can be tackled by defining the container name as a profile option like in the [reference package](/docs/spec/packaging/reference). This way, the user can use a new container name for different AVS package instances or change the default container name.
+- **Container names:** As mentioned above, using the [`container_name`](https://docs.docker.com/compose/compose-file/compose-file-v3/#container_name) field of the Docker Compose Specification introduces the risk of name collision between two containers run with different instances of the same `docker-compose.yml`. This issue can be tackled by defining the container name as a profile option like in the [reference package](/docs/spec/packaging/reference). This way, the user can use a new container name for different AVS package instances or change the default container name.
 - **Docker image names:** Putting any Docker images as profile options is strongly recommended. In the [reference package](/docs/spec/packaging/reference), a `validate.re2_regex` is provided to validate docker image names. Notice that the name is fixed for the Postgres docker image, but the tag is used as a profile option. This is a recommended practice as well.
 - **Ports:** Ports are a typical profile option. The' main-service-port' is a profile option in the [reference package](/docs/spec/packaging/reference). Notice that the `main-service-port` is also a `target` for the `monitoring` section. Profile options for ports **MUST** to be of type `port` and have a default value. This allows port collision checks between multiple Nodes running in the same host machine. You **MUST** target the port part of the Host machine. The container port should be fixed, not a profile option (ports are defined as `HOST_PORT:CONTAINER_PORT`).
 
