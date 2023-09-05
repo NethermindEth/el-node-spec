@@ -15,8 +15,7 @@ The current version of the AVS Node specification should be considered a public 
 
 The description of the Specification is divided into the following sections:
 
-- [Packaging & Upgrading](/docs/spec/packaging/): How developers can package their Nodes and how an AVS wizard setup tool can install and upgrade them.
-- [Backup and Restore](/docs/spec/backup/intro): How an AVS wizard setup tool can backup and restore AVSs, mainly during an upgrade process or a disaster recovery. 
+- [Packaging & Upgrading](/docs/spec/packaging/): How developers can package their AVS Nodes and how an AVS wizard setup tool can install and upgrade them.
 - [AVS Node API](/docs/category/avs-node-api): HTTP RESTful API for AVS Nodes.
 - [Metrics](/docs/category/metrics): Prometheus standard metrics for AVS implementations.
 - [Plugin](/docs/spec/plugin/intro): How developers can provide a plugin to extend the AVS wizard setup tool with AVS-specific features.
