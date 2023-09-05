@@ -13,7 +13,7 @@ When working with keys in Nodes or related tools, it is essential to consider th
     
 - **Request the path to a file containing the passphrase:**
     
-    Here, buffer vulnerability issues are absent unless the secret is printed or logged. However, an attacker with access to the machine running the service could potentially access this file.
+    Here, buffer vulnerability issues are absent unless the secret is printed or logged. However, an attacker with access to the machine running the AVS could potentially access this file.
     
 - **Retrieve the key remotely:**
     
@@ -36,13 +36,13 @@ A good choice for a remote signer is [Web3signer](https://docs.web3signer.consen
 
 ## Key Management Recommendation for Developers
 
-The Node can implement a feasible and sufficient method of loading the keys. This is asking for a path to a keystore folder. This keystore needs to follow some structure either the Service knows how to read, or an AVS [plugin](/docs/category/plugin) knows how to transform to something the Service knows how to read.
+The Node can implement a feasible and sufficient method of loading the keys. This is asking for a path to a keystore folder. This keystore needs to follow some structure either the AVS knows how to read, or an AVS [plugin](/docs/category/plugin) knows how to transform to something the AVS knows how to read.
 
-Usually, the plugin idea is the most recommended because the Service has the freedom to use whatever structure they need or want for the keystore. Also, no constraint is being put on users or key generation tools. This also fits the idea of the [AVS setup wizard tool](/docs/category/avs-setup-wizard) supporting such plugins. Apart from the wizard domain, users could use this plugin (as a Service command/subcommand) to process the raw keystore if they go for a manual setup.
+Usually, the plugin idea is the most recommended because the AVS has the freedom to use whatever structure they need or want for the keystore. Also, no constraint is being put on users or key generation tools. This also fits the idea of the [AVS setup wizard tool](/docs/category/avs-setup-wizard) supporting such plugins. Apart from the wizard domain, users could use this plugin (as a AVS command/subcommand) to process the raw keystore if they go for a manual setup.
 
-Plugins could be made to generate the keys directly to a keystore folder the Service knows how to read. Generation would be made according to user inputs. Third party tools could be used to generate keystores.
+Plugins could be made to generate the keys directly to a keystore folder the AVS knows how to read. Generation would be made according to user inputs. Third party tools could be used to generate keystores.
 
-Ideally, after providing the keystore path to the Service, it would listen to any changes to the folder so it could handle the keys automatically without requiring a restart. 
+Ideally, after providing the keystore path to the AVS, it would listen to any changes to the folder so it could handle the keys automatically without requiring a restart. 
 
 :::note
 
