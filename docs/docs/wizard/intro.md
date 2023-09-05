@@ -31,4 +31,4 @@ As more information becomes available and can be published in the future, this s
 This guide is divided into the following sections:
 
 - [Monitoring Stack](/docs/category/monitoring-stack): How the AVS wizard setup tool can monitor AVS Nodes and the host machine using Prometheus and Grafana.
-- [Backup and Restore](/docs/spec/backup/intro): How the AVS wizard setup tool can backup and restore AVSs, mainly during an upgrade process or a disaster recovery. 
+- [Backup and Restore](/docs/wizard/backup/intro): How the AVS wizard setup tool can backup and restore AVSs, mainly during an upgrade process or a disaster recovery. 
