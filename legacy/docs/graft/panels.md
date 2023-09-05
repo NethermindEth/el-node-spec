@@ -25,13 +25,13 @@ Note that the `uid` value should follow the naming pattern `el-[avs]-panel-[name
 
 ## Backup panels
 
-Panels are saved in JSON format, and can be automatically restored by the [AVS setup wizard tool](../wizard/intro) in the Grafana UI during Node installation time. To get all the panel JSON files in the EigenLayer folder, use the following command:
+Panels are saved in JSON format, and can be automatically restored by the [AVS setup wizard tool](../wizard/intro) in the Grafana UI during AVS Node installation time. To get all the panel JSON files in the EigenLayer folder, use the following command:
 
 ```shell
 graft panel backup
 ```
     
-This will save all the JSON panels in the `panels` directory in the current working directory. Could be useful to run it in the root of the Node profile directory to save panels following the Node package structure, follow [this link](/docs/packaging/#profile) to learn more about the Node profile structure.
+This will save all the JSON panels in the `panels` directory in the current working directory. Could be useful to run it in the root of the AVS Node profile directory to save panels following the AVS Node package structure, follow [this link](/docs/packaging/#profile) to learn more about the AVS Node profile structure.
 
 :::note
 

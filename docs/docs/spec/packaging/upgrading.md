@@ -30,27 +30,27 @@ Implement a database migration management system for relational databases to han
 
 ## 3. Shared State Management and Automatic Updates
 
-Design your AVS software to handle shared state updates automatically. This will ensure that users do not have to manually update shared state information when updating the Node, providing a seamless user experience.
+Design your AVS software to handle shared state updates automatically. This will ensure that users do not have to manually update shared state information when updating the AVS Node, providing a seamless user experience.
 
 ### Tips:
 
 - Implement a robust shared state management system that synchronizes state across different services and components.
 - Use event-driven architectures or message queues (e.g., Kafka, RabbitMQ) to propagate state updates efficiently.
-- Design your Node to detect and handle changes in the shared state without manual intervention, such as by subscribing to relevant events or periodically polling for updates.
-- Test your Node to ensure that it can handle shared state updates gracefully, even during version updates.
+- Design your AVS Node to detect and handle changes in the shared state without manual intervention, such as by subscribing to relevant events or periodically polling for updates.
+- Test your AVS Node to ensure that it can handle shared state updates gracefully, even during version updates.
 
 ## 4. Node Package Management with AVS setup wizard tool and Searchable Prefix
 
-Leverage the [AVS setup wizard tool](/docs/category/avs-setup-wizard) inspired by the Homebrew Tap approach, for managing Node packages and their versions. This tool will handle each AVS as a git repository with a defined structure, simplifying the process for clients setting up and managing Nodes. To make Node repositories easily searchable on GitHub, use the `eigen` prefix for the repository name similar to the Homebrew naming convention.
+Leverage the [AVS setup wizard tool](/docs/category/avs-setup-wizard) inspired by the Homebrew Tap approach, for managing AVS Node packages and their versions. This tool will handle each AVS as a git repository with a defined structure, simplifying the process for clients setting up and managing AVS Nodes. To make AVS Node repositories easily searchable on GitHub, use the `eigen` prefix for the repository name similar to the Homebrew naming convention.
 
 ### Tips:
 
 - The AVS setup wizard tool (currently in development) will follow a standard structure for AVS git repositories to streamline the installation and management process.
-- Use the `eigen` prefix for Node repository names to make them easily discoverable on GitHub, following the Homebrew convention.
-- Instruct users to install AVS by running commands such as `$ eigenlayer install https://github.com/some/eigen-avs` or, if GitHub is the default source, `$ eigenlayer install some/eigen-avs`. Providing that a core tap repository is maintained with the names or URLs of Nodes repositories, the AVS setup wizard tool could easily use this index to get the available taps, and this way, the users don’t have to register or add a Node to the tool.
-- For a new version of the Node, the Developers will create a new package following the proposed standard structure and specification and put it in the Tap repo with a new git tag following [semantic versioning](https://semver.org) representing the new release.
-- The AVS setup wizard tool will clone the repo, identify the appropriate version (git tag), and follow the necessary steps for setup based on the repository's structure. Installation and upgrading of a Node will be the same for the AVS setup wizard. The main difference between the two processes will be that the CLI tool will try to keep unchanged settings and data between the old and new versions.
+- Use the `eigen` prefix for AVS Node repository names to make them easily discoverable on GitHub, following the Homebrew convention.
+- Instruct users to install AVS by running commands such as `$ eigenlayer install https://github.com/some/eigen-avs` or, if GitHub is the default source, `$ eigenlayer install some/eigen-avs`. Providing that a core tap repository is maintained with the names or URLs of AVS Nodes repositories, the AVS setup wizard tool could easily use this index to get the available taps, and this way, the users don’t have to register or add a AVS Node to the tool.
+- For a new version of the AVS Node, the Developers will create a new package following the proposed standard structure and specification and put it in the Tap repo with a new git tag following [semantic versioning](https://semver.org) representing the new release.
+- The AVS setup wizard tool will clone the repo, identify the appropriate version (git tag), and follow the necessary steps for setup based on the repository's structure. Installation and upgrading of an AVS Node will be the same for the AVS setup wizard. The main difference between the two processes will be that the CLI tool will try to keep unchanged settings and data between the old and new versions.
     
-Tooling for initializing the Tap and managing the Node packages will be available in future versions. Also, CI pipelines that Developers can use to validate new packages for new versions will be published.
+Tooling for initializing the Tap and managing the AVS Node packages will be available in future versions. Also, CI pipelines that Developers can use to validate new packages for new versions will be published.
 
-Making your AVS software easily updatable by users is critical for ensuring a smooth user experience. By leveraging containerization technologies, implementing database migration and compatibility management, designing your Node to handle shared state updates automatically, and using the AVS setup wizard, you can simplify the process of updating your software for your users.
+Making your AVS software easily updatable by users is critical for ensuring a smooth user experience. By leveraging containerization technologies, implementing database migration and compatibility management, designing your AVS Node to handle shared state updates automatically, and using the AVS setup wizard, you can simplify the process of updating your software for your users.

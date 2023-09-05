@@ -5,11 +5,11 @@ id: profiles
 
 # Profile file
 
-The configuration/profile file should be in YAML format and contain information about the Node profile and its options. Options are any argument, flag, configuration value, or environment variable of any services within the Node `docker-compose.yml` whose value might be required from the user input. 
+The configuration/profile file should be in YAML format and contain information about the AVS Node profile and its options. Options are any argument, flag, configuration value, or environment variable of any services within the AVS Node `docker-compose.yml` whose value might be required from the user input. 
 
 The file’s name **MUST** be `profile.yml`.
 
-The `docker-compose.yml` is designed for a given setup of a given Node version, and may have hardcoded values or settings, either in the `docker-compose.yml` or in the form of environment variables in a `.env` file with values. Settings could also be declared in the profile file in the `options` section, considering that an option is a flag mapping to an environment variable in the `docker-compose.yml` file. 
+The `docker-compose.yml` is designed for a given setup of a given AVS Node version, and may have hardcoded values or settings, either in the `docker-compose.yml` or in the form of environment variables in a `.env` file with values. Settings could also be declared in the profile file in the `options` section, considering that an option is a flag mapping to an environment variable in the `docker-compose.yml` file. 
 
 The [AVS setup wizard tool](/docs/category/avs-setup-wizard) would use each option or setting in the profile file to get this information from the user via prompts, arguments, or CLI flags. In case of an upgrade, values of unchanged settings can be used in the new version, and values for new settings would have to be requested by the user. 
 
@@ -104,17 +104,17 @@ These types will be used for automatic validation of the values provided by the 
 
 :::caution
 
-Any port exposed under the `ports:` field in the `docker-compose.yml` **MUST** be represented by an `option` within the `options` list in the profile file, and the type `port` **MUST** be used. This allows port collision checks between multiple Nodes running in the same host machine.
+Any port exposed under the `ports:` field in the `docker-compose.yml` **MUST** be represented by an `option` within the `options` list in the profile file, and the type `port` **MUST** be used. This allows port collision checks between multiple AVS Nodes running in the same host machine.
 
 The AVS setup wizard tool could do these checks to guarantee an open port for each port target.
 
 :::
 
-For those values that need to be unique across several Node setups, for example, container names, you can use the type `string` and provide a `validate.re2_regex` to validate any desired rule. For example, the `validate.re2_regex` for single word identifier can be `^[a-zA-Z]+$`.
+For those values that need to be unique across several AVS Node setups, for example, container names, you can use the type `string` and provide a `validate.re2_regex` to validate any desired rule. For example, the `validate.re2_regex` for single word identifier can be `^[a-zA-Z]+$`.
 
 :::caution
 
-Using the `container_name` service field in the `docker-compose.yml` is optional, but if it is used, it is **strongly recommended** to provide an `option` within the `options` list with type `string` in the profile file. This allows name collision checks between multiple Nodes running in the same host machine.
+Using the `container_name` service field in the `docker-compose.yml` is optional, but if it is used, it is **strongly recommended** to provide an `option` within the `options` list with type `string` in the profile file. This allows name collision checks between multiple AVS Nodes running in the same host machine.
 
 The AVS setup wizard tool could do the necessary checks to guarantee unique container names.
 
@@ -158,7 +158,7 @@ The profile **MUST** provide a monitoring target at least.
 
 ### `<monitoring-target>`
 
-Represents a Prometheus endpoint inside the Node setup.
+Represents a Prometheus endpoint inside the AVS Node setup.
 
 ```yaml
 # Name of the docker-compose service
@@ -173,7 +173,7 @@ path: <string>
 
 ### `<api>`
 
-Defines the AVS Node API endpoint that the Node exposes following the [AVS Node API specification](/docs/category/avs-node-api).
+Defines the AVS Node API endpoint that the AVS Node exposes following the [AVS Node API specification](/docs/category/avs-node-api).
 
 ```yaml
 # Name of the docker-compose service exposing the API
@@ -185,11 +185,11 @@ port: <int>
 
 ## Monitoring and metrics settings
 
-A Node environment is a set of services deployed with Docker in the same Docker network. Prometheus metrics can be fetched from exporters that each service could implement. To know where these metrics are, we can rely on [docker container networking](https://docs.docker.com/config/containers/container-networking/) to reference services.
+An AVS Node environment is a set of services deployed with Docker in the same Docker network. Prometheus metrics can be fetched from exporters that each service could implement. To know where these metrics are, we can rely on [docker container networking](https://docs.docker.com/config/containers/container-networking/) to reference services.
 
 The monitoring setup is the set of a Grafana instance, Prometheus, and Node Exporter. Details about this monitoring stack can be found [here](/docs/category/monitoring-stack).
 
-The profile file is the place to declare Prometheus targets inside the Node setup mentioning the service name, port, and path to get metrics (`monitoring-target`).
+The profile file is the place to declare Prometheus targets inside the AVS Node setup mentioning the service name, port, and path to get metrics (`monitoring-target`).
 
 The metrics port could be exposed in the `docker-compose.yml` for it to be reachable from outside the host machine, but is not mandatory to do so.
 

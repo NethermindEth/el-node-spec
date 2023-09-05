@@ -3,14 +3,14 @@ title: "Introduction"
 sidebar_position: 1
 ---
  
-The specification described throughout this document can be used to manage multiple Nodes in the same host machine with a **AVS wizard setup tool**. Such a tool will be built and will provide the following functionalities:
+The specification described throughout this document can be used to manage multiple AVS Nodes in the same host machine with a **AVS wizard setup tool**. Such a tool will be built and will provide the following functionalities:
 
-- Install, Update, and Uninstall Nodes
-- Set up a Monitoring stack for Nodes using Prometheus and Grafana
-- Backup and Restore Nodes
-- Run a [plugin](/docs/category/plugin) on a given Node setup
-- Display Nodes logs
-- Describe the status of an already set up Node
+- Install, Update, and Uninstall AVS Nodes
+- Set up a Monitoring stack for AVS Nodes using Prometheus and Grafana
+- Backup and Restore AVS Nodes
+- Run a [plugin](/docs/category/plugin) on a given AVS Node setup
+- Display AVS Nodes logs
+- Describe the status of an already set up AVS Node
 
 :::note Disclaimer
 

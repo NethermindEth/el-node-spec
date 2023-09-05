@@ -123,7 +123,7 @@ No parameters
 
 ### GET /eigen/node/version
 
-Provides Node identity information in a format similar to [HTTP User-Agent](https://www.rfc-editor.org/rfc/rfc7231#section-5.5.3)
+Provides AVS Node identity information in a format similar to [HTTP User-Agent](https://www.rfc-editor.org/rfc/rfc7231#section-5.5.3)
 
 #### Parameters
 
@@ -201,7 +201,7 @@ No parameters
 
 ### GET /eigen/node/health
 
-Returns Node health status in HTTP status codes.
+Returns AVS Node health status in HTTP status codes.
 
 #### Parameters
 
@@ -209,15 +209,15 @@ No parameters
 
 #### Responses
 
-**200** - Node is healthy
+**200** - AVS Node is healthy
 
-**206** - Node is partially healthy. It is either initializing or some backing services are not healthy.
+**206** - AVS Node is partially healthy. It is either initializing or some backing services are not healthy.
 
-**503** - Node is unhealthy or having issues.
+**503** - AVS Node is unhealthy or having issues.
 
 ### GET /eigen/node/services
 
-Returns a list of all backing services that are currently registered with the Node setup. Useful to determine if a service is currently registered with the Node and to get the service ID for health endpoint.
+Returns a list of all backing services that are currently registered with the AVS Node setup. Useful to determine if a service is currently registered with the AVS Node and to get the service ID for health endpoint.
 
 #### Parameters
 
@@ -335,7 +335,7 @@ No parameters
 
 ### GET /eigen/node/services/{service_ID}/health
 
-Returns the health status of the given service in HTTP status codes. The service ID is the service ID returned by the `/eigen/services` endpoint. The service is considered healthy if the service is registered with the Node and the service is currently online.
+Returns the health status of the given service in HTTP status codes. The service ID is the service ID returned by the `/eigen/services` endpoint. The service is considered healthy if the service is registered with the AVS Node and the service is currently online.
 
 #### Parameters
 

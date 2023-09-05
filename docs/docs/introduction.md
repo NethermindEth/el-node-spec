@@ -4,7 +4,7 @@ sidebar_position: 0
 
 # Introduction
 
-The [EigenLayer](https://www.eigenlayer.xyz/) ecosystem allows Ethereum validators to restake their ETH and provide services to the network, such as a Data Availability Layer with a particular type of node software called actively validated services (AVS). 
+The [EigenLayer](https://www.eigenlayer.xyz/) ecosystem allows Ethereum validators to restake their ETH and provide services to the network, such as a Data Availability Layer with a particular type of node software called Actively Validated Services (AVS). 
 
 With the increasing number of AVS use cases, there is a need for a convention on how to develop, maintain, create interoperability, and monitor them. Eigenlayer has partnered with Nethermind to create an AVS Node Specification with those goals in mind. We also decided to build an AVS Node Setup Wizard to install and manage AVS Nodes that follow such specification. This documentation describes the AVS Node Specification and the AVS Node Setup Wizard.
 

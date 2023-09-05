@@ -5,7 +5,7 @@ id: middleware-developers
 
 # Key Security Considerations for Developers
 
-When working with keys in Nodes or related tools, it is essential to consider the security aspects associated with key access and decryption. Keys should be encrypted either using a password or passphrase, understanding the unique security concerns posed by different access layers is crucial. By proactively addressing these concerns, you can enhance the overall security and integrity of the keys within your system:
+When working with keys in Nodes or AVS, it is essential to consider the security aspects associated with key access and decryption. Keys should be encrypted either using a password or passphrase, understanding the unique security concerns posed by different access layers is crucial. By proactively addressing these concerns, you can enhance the overall security and integrity of the keys within your system:
 
 - **Prompt for the passphrase and store it in memory:**
     
@@ -36,7 +36,7 @@ A good choice for a remote signer is [Web3signer](https://docs.web3signer.consen
 
 ## Key Management Recommendation for Developers
 
-The Node can implement a feasible and sufficient method of loading the keys. This is asking for a path to a keystore folder. This keystore needs to follow some structure either the AVS knows how to read, or an AVS [plugin](/docs/category/plugin) knows how to transform to something the AVS knows how to read.
+The AVS can implement a feasible and sufficient method of loading the keys. This is asking for a path to a keystore folder. This keystore needs to follow some structure either the AVS knows how to read, or an AVS [plugin](/docs/category/plugin) knows how to transform to something the AVS knows how to read.
 
 Usually, the plugin idea is the most recommended because the AVS has the freedom to use whatever structure they need or want for the keystore. Also, no constraint is being put on users or key generation tools. This also fits the idea of the [AVS setup wizard tool](/docs/category/avs-setup-wizard) supporting such plugins. Apart from the wizard domain, users could use this plugin (as a AVS command/subcommand) to process the raw keystore if they go for a manual setup.
 
