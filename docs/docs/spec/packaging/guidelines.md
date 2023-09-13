@@ -16,6 +16,12 @@ id: guidelines
 
 The following represents a set of guidelines, rules, and recommendations on managing and creating the AVS package.
 
+:::tip
+
+The [reference package](/docs/spec/packaging/reference) and the [mock-avs](https://github.com/NethermindEth/mock-avs)(dummy AVS used for testing purposes) are good examples of how to follow these guidelines.
+
+:::
+
 ## How to handle docker images
 
 The specification **DOES NOT** support docker image builds. You can't use the [`build`](https://docs.docker.com/compose/compose-file/compose-file-v3/#build) field on the `docker-compose.yml` file. The Compose script **MUST** refer to docker images in a Docker registry. For development purposes, you can use a local docker image.
