@@ -18,7 +18,7 @@ The following represents a set of guidelines, rules, and recommendations on mana
 
 :::tip
 
-The [reference package](/docs/spec/packaging/reference) and the [mock-avs](https://github.com/NethermindEth/mock-avs)(dummy AVS used for testing purposes) are good examples of how to follow these guidelines.
+The [reference package](/docs/spec/packaging/reference) and the [mock-avs-pkg](https://github.com/NethermindEth/mock-avs-pkg)(dummy AVS used for testing purposes) are good examples of how to follow these guidelines.
 
 :::
 
