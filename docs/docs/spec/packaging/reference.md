@@ -103,7 +103,7 @@ options:
   - name: "main-container-image"
     target: MAIN_SERVICE_IMAGE
     type: string
-    default: "your-organization/main-service:latest"
+    default: "your-organization/main-service:v1.0.0"
     validate:
       re2_regex: "^(?:(?:[a-zA-Z0-9.-]+(?:\:[0-9]+)?/)?[a-zA-Z0-9_-]+(?:/[a-zA-Z0-9_-]+)?(?:\:[a-zA-Z0-9_.-]+)?)?$"
     help: "Main service container docker image"
@@ -150,7 +150,7 @@ options:
   - name: "utility-container-image"
     target: UTILITY_SERVICE_IMAGE
     type: string
-    default: "your-organization/utility-service:latest"
+    default: "your-organization/utility-service:v1.0.0"
     validate:
       re2_regex: "^(?:(?:[a-zA-Z0-9.-]+(?:\:[0-9]+)?/)?[a-zA-Z0-9_-]+(?:/[a-zA-Z0-9_-]+)?(?:\:[a-zA-Z0-9_.-]+)?)?$"
     help: "Utility service container docker image"
