@@ -14,7 +14,7 @@ The package for a specific version of an AVS Node will consist of a **`docker-co
 
 Developers will publish their packages following the format defined [below](#node-package) in a git repository (Tap), which involves developers initializing a git repository with the required and standard structure that will be defined later. The [AVS setup wizard](/docs/category/avs-setup-wizard) would rely on this structure to get package information and install the AVS Node.
 
-The Tap can be within the AVS source code repository or in a separate repository. [We recommend the latter](/docs/spec/packaging/guidelines#create-a-separate-repository-for-the-avs-package).
+The Tap can be within the AVS source code repository or in a separate repository. [We recommend the latter](/docs/spec/packaging/guidelines#create-a-separate-repository-for-the-avs-package). If the Tap is in a separate repository, the Tap's name **MUST** be suffixed with `-pkg` to differentiate it from the AVS source code repository. For example, if the AVS source code repository is called `foo-avs`, the Tap repository should be called `foo-avs-pkg`.
 
 Developers manage these repositories, and with each new release, they update the tap with the corresponding configuration files. The new package will only be considered correct if it follows the required structure and if a git tag that represents proper [semantic versioning](https://semver.org) is created with it in the tap repository.
 
