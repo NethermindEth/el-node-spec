@@ -98,11 +98,12 @@ properties:
     properties:
       image:
         type: string
-      build_from:
-        type: string
     additionalProperties: false
+    required:
+    - image
   profiles:
     type: array
+    minItems: 1
     items:
       type: string
 required:
