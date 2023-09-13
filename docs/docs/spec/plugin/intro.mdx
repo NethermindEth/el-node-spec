@@ -8,6 +8,17 @@ The plugin system will provide a way to extend the [AVS setup wizard tool](/docs
 
 A plugin is a Docker container created from a pre-built Docker image provided locally or in a Docker registry. 
 
+The plugin **MUST** have the following requirement:
+
+- The Docker image **MUST** have an [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint) that will be executed when the plugin is run.
+- The Docker container **MUST** not expect input from the user. All the input **MUST** be provided as arguments in the `eigenlayer plugin` command. There is ongoing work to allow the plugin to interact with the user using stdin/stdout.
+
+The plugin **SHOULD** have the following requirement:
+
+- The Docker image **SHOULD** have a [CMD](https://docs.docker.com/engine/reference/builder/#cmd) that will be used as the default command when the plugin is run without arguments.
+- The Plugin Docker image can share code with the AVS Node Docker image. In this case, the plugin Docker image **SHOULD** be different from the AVS Node Docker image. AVS developers **SHOULD** create and publish two different Docker images, one for the AVS and one for the Plugin.
+
+
 ## Declaring plugin source
 
 The plugin source is declared in the [manifest file](/docs/spec/packaging/manifest#plugin) and could be overridden in the [profile file](/docs/spec/packaging/profiles#plugin_overrides) if necessary.
@@ -37,6 +48,11 @@ Functionality to run the plugin container in the host network will be added as w
 ## Plugin use cases:
 
 -  **Custom setup**: The plugin could provide a custom setup for the AVS Node. For example, the AVS Node could provide a plugin to configure a custom database or service.
-- **Admin tasks**: The plugin could interact with the AVS Node's admin module and perform admin tasks for the AVS Node. For example, the AVS Node could provide a plugin to backup the database or to restore it.
+- **Admin tasks**: The plugin could interact with the AVS Node's admin module and perform admin tasks for the AVS Node. For example, the AVS Node could provide a plugin to backup the database, to restore it, or access it and run pruning on it.
 - **Smart contract interaction**: The plugin could interact with EigenLayer smart contracts or the AVS protocol. For example, the AVS Node could provide a plugin to register a new AVS or to update the AVS.
 - **Keystore processing**: The plugin could process the keystore files and perform actions with them. For example, the AVS Node could provide a plugin to import a keystore file.
+- **AVS Node API interaction**: The plugin could interact with the AVS Node API. For example, the AVS Node could provide a plugin to get the AVS Node status.
+
+The plugin can do a myriad of things, and it is up to the developer to decide what functionalities the plugin will provide. The plugin could be a simple script or a complex application. The plugin could be written in any language, and it is up to the developer to decide what language to use. The only requirement is that the plugin **MUST** be a Docker image that can be run as a container.
+
+The plugin can even be a CLI application with a huge list of commands and have logic executed based on the response coming from the commands.
