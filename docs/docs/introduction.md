@@ -11,6 +11,25 @@ With the increasing number of AVS use cases, there is a need for a convention on
 The documentation is divided into the following sections:
 
 - [AVS Node Specification](/docs/category/avs-node-specification): A full description of the specification that covers from AVS packaging to Standard Metrics.
-- [Setup wizard](/docs/category/avs-setup-wizard): An AVS wizard setup tool aimed to simplify AVS Node management for node operators.
+- [Setup wizard](/docs/category/avs-setup-wizard): An AVS setup wizard tool aimed to simplify AVS Node management for node operators.
 - [Keys Management](/docs/category/keys-management): Good practices for keys management.
  
+## Definitions
+
+### MUST
+
+When the term "**MUST**" is used in this documentation, it denotes an absolute requirement. Failing to follow a "**MUST**" directive may result in the AVS or the AVS setup wizard not functioning as intended or could lead to undesirable outcomes. It is imperative that operators and AVS developers adhere to any instruction or guideline marked with "**MUST**" to ensure the correct and optimal operation of the AVS or the AVS setup wizard.
+
+Example Usage:
+
+- "Operators **MUST** safeguard their keys."
+- "The AVS **MUST** be updated to the latest version to access new features."
+
+### SHOULD
+
+The term "**SHOULD**" in this documentation indicates a strong recommendation. While not an absolute requirement like "**MUST**", following a "**SHOULD**" directive is highly advised to achieve the best possible experience or outcome. Ignoring a "**SHOULD**" guideline might not break the AVS or the AVS setup wizard, but it could lead to suboptimal results or missed opportunities for enhanced functionality.
+
+Example Usage:
+
+- "Operators **SHOULD** regularly back up their data to prevent potential loss."
+- "For optimal performance, you **SHOULD** stick to the AVS hardware requirements."
