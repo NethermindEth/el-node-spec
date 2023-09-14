@@ -91,7 +91,7 @@ help: <string>
 
 :::note
 
-The `hidden` field is optional and defaults to `false`. If `hidden` is set to `true`, the option will be shown to the user as `********` in the prompt in the AVS setup wizard tool.
+The `hidden` field is optional and defaults to `false`. If `hidden` is set to `true`, the option value will be shown to the user as `********` in the prompt in the AVS setup wizard tool.
 
 :::
 
