@@ -146,6 +146,7 @@ options:
     type: str
     validate:
       re2_regex: "^[^#]{8,}$"
+    hidden: true
     help: "Postgres DB user password. Must have at least 8 characters and it can't contain the '#' symbol"
   - name: "utility-container-image"
     target: UTILITY_SERVICE_IMAGE
@@ -187,5 +188,11 @@ It is strongly recommended to put any docker images as profile options. In this 
 :::tip
 
 Notice the usage of the profile option type `path_dir` for the `KEYSTORE_PATH` env variable. Any path option should be used similarly.
+
+:::
+
+:::tip
+
+Note that for the `db-password` option the `hidden` field is set to `true`. This means that the value of this option will not be shown in the AVS setup wizard tool. This is a recommended practice for sensitive information. The option keeps the validate field to ensure that the user provides a valid password.
 
 :::

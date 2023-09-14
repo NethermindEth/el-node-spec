@@ -82,9 +82,18 @@ default: <int | float | bool | string>
 # Custom validation defined for this value
 validate: <validate>
 
+# Whether this option input should be hidden from the user
+hidden: <bool>
+
 # Help description about this 
 help: <string>
 ```
+
+:::note
+
+The `hidden` field is optional and defaults to `false`. If `hidden` is set to `true`, the option will be shown to the user as `********` in the prompt in the AVS setup wizard tool.
+
+:::
 
 ### `<type>`
 
