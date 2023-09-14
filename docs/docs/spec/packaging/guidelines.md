@@ -12,6 +12,7 @@ id: guidelines
   - [Docker Compose elements that should be profile options](#docker-compose-elements-that-should-be-profile-options)
   - [When to create an additional profile](#when-to-create-an-additional-profile)
   - [Create a separate repository for the AVS package](#create-a-separate-repository-for-the-avs-package)
+  - [Use the `hidden` field of profile's options for sensitive information](#use-the-hidden-field-of-profiles-options-for-sensitive-information)
 
 
 The following represents a set of guidelines, rules, and recommendations on managing and creating the AVS package.
@@ -71,3 +72,7 @@ We **strongly recommend** creating a separate repository (Tap) for the AVS packa
 - It is easier to restrict access to the Tap repository. For instance, if the AVS package is within the AVS node repository, all the contributors could make changes to the AVS package.
 - It doesn’t constrain your AVS Node repository to be public. Although it is recommended to make your AVS Node source code open-source, nothing will stop a developer from making an AVS Node closed (this is often done in the first stages of development). This closed AVS Nodes could have their packages public if they dedicate a separate repository.
 - Downloading the AVS package would be very light and fast.
+
+## Use the `hidden` field of profile's options for sensitive information
+
+The `hidden` field of profile's options allows you to hide the value of the option in the AVS setup wizard tool. This is a recommended practice for sensitive information. The option keeps the validate and the type field to ensure that the user provides a valid value.
