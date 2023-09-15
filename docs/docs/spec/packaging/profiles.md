@@ -67,31 +67,31 @@ image: <string>
 ### `<option>`
 
 ```yaml
-# Name of the flag that the end-user will use to reference this option with the AVS setup wizard
+# Required. Name of the flag that the end-user will use to reference this option with the AVS setup wizard
 name: <string>
 
-# Key of the env variable used in the docker-compose file
+# Required. Key of the env variable used in the docker-compose file
 target: <string>
 
-# Data type of the option: enum, int, float, string, bool, etc. These types are defined below with more details
+# Required. Data type of the option: enum, int, float, string, bool, etc. These types are defined below with more details
 type: <type>
 
-# Default value
+# Default value. Ignored if hidden is true
 default: <int | float | bool | string>
 
 # Custom validation defined for this value
 validate: <validate>
 
-# Whether this option input should be hidden from the user
+# Whether this option input should be hidden from the user.
 hidden: <bool>
 
-# Help description about this 
+# Required. Help description about this 
 help: <string>
 ```
 
 :::note
 
-The `hidden` field is optional and defaults to `false`. If `hidden` is set to `true`, the option value will be shown to the user as `********` in the prompt in the AVS setup wizard tool.
+The `hidden` field is optional and defaults to `false`. This is useful for sensitive information like passwords. If `hidden` is set to `true`, the option value will be shown to the user as `********` in the prompt in the AVS setup wizard tool and the `default` value will be ignored.
 
 :::
 
