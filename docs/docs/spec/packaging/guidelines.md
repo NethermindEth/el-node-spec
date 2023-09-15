@@ -75,4 +75,4 @@ We **strongly recommend** creating a separate repository (Tap) for the AVS packa
 
 ## Use the `hidden` field of profile's options for sensitive information
 
-The `hidden` field of profile's options allows you to hide the value of the option in the AVS setup wizard tool. This is a recommended practice for sensitive information. The option keeps the validate and the type field to ensure that the user provides a valid value.
+The `hidden` field of profile's options allows you to hide the value of the option in the AVS setup wizard tool. This is a recommended practice for sensitive information. The option keeps the `validate` and the `type` fields to ensure that the user provides a valid value, but the `default` field will be ignored.
