@@ -67,7 +67,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/nethermind.svg',
+      image: 'img/Nethermind_Dark_Vertical.svg',
       docs: {
         sidebar: {
           hideable: true,
