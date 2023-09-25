@@ -43,87 +43,9 @@ If the requested version is not supported, the API will respond with a 404 Not F
 
 Endpoints to query Node related information.
 
-### GET /eigen/node/spec-version
+### GET /eigen/node
 
-Provides API identity information in a format similar to [HTTP User-Agent](https://www.rfc-editor.org/rfc/rfc7231#section-5.5.3)
-
-#### Parameters
-
-No parameters
-
-#### Responses
-
-**200** - Request successful
-
-**Content-Type:** `application/json`
-
-<Tabs>
-  <TabItem value="example" label="Example Value" default>
-
-  ```json
-  {
-    "api_version": "v0.0.1"
-  }
-  ```
-
-  </TabItem>
-  <TabItem value="schema" label="Schema">
-
-  ```json
-  {
-    "type": "object",
-    "properties": {
-      "api_version": {
-        "type": "string",
-        "description": "API specification version"
-      }
-    },
-    "required": [
-      "version"
-    ]
-  }
-  ```
-
-  </TabItem>
-</Tabs>
-
-**500** - Internal server error
-
-**Content-Type:** `application/json`
-
-<Tabs>
-  <TabItem value="example" label="Example Value" default>
-
-  ```json
-  {
-    "message": "Internal server error"
-  }
-  ```
-
-  </TabItem>
-  <TabItem value="schema" label="Schema">
-
-  ```json
-  {
-    "type": "object",
-    "properties": {
-      "message": {
-        "type": "string",
-        "description": "Error message"
-      }
-    },
-    "required": [
-      "message"
-    ]
-  }
-  ```
-
-  </TabItem>
-</Tabs>
-
-### GET /eigen/node/version
-
-Provides AVS Node identity information in a format similar to [HTTP User-Agent](https://www.rfc-editor.org/rfc/rfc7231#section-5.5.3)
+Provides AVS Node and API identity information in a format similar to [HTTP User-Agent](https://www.rfc-editor.org/rfc/rfc7231#section-5.5.3).
 
 #### Parameters
 
@@ -140,7 +62,9 @@ No parameters
 
   ```json
   {
-    "version": "EigenLayer-AVS/v1.0.0"
+    "node_name": "EigenLayer-AVS",
+    "spec_version": "v0.0.1",
+    "node_version": "v1.0.0"
   }
   ```
 
@@ -151,13 +75,23 @@ No parameters
   {
     "type": "object",
     "properties": {
-      "version": {
+      "node_name": {
         "type": "string",
-        "description": "Node version"
+        "description": "Name of the node"
+      },
+      "spec_version": {
+        "type": "string",
+        "description": "AVS Specification version"
+      },
+      "node_version": {
+        "type": "string",
+        "description": "Version of the node"
       }
     },
     "required": [
-      "version"
+      "node_name",
+      "spec_version",
+      "node_version"
     ]
   }
   ```
