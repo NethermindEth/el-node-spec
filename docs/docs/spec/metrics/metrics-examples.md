@@ -16,9 +16,9 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 ## Prometheus Metrics
 
 ### Economics metrics
-* `eigen_fees_earned_total{token="ETH"}`
-* `eigen_slashing_incurred_total{token="ETH"}`
-* `eigen_total_balance_total{token="ETH"}`
+* `eigen_fees_earned_total{token="ETH", unit="wei"}`
+* `eigen_slashing_incurred_total{token="ETH", unit="wei"}`
+* `eigen_total_balance_total{token="ETH", unit="wei"}`
 
 ### Perfomance metrics
 * `eigen_performance_score`
