@@ -25,8 +25,8 @@ The table below defines metrics which may be captured by AVS Nodes which expose 
 
 | Name | Metric Type | Definition | Labels |
 |---|---|---|---| 
-| `eigen_rpc_request_duration_seconds` | Histogram | Duration of json-rpc `<method>` in seconds from Ethereum Execution client `<client>` | `method`, `client`, `version` |
-| `eigen_rpc_request_total` | Counter | Total of json-rpc `<method>` requests from Ethereum Execution client `<client>` | `method`,`client`,`version` |
+| `eigen_rpc_request_duration_seconds` | Histogram | Duration of json-rpc `<method>` in seconds from Ethereum Execution client `<client>` | `method`, `client_version` |
+| `eigen_rpc_request_total` | Counter | Total of json-rpc `<method>` requests from Ethereum Execution client `<client>` | `method`,`client_version` |
 
 ## Notation examples
 
@@ -34,5 +34,5 @@ The table below defines metrics which may be captured by AVS Nodes which expose 
 * `eigen_slashing_incurred_total{token="ETH"}`
 * `eigen_total_balance_total{token="ETH"}`
 * `eigen_performance_score{}`
-* `eigen_rpc_request_duration_seconds{method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
-* `eigen_rpc_request_total{method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}` 
+* `eigen_rpc_request_duration_seconds{method="eth_getBlockByNumber", client_version="nethermind/v1.17.2"}`
+* `eigen_rpc_request_total{method="eth_getBlockByNumber", client_version="nethermind/v1.17.2"}` 

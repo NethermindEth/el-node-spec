@@ -24,5 +24,5 @@ Some metrics and endpoints are very straightforward, but having a reference for 
 * `eigen_performance_score`
 
 ### RPC metrics
-* `eigen_rpc_request_duration_seconds{method="eth_getBlockByNumber", client="nethermind", version="1.17.2"}`
-* `eigen_rpc_request_total{method="eth_estimateGas", client="nethermind", version="1.17.2"}` 
+* `eigen_rpc_request_duration_seconds{method="eth_getBlockByNumber", client_version="nethermind/v1.17.2"}`
+* `eigen_rpc_request_total{method="eth_estimateGas", client_version="nethermind/v1.17.2"}` 
