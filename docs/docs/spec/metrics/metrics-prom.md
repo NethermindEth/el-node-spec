@@ -11,9 +11,15 @@ The table below defines metrics which may be captured by AVS Nodes which expose 
 
 | Name | Metric Type | Definition | Labels |
 |---|---|---|---|
-| `eigen_fees_earned_total` | Counter | The amount of fees earned in `<unit>` of `<token>` | `token`, `unit` |
-| `eigen_slashing_incurred_total` | Counter | The amount of slashing incurred in `<unit>` of `<token>` | `token`, `unit` |
-| `eigen_balance_total` | Gauge | AVS Node total balance in `<unit>` of `<token>` | `token`, `unit` |
+| `eigen_fees_earned_total` | Counter | The amount of fees earned in `<unit>` of underlying `<token>` in the`<strategy>` contract. | `token`, `unit`, `strategy` |
+| `eigen_slashing_status` | Gauge | Slashing status. The value **MUST** be 1 if the operator running `avs` has been slashed. | `avs` |
+| `eigen_registered_stakes` | Gauge | Operator stakes defined by the AVS in `<unit>` of underlying `<token>` in the `<strategy>`contract. | `token`, `unit`, `strategy` |
+
+:::note
+
+A definition of a strategy contract can be found in the [Glossary](/docs/glossary#strategy-contract).
+
+:::
 
 ## Performance metrics
 
@@ -30,9 +36,9 @@ The table below defines metrics which may be captured by AVS Nodes which expose 
 
 ## Notation examples
 
-* `eigen_fees_earned_total{token="ETH", unit="gwei"}`
-* `eigen_slashing_incurred_total{token="ETH", unit="gwei"}`
-* `eigen_total_balance_total{token="ETH", unit="gwei"}`
+* `eigen_fees_earned_total{token="ETH", unit="gwei", strategy="eigenDA"}`
+* `eigen_slashing_status{avs="eigenDA}`
+* `eigen_registered_stakes{token="ETH", unit="gwei", strategy="eigenDA"}`
 * `eigen_performance_score{}`
 * `eigen_rpc_request_duration_seconds{method="eth_getBlockByNumber", client_version="nethermind/v1.17.2"}`
 * `eigen_rpc_request_total{method="eth_getBlockByNumber", client_version="nethermind/v1.17.2"}` 
