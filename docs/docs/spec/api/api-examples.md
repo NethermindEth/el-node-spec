@@ -11,23 +11,15 @@ This guide is intended to showcase the practical application of the AVS Node API
 
 ## EigenDA Example
 
-### GET /eigen/node/spec-version
+### GET /eigen/node
 
 ### Response
 
 ```
 {
-    "api_version": "v1.0.0"
-}
-```
-
-### GET /eigen/node/version
-
-### Response
-
-```
-{
-  "version": "EigenDA-AVS/v1.0.0"
+    "node_name": "EigenDA-AVS",
+    "spec_version": "v0.0.1",
+    "node_version": "v1.0.0"
 }
 ```
 
