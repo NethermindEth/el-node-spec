@@ -11,9 +11,9 @@ The table below defines metrics which may be captured by AVS Nodes which expose 
 
 | Name | Metric Type | Definition | Labels |
 |---|---|---|---|
-| `eigen_fees_earned_total` | Counter | The amount of fees earned in `<unit>` of underlying `<token>` in the`<strategy>` contract. | `token`, `unit`, `strategy` |
+| `eigen_fees_earned_total` | Counter | The amount of fees earned in `<unit>` of underlying `<token>` in the `<strategy>` contract. | `token`, `unit`, `strategy` |
 | `eigen_slashing_status` | Gauge | Slashing status. The value **MUST** be 1 if the operator running `avs` has been slashed. | `avs` |
-| `eigen_registered_stakes` | Gauge | Operator stakes defined by the AVS in `<unit>` of underlying `<token>` in the `<strategy>`contract. | `token`, `unit`, `strategy` |
+| `eigen_registered_stakes` | Gauge | Operator stakes defined by the AVS in `<unit>` of underlying `<token>` in the `<strategy>` contract. | `token`, `unit`, `strategy` |
 
 :::note
 
