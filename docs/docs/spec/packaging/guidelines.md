@@ -13,6 +13,7 @@ id: guidelines
   - [When to create an additional profile](#when-to-create-an-additional-profile)
   - [Create a separate repository for the AVS package](#create-a-separate-repository-for-the-avs-package)
   - [Use the `hidden` field of profile's options for sensitive information](#use-the-hidden-field-of-profiles-options-for-sensitive-information)
+  - [Use Docker Volumes for persisting data](#use-docker-volumes-for-persisting-data)
 
 
 The following represents a set of guidelines, rules, and recommendations on managing and creating the AVS package.
@@ -76,3 +77,7 @@ We **strongly recommend** creating a separate repository (Tap) for the AVS packa
 ## Use the `hidden` field of profile's options for sensitive information
 
 The `hidden` field of profile's options allows you to hide the value of the option in the AVS setup wizard tool. This is a recommended practice for sensitive information. The option keeps the `validate` and the `type` fields to ensure that the user provides a valid value, but the `default` field will be ignored.
+
+## Use Docker Volumes for persisting data
+
+Docker Volumes (named and bind-mount volumes) are recommended to persist data outside the container. If you don't use volumes, the data will be lost when the container is removed. The `db-service` service representing the Postgres database uses a named volume for this purpose (check [reference package](/docs/spec/packaging/reference)). The `main-service` uses a bind-mount volume. Both are valid options. For more information about Docker Volumes, check the [Docker documentation](https://docs.docker.com/storage/volumes/).
