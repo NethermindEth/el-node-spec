@@ -13,7 +13,7 @@ The table below defines metrics which may be captured by AVS Nodes which expose 
 |---|---|---|---|
 | `eigen_fees_earned_total` | Counter | The amount of fees earned in `<unit>` of underlying `<token>` in the `<strategy>` contract. This metric **SHOULD** be omitted while fees are yet to be implemented. | `token`, `unit`, `strategy` |
 | `eigen_slashing_status` | Gauge | Slashing status. The value **MUST** be 1 if the operator running `avs` has been slashed. This metric **SHOULD** not be implemented if there is no slashing in the target network (like in the upcoming testnet launch). | `avs` |
-| `eigen_registered_stakes` | Gauge | Operator stakes representing weighted combination of shares in Eigenlayer strategies. | `quorum` |
+| `eigen_registered_stakes` | Gauge | Operator stakes in AVS registry contract. Most commonly represents a weighted combination of delegated shares in the `DelegationManager` Eigenlayer contract. | `quorum` |
 
 :::note
 
