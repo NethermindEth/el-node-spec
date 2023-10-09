@@ -13,11 +13,17 @@ The table below defines metrics which may be captured by AVS Nodes which expose 
 |---|---|---|---|
 | `eigen_fees_earned_total` | Counter | The amount of fees earned in `<unit>` of underlying `<token>` in the `<strategy>` contract. This metric **SHOULD** be omitted while fees are yet to be implemented. | `token`, `unit`, `strategy` |
 | `eigen_slashing_status` | Gauge | Slashing status. The value **MUST** be 1 if the operator running `avs` has been slashed. This metric **SHOULD** not be implemented if there is no slashing in the target network (like in the upcoming testnet launch). | `avs` |
-| `eigen_registered_stakes` | Gauge | Operator stakes in AVS registry contract. Most commonly represents a weighted combination of delegated shares in the `DelegationManager` Eigenlayer contract. | `quorum` |
+| `eigen_registered_stakes` | Gauge | Operator stakes in AVS registry contract. Most commonly represents a weighted combination of delegated shares in the `DelegationManager` Eigenlayer contract. | `quorum_number`, `quorum_name` |
 
 :::note
 
 A definition of a strategy contract can be found in the [Glossary](/docs/glossary#strategy-contract).
+
+:::
+
+:::tip
+
+The `quorum_name` label of the `eigen_registered_stakes` metric is optional and can be omitted.
 
 :::
 
@@ -38,7 +44,7 @@ A definition of a strategy contract can be found in the [Glossary](/docs/glossar
 
 * `eigen_fees_earned_total{token="rETH", unit="gwei", strategy="0x1BeE69b7dFFfA4E2d53C2a2Df135C388AD25dCD2"}`
 * `eigen_slashing_status{avs="eigenDA}`
-* `eigen_registered_stakes{quorum="ethLST"}`
+* `eigen_registered_stakes{quorum_number=0, quorum_name="ethLST"}`
 * `eigen_performance_score{}`
 * `eigen_rpc_request_duration_seconds{method="eth_getBlockByNumber", client_version="nethermind/v1.17.2"}`
 * `eigen_rpc_request_total{method="eth_getBlockByNumber", client_version="nethermind/v1.17.2"}` 
