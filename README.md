@@ -1,6 +1,6 @@
 # AVS Specification
 
-This is a specification for the packaging, installation, update, and monitoring process of [EigenLayer](https://www.eigenlayer.xyz/) AVS Nodes. AVS is used to participate in the EigenLayer restake system, to know more about EigenLayer see its [documentation page](https://docs.eigenlayer.xyz/overview/readme). This specification could be used to manage multiple Nodes in the same host machine with the [Node wizard setup tool](https://eigen.nethermind.io/docs/wizard/intro).
+This is a specification for running [EigenLayer](https://www.eigenlayer.xyz/) AVS Nodes. AVS is used to participate in the EigenLayer restake system, to know more about EigenLayer see its [documentation page](https://docs.eigenlayer.xyz/overview/readme).
 
 ## Docs
 
