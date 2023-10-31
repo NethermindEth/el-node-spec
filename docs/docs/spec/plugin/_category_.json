@@ -3,6 +3,6 @@
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "Plugins are a way to extend the functionality of the AVS setup wizard tool and are specialized in their own AVS Node."
+    "description": "Plugins are a way to extend the functionality of AVS Node."
   }
 }

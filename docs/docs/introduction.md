@@ -4,20 +4,20 @@ sidebar_position: 0
 
 # Introduction
 
-The [EigenLayer](https://www.eigenlayer.xyz/) ecosystem allows Ethereum validators to restake their ETH and provide services to the network, such as a Data Availability Layer with a particular type of node software called [Actively Validated Services (AVS)](/docs/glossary#avs-actively-validated-service). 
+In the [EigenLayer](https://www.eigenlayer.xyz/) ecosystem, Ethereum validators can restake their beacon chain ETH, accept delegations in the form of native ETH or LSTs, and run node software specific to [Actively Validated Services (AVS)](/docs/glossary#avs-actively-validated-service). A Data Availability Layer such as EigenDA serves as a prime example of an AVS.
 
-With the increasing number of AVS use cases, there is a need for a convention on how to develop, maintain, create interoperability, and monitor them. Eigenlayer has partnered with Nethermind to create an [AVS Node](/docs/glossary#avs-node) Specification with those goals in mind. This documentation describes the AVS Node Specification.
+With the increasing number of AVS use cases, there is a need for a convention on how to develop, maintain, create interoperability, and monitor them. This documentation describes the AVS Node Specification.
 
 The documentation is divided into the following sections:
 
 - [AVS Node Specification](/docs/category/avs-node-specification): A full description of the specification that covers from AVS packaging to Standard Metrics.
-- [Keys Management](/docs/category/keys-management): Good practices for keys management.
+- [Key Management](/docs/category/keys-management): Good practices for keys management.
  
 ## Definitions
 
 ### MUST
 
-When the term "**MUST**" is used in this documentation, it denotes an absolute requirement. Failing to follow a "**MUST**" directive may result in the AVS or the AVS setup wizard not functioning as intended or could lead to undesirable outcomes. It is imperative that operators and AVS developers adhere to any instruction or guideline marked with "**MUST**" to ensure the correct and optimal operation of the AVS or the AVS setup wizard.
+When the term "**MUST**" is used in this documentation, it denotes an absolute requirement. Failing to follow a "**MUST**" directive may result in the AVS  not functioning as intended or could lead to undesirable outcomes. It is imperative that operators and AVS developers adhere to any instruction or guideline marked with "**MUST**" to ensure the correct and optimal operation of the AVS.
 
 Example Usage:
 
@@ -26,7 +26,7 @@ Example Usage:
 
 ### SHOULD
 
-The term "**SHOULD**" in this documentation indicates a strong recommendation. While not an absolute requirement like "**MUST**", following a "**SHOULD**" directive is highly advised to achieve the best possible experience or outcome. Ignoring a "**SHOULD**" guideline might not break the AVS or the AVS setup wizard, but it could lead to suboptimal results or missed opportunities for enhanced functionality.
+The term "**SHOULD**" in this documentation indicates a strong recommendation. While not an absolute requirement like "**MUST**", following a "**SHOULD**" directive is highly advised to achieve the best possible experience or outcome. Ignoring a "**SHOULD**" guideline might not break the AVS, but it could lead to suboptimal results or missed opportunities for enhanced functionality.
 
 Example Usage:
 
