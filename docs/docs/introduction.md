@@ -10,7 +10,7 @@ With the increasing number of AVS use cases, there is a need for a convention on
 
 The documentation is divided into the following sections:
 
-- [AVS Node Specification](/docs/category/avs-node-specification): A full description of the specification that covers from AVS packaging to Standard Metrics.
+- [AVS Node Specification](/docs/category/avs-node-specification): A full description of the specification.
 - [Key Management](/docs/category/key-management): Good practices for keys management.
  
 ## Definitions
